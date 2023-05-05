@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .header {
+        background-color:#313131;
+           
+        }
+        .clearfix:after {
+        content: "";
+        display: table;
+        clear: both;
+        }
+        
+        
+        .container {
+         margin-left:auto;
+         margin-right:auto;
+         max-width:81%; 
+          
+        }
+
+        .menufont {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+            color:white;
+            display: inline;   
+        }
+
+        .footerheaderfont{
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 126.69%;
+            /* identical to box height, or 18px */
+
+            text-align: left;
+            
+
+            color: #000000; 
+        }
+
+        
+
+        .marginmenu{
+            margin-right:15px;
+            margin-left:15px;
+            
+        }
+        .floatleft{
+            float:left;
+            
+        }
+
+        .floatright{
+            float:right;
+        }
+        .paddingmenu{
+            padding-top:10px;
+            padding-bottom:12px;
+            padding-left:0px;  
+        }
+
+        ul {
+        list-style-type: none;
+        margin:0px;
+        }
+
+        .iconcar{
+           position:relative;
+           
+           background-image:url('delivery-icondoscar.png');
+           
+           background-repeat:no-repeat;
+           left:29px;
+           
+        }
+        .delivery{
+           position:relative;
+           left:39px; 
+        }
+
+        .phoneicon{
+          background-image:url('phonephoneicon.png');
+          background-repeat:no-repeat;
+        }
+        .phonenumber{
+          position:relative;
+          left: 28px;  
+        }
+
+        li:nth-child(odd){
+          margin-left:0px;
+            
+        }
+
+        .firstlist{
+            margin-left:0px;
+            padding-left:0px;
+        }
+    </style>
+</head>
+<body>
+    
+
+<div class="header">
+     <div class="container clearfix">
+          <ul class="floatleft menufont paddingmenu">
+            <li class="marginmenu menufont"><a>Главная </a></li> <li class="marginmenu menufont"><a>О нас </a></li> <li class="marginmenu menufont"><a>Контакты</a></li>
+          </ul>
+          <div class="menufont floatright paddingmenu">
+            <a class="marginmenu phoneicon"><span class="phonenumber">8 (964) 89 99 119</span></a>
+            <a class="marginmenu iconcar"><span class="delivery">Доставка</span></a>
+          </div>
+     </div> 
+</div>
+
+
+
+<div>
+    <div class="container clearfix">
+        <h1 class="footerheaderfont ">Навигация</h1>
+        <ul class="floatleft firstlist">
+            <li>Кухни</li>
+            <li>Спальни</li>
+            <li>Гостинные</li>            
+        </ul>
+        <ul class="floatleft">
+            <li>Прихожие</li>
+            <li>Офисная мебель</li>
+            <li>Детская</li>            
+        </ul>
+        <ul class="floatleft">
+            <li>Шкафы</li>
+            <li>Матрасы</li>
+            <li>Мягкая мебель</li>            
+        </ul>
+    </div>
+</div> 
+
+</body>
+</html>
