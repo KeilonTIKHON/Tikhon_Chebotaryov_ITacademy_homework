@@ -109,6 +109,70 @@
             margin-left:0px;
             padding-left:0px;
         }
+
+        .lmlogo{
+          
+          float:right;  
+        }
+
+        .footer{
+          background-repeat:no-repeat;
+          background-image:url('bg-footer.png');  
+        }
+
+        .footerfont{
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 126.69%;
+              /* or 18px */
+
+            text-align: right;
+
+              /* text-color */
+
+            color: #414141; 
+        }
+        .footerfontli{
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 126.69%;
+            color: #414141; 
+        }
+
+        .footerfontsales{
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 126.69%;
+            color: #D74444; 
+            margin-right:30px;
+        }
+
+
+        .footerlimargin{
+            margin-bottom:7px;
+        }
+
+        .adresstext{
+            padding-top:40px;
+        }
+
+        .paddingfooter{
+            padding-top:54px;
+        }
+
+        .uldisplay{
+            display: inline; 
+        }
+
+        .footermargin{
+            margin-top:20px;
+        }
     </style>
 </head>
 <body>
@@ -128,24 +192,34 @@
 
 
 
-<div>
-    <div class="container clearfix">
-        <h1 class="footerheaderfont ">Навигация</h1>
-        <ul class="floatleft firstlist">
-            <li>Кухни</li>
-            <li>Спальни</li>
-            <li>Гостинные</li>            
+<div class="footer ">
+    <div class="container clearfix ">
+        <h2 class="footerheaderfont paddingfooter">Навигация</h1>
+            <div class="lmlogo">
+                <img src="logo.png">
+            </div>
+        <ul class="floatleft firstlist footerfontli">
+            <li class="footerlimargin">Кухни</li>
+            <li class="footerlimargin">Спальни</li>
+            <li class="footerlimargin">Гостинные</li>            
         </ul>
-        <ul class="floatleft">
-            <li>Прихожие</li>
-            <li>Офисная мебель</li>
-            <li>Детская</li>            
+        <ul class="floatleft footerfontli">
+            <li class="footerlimargin">Прихожие</li>
+            <li class="footerlimargin">Офисная мебель</li>
+            <li class="footerlimargin">Детская</li>            
         </ul>
-        <ul class="floatleft">
-            <li>Шкафы</li>
-            <li>Матрасы</li>
-            <li>Мягкая мебель</li>            
+        <ul class="floatleft footerfontli">
+            <li class="footerlimargin">Шкафы</li>
+            <li class="footerlimargin">Матрасы</li>
+            <li class="footerlimargin">Мягкая мебель</li>            
         </ul>
+        <p class="footerfont adresstext">г. Анапа, Анапское шоссе,<br>
+            30 Ж/К Черное море
+            </p>
+        <div class="footermargin floatleft">
+            <a class="footerfontsales">Акция</a>
+            <a class="footerfontli">Новинки</a>
+        </div>
     </div>
 </div> 
 
