@@ -9,6 +9,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
+
+        .box-sizing{
+            box-sizing: border-box;
+            margin:0px;
+            padding:0px;
+        }
         .header {
         background-color:#313131;
            
@@ -112,12 +118,15 @@
 
         .lmlogo{
           
-          float:right;  
+          float:right;
+          padding-top:67px;
+           
         }
 
         .footer{
           background-repeat:no-repeat;
-          background-image:url('bg-footer.png');  
+          background-image:url('bg-footer.png');
+          background-size: cover;
         }
 
         .footerfont{
@@ -160,6 +169,8 @@
 
         .adresstext{
             padding-top:40px;
+            margin-bottom:10px;
+            
         }
 
         .paddingfooter{
@@ -173,9 +184,161 @@
         .footermargin{
             margin-top:20px;
         }
+
+        ul.footerlinks li{
+            display:inline-block;
+            
+        }
+
+        a.footerfont{
+            margin-top:20px;
+            margin-left:55px;
+            margin-right:57px;
+             
+        }
+        div.footerlinks{
+          margin-top:18px;
+        }
+        
+        .phonenumber2{
+            
+        }
+        .phoneheader::before{
+          content:url('phonephoneicon.png');
+          vertical-align: middle;
+          padding-right:10px;
+        }
+        .deliveryheader::before{
+            content:url('delivery-icondoscar.png');
+            vertical-align: middle;
+            padding-right:10px;
+            margin-left:30px;
+        }
+        .phoneheader2::before{
+            content:url('phone.png');
+            vertical-align: middle;
+            padding-right:10px;
+              
+        }
+
+        .inst::before{
+            content:url('inst.png');
+            vertical-align: middle;
+            padding-right:10px;
+        }
+
+        .mail::before{
+            content:url('mail.png');
+            vertical-align: middle;
+            padding-right:10.67px;
+        }
+
+        .paddingmenutop{
+            padding-top:10px;
+        }
+
+        .menu{
+            background-repeat:no-repeat;
+            background-image:url('bg-menu.png');
+            background-size:cover;
+            
+          
+        }
+        .menupad{
+            padding-top:23px;
+            padding-bottom:30px; 
+        }
+
+        .menulist{
+            display:inline;
+            padding:0px;
+            margin-top:23px;
+            
+            
+        }
+        
+        .menu_font{
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 19px;
+            /* identical to box height */
+            color: #414141;
+        }
+
+        .kitchen::before{
+            content:url('kitchen-icon.png');
+            vertical-align: middle;
+            padding-right:0.877%;
+            padding-left:3.5%;
+            
+        }
+        .kitchen{
+            padding-top:23px;
+        }
+
+        .bedroom::before{
+            content:url('bedroom-icon.png');
+            vertical-align: middle;
+            padding-right:0.877%;
+            padding-left:4.385%;
+        }
+        .bedroom{
+            padding-top:24px;
+        }
+
+        .livingroom::before{
+            content:url('livingroom-icon.png');
+            vertical-align: middle;
+            padding-right:0.877%;
+            padding-left:4.385%;
+        }
+        .livingroom{
+            padding-top:24px;
+        }
+
+        .closet::before{
+            content:url('closet-icon.png');
+            vertical-align: middle;
+            padding-right:10.04px;
+            padding-left:4.385%; 
+        }
+        .closet{
+            padding-top:24px;
+        }
+
+        .office::before{
+            content:url('office-icon.png');
+            vertical-align: middle;
+            padding-right:0.877%;
+            padding-left:4.385%;
+        }
+        .office{
+            padding-top:24px;
+        }
+
+        .childrensroom::before{
+            content:url('childrensroom-icon.png');
+            vertical-align: middle;
+            padding-right:0.877%;
+            padding-left:4.385%;
+        }
+        .childrensroom{
+            padding-top:24px;
+        }
+
+        .act{
+            padding-left:4.38947%;
+            color:#D74444;
+            padding-right:4.1228%;
+        }
+        .bottomm{
+            
+        }
     </style>
 </head>
-<body>
+<body class="box-sizing">
     
 
 <div class="header">
@@ -183,21 +346,37 @@
           <ul class="floatleft menufont paddingmenu">
             <li class="marginmenu menufont"><a>Главная </a></li> <li class="marginmenu menufont"><a>О нас </a></li> <li class="marginmenu menufont"><a>Контакты</a></li>
           </ul>
-          <div class="menufont floatright paddingmenu">
-            <a class="marginmenu phoneicon"><span class="phonenumber">8 (964) 89 99 119</span></a>
-            <a class="marginmenu iconcar"><span class="delivery">Доставка</span></a>
+          <div class="menufont floatright paddingmenutop">
+            <a class="phoneheader ">8 (964) 89 99 119</a>
+            <span class="deliveryheader ">Доставка</span>
           </div>
      </div> 
+</div >
+<div class="bottomm ">
+     <div class="container clearfix menu_font  menu menupad ">
+          
+          <ul class="menulist ">
+            <li class="menulist kitchen ">Кухни</li>
+            <li class="menulist bedroom ">Спальни</li>
+            <li class="menulist livingroom ">Гостинные</li>
+            <li class="menulist closet ">Прихожие</li>
+            <li class="menulist office ">Офисная мебель</li>
+            <li class="menulist childrensroom ">Детская</li>
+            <li class="menulist act ">Акция</li>
+            <li class="menulist "><img src="etc.png"></li>
+          </ul>
+          
+
+     </div>
 </div>
-
-
-
-<div class="footer ">
+<br><br><br>
+<div class="footer">
     <div class="container clearfix ">
-        <h2 class="footerheaderfont paddingfooter">Навигация</h1>
-            <div class="lmlogo">
-                <img src="logo.png">
-            </div>
+        <div class="lmlogo">
+            <img src="logo.png">
+        </div>
+        <h1 class="footerheaderfont paddingfooter">Навигация</h1>
+            
         <ul class="floatleft firstlist footerfontli">
             <li class="footerlimargin">Кухни</li>
             <li class="footerlimargin">Спальни</li>
@@ -219,6 +398,9 @@
         <div class="footermargin floatleft">
             <a class="footerfontsales">Акция</a>
             <a class="footerfontli">Новинки</a>
+        </div>
+        <div class="footerfontli footerlinks floatright footerfont ">
+            <a class="phoneheader2">8 (964) 89 99 119</a><a class="footerfont inst">INSTAGRAM</a><a class="mail">mebel_loft_anapa@mail.ru</a>
         </div>
     </div>
 </div> 
