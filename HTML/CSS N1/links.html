@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .sol1 ul{
+       color:green;
+       padding-left:0px;
+      }
+      .sol1 ul li{
+        display:inline;
+        border-right: 2px solid red;
+        padding-right:5px;
+      }
+      .sol1 ul li a:visited{
+        color:rgb(3, 39, 3);
+      }
+      .sol1 ul li a:hover{
+        color:red;
+      }
+
+      .sol2 a{
+        background-image:url('backgr1.gif');
+        background-size:contain;
+        background-repeat:no-repeat;
+        background-position:right;
+        padding-right:5px;
+      }
+      .sol2 a:visited{
+        color:rgb(3, 39, 3);
+      }
+      .sol2 a:hover{
+        color:red;
+      }
+      
+      
+    </style>
+</head>
+<body>
+    <div class="sol1">
+        <ul >
+            <li><a href="https://www.onliner.by" target="_blank">первая ссылка</a ></li>
+            <li><a href="https://www.netflix.com/by-ru/" target="_blank">вторая ссылка</a></li>
+            <li><a href="https://www.youtube.com" target="_blank">третья ссылка</a></li>
+            <li><a href="https://www.google.com" target="_blank">четвертая ссылка</a></li>
+            
+        </ul>
+    </div>
+    <!--1 способ:разделители сделаны райтбордером лишек, ссылки стоят в строчку помещением их в <ul> и задания display:inline лишкам. недостатки пока что не обноружил :)-->
+        <div class="sol2">
+            <a href="https://www.onliner.by" target="_blank">первая ссылка</a>
+            <a href="https://www.netflix.com/by-ru/" target="_blank">вторая ссылка</a>
+            <a href="https://www.youtube.com" target="_blank">третья ссылка</a>
+            <a href="https://www.google.com" target="_blank">четвертая ссылка</a>
+        </div>
+        <!--2 способ:разделители сделаны картинкой красной верт. полосы которую я поставил в бекграунд, ссылки стоят встрочку т.к. <a>-строчный тег-->
+</body>
+</html>
