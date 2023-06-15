@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<style>
+    .str{
+    display: inline-block;
+    background-image: url("star0.png");
+    background-repeat: no-repeat;
+      width: 110px;
+    height: 110px;
+}
+ 
+ 
+.str:hover ~ .str:nth-child(1),
+.str:hover ~ .str:nth-child(-n+2),
+.str:hover ~ .str:nth-child(-n+3),
+.str:hover ~ .str:nth-child(-n+4),
+.str:hover ~ .str:nth-child(-n+5)
+
+ 
+{
+ 
+    background-image: url("star1.png");
+    width: 110px;
+    height: 110px;
+}
+ .str#DDD:hover{
+    background-image: url("star1.png");
+    width: 110px;
+    height: 110px; 
+ }
+ .star1{
+    position:absolute; 
+ }
+ .star2{
+    position:absolute;
+    left:120px;
+}
+.star3{
+    position:absolute;
+    left:240px;   
+}
+.star4{
+    position:absolute; 
+    left:360px; 
+}
+.star5{
+  position:absolute;  
+  left:480px;
+}
+</style>
+<body>
+    <div class="m">
+        <div class="str star5" id="DDD"></div>
+        <div class="str star4" id="DDD"></div>
+        <div class="str star3" id="DDD"></div>
+        <div class="str star2" id="DDD"></div>
+        <div class="str star1" id="DDD"></div>
+ 
+    </div>
+    <!--.str:hover ~ .str:nth-child(1),
+.str:hover ~ .str:nth-child(-n+2),
+.str:hover ~ .str:nth-child(-n+3),
+.str:hover ~ .str:nth-child(-n+4),
+.str:hover ~ .str:nth-child(-n+5)-->
+    
+    
+</body>
+</html>
