@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.form1{
+    width:400px;
+    font-size:39px;
+    margin-left:290px;
+}
+body{
+    font-size:39px
+}
+.i1{
+  width:20px;
+  height: 20px;
+  margin-left:215px;
+
+}
+.i2{
+    width:20px;
+  height: 20px;
+}
+.i3{
+    width:90%;
+    height:30vh;
+    font-size: 18px;
+}
+.dis{
+   display:none; 
+}
+
+.i4{
+    width:55%;
+    height:4vh;
+    font-size: 20px;
+}
+
+@media screen  and (max-width:1240px) {
+   .dis{
+    display:inline;
+   }
+   .i1{
+    margin-left:3px;
+   } 
+   
+}
+
+.dis2{
+    display:none;
+}
+
+.dis3{
+    display:none; 
+}
+
+@media screen and (max-width:880px) {
+  .dis2{
+    display:inline;
+  } 
+  .form1{
+    margin-left:10px;
+    width:95%;
+    font-size:39px;
+  }
+  
+  .dis3{
+    display:inline;
+  }
+}
+
+
+</style>
+<body>
+    <div>Для публикации вашей статьи заполните,пожалуйста, следующую форму:</div>
+    <form method="get" action="names">
+        Название статьи:<br class="dis3">
+        <textarea class="i4" name="articletext"></textarea><br>
+        
+    </form>
+    
+    <form method="'get" action="ChooseTopic.php" >Рубрика:<br class="dis2">
+       
+        <select name="topics" class="form1">
+            <option value="7" selected>програмирование</option>
+            <option value="5">инжинерия</option>
+            <option value="8">медецина</option>
+            <option value="9">искусство</option>
+           
+        </select>
+    </form>
+    <form method="post" action="Option.jsp">
+        Публикация:<br class="dis">
+        <input type="radio" name="answer" value="1" class="i1">на сайте<br class="dis">
+        <input type="radio" name="answer" value="2" class="i2">в журнале<br class="dis">
+        <input type="radio" name="answer" value="3" class="i2">на сайте и в журнале<br class="dis">
+    </form>
+    <form method="get" action="yesno">
+        Разрешить комментарии:
+        <input type="checkbox" name="allowcomments"><br>    
+    </form>
+    <form method="get" action="yesno">
+        Текст статьи:<br><br>
+        <textarea class="i3" name="articletext"></textarea><br>
+        <input type="submit" value="Опубликовать">
+    </form>
+</body>
+</html>
