@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .ro1{
+       background-color: black;
+       width:200px;
+       height:200px;
+       animation: s1 3s ease-in 1s infinite reverse both running;
+       position:relative;
+       
+       color: aliceblue;
+       
+
+    }
+    @keyframes s1{
+        0%{
+            left:0;
+        }
+        50%{
+            left:500px;
+        }
+        100%{
+            left:0;
+        }
+    }
+    @keyframes s2 {
+        0%{
+            background-color: red;
+        }
+        50%{
+            background-color: blue;
+        }
+        100%{
+            background-color: red;  
+        }
+        
+    }
+    @keyframes s3 {
+        0%{
+            width:150px;
+       height:150px; 
+        }
+        50%{
+            width:250px;
+       height:250px;
+        }
+        100%{
+            width:150px;
+       height:150px;
+        }
+    }
+    .ro2{
+        background-color: red;
+       width:250px;
+       height:250px;
+       position:relative;
+       border-radius: 20%;
+       
+        
+    }
+    .ro3{
+        width:150px;
+        height:150px;
+        background-color: green;
+       border-radius: 500%;
+       position:relative;  
+    }
+    .ro4:hover .ro2{
+        animation: s2 3s ease-in 1s infinite reverse both running;
+    }
+    .ro4:hover .ro3{
+        animation: s3 5s ease-in 1s infinite reverse both running;
+    }
+   
+
+</style>
+<body>
+    <div class="ro4">
+        <div class="ro1">131232323123</div>
+        <div class="ro2"></div>
+        <div class="ro3"></div>
+    </div>
+</body>
+</html>
