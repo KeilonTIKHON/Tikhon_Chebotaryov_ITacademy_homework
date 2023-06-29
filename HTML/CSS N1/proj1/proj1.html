@@ -243,7 +243,7 @@
         .menu{
             background-repeat:no-repeat;
             background-image:url('bg-menu.png');
-            background-size:79.5vw 80px;
+            background-size:100% 80px;
             
           
         }
@@ -331,8 +331,8 @@
         }
         .bintext1{
             position: absolute;
-            top:-2px;
-            left:3.9vw;
+            top:calc(-5px + 0.01vw);
+            left:4.1vw;
             font-family: Roboto;
             font-size: 14px;
             font-weight: 400;
@@ -344,6 +344,67 @@
         .tochki{
             position:relative;
             top:4px;
+        }
+        .psize{
+            width:200px;
+            height:150px;
+        }
+        .sizes{
+            width:173px;
+            height:46.61px;
+            background-image:url('размеры.png');
+            background-size:cover;
+            position:absolute;
+            left:0px;
+            bottom:-60px;
+        }
+        .textarea1{
+            height:40px;
+            position: relative;
+            top:-15px;
+            left:151px;
+            width:calc(95% - 231px);
+        }
+        .addbin{
+            width:15.0vw;
+            height:30px;
+            background-image:url('Rectangle 38.png');
+            position:absolute;
+            color:white;
+            text-align: center;
+            left:5px;
+            bottom:-101px;
+        }
+        .tovar{
+            box-sizing: border-box;
+            width:17.5vw;
+            height:344px;
+            padding:1.0vw;
+            float: left;
+            text-align: center;
+            margin-bottom:0;
+            margin-right:2.5vw;
+            margin-left:2.5vw;
+            
+        }
+        .tovar:nth-child(4n-1){
+            margin-right:0px;
+            margin-left:0px;
+            
+        }
+        .tovar:nth-child(4n+2){
+            margin-right:0px;
+            margin-left:0px;
+            
+        }
+        .favorite{
+            position:relative;
+            left:6.6vw;
+            bottom:315px;
+            width:19.5px;
+            height:16px;
+            z-index: -1;
+            
         }
         @media screen  and (max-width:1778px) {
           .menu_font{
@@ -440,7 +501,7 @@
         }
         .bintext1{
             font-size:12px;
-            top:-3px;
+            top:-4px;
             left:3.2vw;
         }
         }
@@ -498,42 +559,93 @@
             content:url('kitchen-icon.png');
             vertical-align: middle;
             padding-right:0.877%;
-            padding-left:4.0%;
+            padding-left:calc(11.0% - 60px);
             
         }
         .bedroom::before{
             content:url('bedroom-icon.png');
             vertical-align: middle;
             padding-right:0.877%;
-            padding-left:4.185%;
+            padding-left:calc(15.185% - 100px);
         }
         .livingroom::before{
             content:url('livingroom-icon.png');
             vertical-align: middle;
             padding-right:0.877%;
-            padding-left:5.585%;
+            padding-left:calc(16.585% - 100px);
         }
         .closet::before{
             content:url('closet-icon.png');
             vertical-align: middle;
             padding-right:10.04px;
-            padding-left:4.585%; 
+            padding-left:calc(15.585% - 100px); 
         }
         .office::before{
             content:url('office-icon.png');
             vertical-align: middle;
             padding-right:0.877%;
-            padding-left:5.585%;
+            padding-left:calc(14.585% - 100px);
         }
         .childrensroom::before{
             content:url('childrensroom-icon.png');
             vertical-align: middle;
             padding-right:0.877%;
-            padding-left:4.385%;
+            padding-left:calc(15.385% - 100px);
         }
         .childrensroom{
-            padding-right:3.5%;
+            padding-right:calc(14.5% - 100px);
         }
+        .tovar{
+            width:19.5vw;
+            height:296px;
+            padding:1.1vw;
+            padding-bottom:0.4vw;
+            float: left;
+            text-align: center;
+            margin-bottom:0px;
+            margin-right:0.4vw;
+            margin-left:0.4vw;
+            margin-top:0px;
+        }
+        
+        .psize{
+            width:160px;
+            height:120px;
+        }
+        .sizes{
+            width:153px;
+            height:41.22px;
+            background-image:url('размеры.png');
+            background-size: cover;
+            position:absolute;
+            left:0px;
+            bottom:-55px;
+        }
+        .addbin{
+            width:16.2vw;
+            height:2.2vw;
+            background-image:url('Rectangle 38.png');
+            position:absolute;
+            color:white;
+            text-align: center;
+            left:3.5px;
+            bottom:-87px;
+        }
+        .bintext1{
+            font-size:12px;
+            
+            left:calc(5vw - 27px);
+            top:calc(-11px + 0.35vw);
+        }
+        .favorite{
+            
+            bottom:285px;
+            width:19.5px;
+            height:16px;
+            z-index: -1;
+            
+        }
+        
         }
         
 
@@ -614,29 +726,11 @@
             letter-spacing: 0em;
             text-align: left;
             color:#414141;
-            margin:5px 0px 5px 0px;
+            margin:7px 0px 7px 0px;
 
         }
-        .favorite{
-            position:relative;
-            left:6.6vw;
-            bottom:315px;
-            width:19.5px;
-            height:16px;
-            z-index: -1;
-            
-        }
-        .tovar{
-            width:15.6vw;
-            height:597,894738;
-            padding:1.35vw;
-            float: left;
-            text-align: center;
-            margin-bottom:0;
-            margin-right:5px;
-            margin-left:5px;
-            
-        }
+        
+       
         
         .randmar{
             margin-top:40px;
@@ -646,27 +740,24 @@
           transition-duration: 0.1s;
           background-image:url('Rectangle 3.png');
           background-repeat: no-repeat;
-          background-size:18.75vw 100%;
+          background-size:100% 100%;
           
           
         }
-        .psize{
-            width:200px;
-            height:150px;
-        }
+        
         .transf:hover .psize{
-            transform: scaleY(0.727459016) translateY(36px);
+            transform: scaleY(0.727459016) translateY(26px);
           transition-duration: 0.1s;
           
         }
         .transf:hover .boxfont{
-            transform: scaleY(0.727459016) translateY(-40px);
+            transform: scaleY(0.727459016) translateY(-16px);
             
           transition-duration: 0.1s;
           
         }
         .transf:hover .sboxfont{
-            transform: scaleY(0.727459016) translateY(-52px);
+            transform: scaleY(0.727459016) translateY(-24px);
             
           transition-duration: 0.1s;
           
@@ -677,7 +768,7 @@
           
         }
         .transf:hover .kost{
-            transform: translateY(-42px) scaleY(0.727459016);
+            transform: translateY(-22px) scaleY(0.727459016);
           transition-duration: 0.1s;
           
         }
@@ -686,29 +777,44 @@
             position:absolute;
         }
         .transf:hover .hide{
-            transform: translateY(-68px) scaleY(0.727459016);
+            transform: translateY(-38px) scaleY(0.727459016);
           transition-duration: 0.1s;
           display:block;
           
         }
-        .sizes{
-            width:193px;
-            height:52px;
-            background-image:url('размеры.png');
-            position:absolute;
-            left:0px;
-            bottom:-60px;
+        
+        
+        .searchlogo{
+            position: relative;
+            top:20px;
         }
-        .addbin{
-            width:15.6vw;
-            height:2.0vw;
-            background-image:url('Rectangle 38.png');
-            position:absolute;
+        
+        .searchicins{
+            display:inline;
+            position:relative;
+            top:-55px;
+            
+        }
+        .searchicins1{
+           left:calc(78.33vw - 115px);
+        }
+        .searchicins2{
+            left:calc(79.58vw - 115px); 
+        }
+        .searchicins3{
+            left:calc(81.04vw - 115px);
+        }
+        .searchicins_notif{
+            position: absolute;
+            right:-4px;
+        }
+        .link{
             color:white;
-            text-align: center;
-            left:5px;
-            bottom:-104px;
         }
+        .link:visited{
+            color:white;
+        }
+        
         
         
         
@@ -726,11 +832,22 @@
             <li class="marginmenu menufont"><a>Главная </a></li> <li class="marginmenu menufont"><a>О нас </a></li> <li class="marginmenu menufont"><a>Контакты</a></li>
           </ul>
           <div class="menufont floatright paddingmenutop">
-            <a class="phoneheader ">8 (964) 89 99 119</a>
+            <a  class="phoneheader ">8 (964) 89 99 119</a>
             <span class="deliveryheader ">Доставка</span>
           </div>
      </div> 
 </div >
+<div class="container clearfix">
+    <img class="searchlogo" src="LOGO.png"><form method="post" action="search.php"><textarea class="textarea1" name="поиск">Поиск</textarea>
+        
+    </form>
+    <ul>
+        <li class="searchicins searchicins1"><a href=""><img src="wishlist-icon.png"></a></li>
+        <li class="searchicins searchicins2"><a href=""><img src="bag.png"><img class="searchicins_notif" src="оповещение.png"></a></li>
+        <li class="searchicins searchicins3"><a href=""><img src="profile-icon.png"></a></li>
+    </ul>
+    
+</div>
 <div class="bottomm ">
      <div class="container clearfix menu_font  menu menupad ">
           

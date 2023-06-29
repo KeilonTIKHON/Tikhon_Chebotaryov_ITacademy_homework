@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+        font-weight: 700;
+        font-family: Evolventa;
+        src: url("fonts/Evolventa-Bold.ttf");
+        }
+        @font-face {
+        font-weight: 400;
+        font-family: Evolventa;
+        src: url("fonts/Evolventa-Regular.ttf");
+        }
+        @font-face {
+        font-weight: 400;
+        font-family: Evolventa;
+        font-style: italic;
+        src: url("fonts/Evolventa-Oblique.ttf");
+        }
+        body{
+            margin:0px;
+            padding:0px;
+        }
+        .clearfix:after {
+        content: "";
+        display: table;
+        clear: both;
+        }
+        
+        
+        .container {
+         margin-left:auto;
+         margin-right:auto;
+         max-width:81%; 
+          
+        }
+        .backmain{
+            width:100%;
+            height:1022px;
+            background-image: url('main image.png');
+            background-size:100%;
+            background-repeat: no-repeat;
+        }
+        .mainmenu{
+            width:100px;
+            height:1020px;
+            background-image: url('left-column.png');
+            background-repeat: no-repeat;
+            background-size:100px 1022px;
+            position:fixed;
+            z-index: 10;
+            top:0px;
+            left:0px;
+        }
+        .phonenumbers{
+            display:flex;
+        }
+        .phonenumbers1{
+            display:flex;
+            flex-direction: column;
+            margin-top:32px;
+            margin-right:64px;
+            
+            
+        }
+        .phonenumberfont1{
+            
+            font-family: 'Evolventa';
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 36px;
+            letter-spacing: 0.03em;
+            text-align: left;
+            color: #FFFFFF;
+
+        }
+        .mainflex{
+            display: flex;
+            justify-content: space-around;
+        }
+        .ros{
+            display: flex;
+            justify-content: space-around;
+        }
+        .roslogist{
+            font-family: 'Evolventa';
+            font-size: 37px;
+            font-weight: 700;
+            line-height: 63px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #FFFFFF;
+            padding-left:127px;
+            padding-top:31px;
+
+        }
+        .logistcomp{
+            font-family: Evolventa;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 16px;
+            letter-spacing: 0.06em;
+            text-align: left;
+            color:#FFFFFF;
+            padding-left:12px;
+            padding-top:46.5px;
+
+        }
+        .languages{
+            font-family: Evolventa;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 28px;
+            letter-spacing: 0.02em;
+            text-align: left;
+            color: #FFFFFF;
+            display: flex;
+            justify-content: space-evenly;
+            padding-top:48.5px;
+            padding-left:70px;
+            padding-right:0px;
+            margin-right:-50px;
+        }
+        .eng{
+            padding:0px 16px 0px 16px;
+        }
+        .raschitsom{
+            width:294px;
+            height: 59px;
+            
+            margin: 33px 30px 16px -120px;
+            background-image: url('btn.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+
+        }
+        .phonenumberfont2{
+            font-family: Evolventa;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 25px;
+            letter-spacing: 0.02em;
+            text-align: left;
+            color: #FFFFFF;
+
+        }
+        .mainheader{
+            
+            font-family: Evolventa;
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 74px;
+            letter-spacing: 0.02em;
+            text-align: left;
+            color: #FFFFFF;
+            width: 848px;
+            height:222px;
+            margin-left:195px;
+            margin-top:280px;
+        }
+        .btn1{
+            width:207px;
+            height:59px;
+            background:url('btn (1).png') no-repeat;
+            background-size: contain;
+            margin-top:56px;
+        }
+        .svidet{
+            
+            font-family: Evolventa;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 28px;
+            letter-spacing: 0.02em;
+            text-align: left;
+            color: #FFFFFF;
+            margin-left:200px;
+            margin-top:304px;
+        }
+        .twoflex{
+            display:flex
+        }
+        .leftcolomn1{
+            width:105px;
+            height:576px;
+            background:url('left-column (1).png') no-repeat;
+            background-size: 100px 576px;
+            flex: 0 0 105px;
+        }
+        .advantages{
+            width:1815px;
+            height:576px;
+            padding:0px 100px 0px 100px;
+           
+        }
+        .prefont1{
+            font-family: Evolventa;
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 74px;
+            letter-spacing: 0.02em;
+            text-align: left;
+            margin:0px; 
+        }
+        .adv_font_1{
+            
+            font-family: Evolventa;
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 74px;
+            letter-spacing: 0.02em;
+            text-align: left;
+            width: 1023px;
+            height: 206px;
+            margin:100px 0px 0px 0px;
+        }
+        .line1{
+            position:relative;
+            bottom:0px;
+        }
+        .adflex{
+            display: flex;
+            justify-content: space-between;
+            margin-top:80px;
+        }
+        .box{
+            margin-right:32px;
+        }
+        .ship{
+            margin-right:32px;
+        }
+        .world{
+            margin-right:32px;
+        }
+        .threeflex{
+            display:flex
+        }
+        .leftcolomn2{
+            width:100px;
+            height:958px;
+            background:url('left-column (2).png') no-repeat;
+            background-size: contain;
+            flex: 0 0 100px; 
+        }
+        .vozm_fon1_1{
+            font-family: Evolventa;
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 64px;
+            letter-spacing: 0.03em;
+            text-align: left;           
+            width: 825px;
+            height: 186px;
+            margin:100px 0px 0px 0px;
+        }
+        .advantages1{
+            width:1815px;
+            height:958px;
+            padding:0px 0px 0px 100px;
+            position:relative; 
+        }
+        .advflex{
+            display: flex;
+            margin-top:80px;
+            
+        }
+        .gr_font1{            
+            font-family: Evolventa;
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 36px;
+            letter-spacing: 0.03em;
+            text-align: left;
+
+        }
+        .gr_font2{
+            
+            font-family: Evolventa;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 32px;
+            letter-spacing: 0.03em;
+            text-align: left;
+            margin-top:32px;
+
+        }
+        .subtract{
+            width: 870px;
+            height: 409px;
+            position:absolute;
+            bottom:-36px;
+            right:67px;
+            background: url('Subtract.png') no-repeat;
+            background-size:contain;
+            z-index: -1;
+        }
+        .pointsfont{
+            
+            font-family: Evolventa;
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 36px;
+            letter-spacing: 0.03em;
+            text-align: left;
+            margin:32px 0px 32px 0px;
+        }
+        .pointsfont:first-child{
+            margin:0px 0px 32px 0px;
+        }
+        .pointsfont:last-child{
+            margin:32px 0px 0px 0px;
+        }
+        .pointcontainer{
+            margin-left:161px;
+        }
+        .pointtext{
+            box-sizing: border-box;
+            margin-left:96px;
+            padding-top:18px;
+        }
+        .floatleft{
+            float: left;
+        }
+        .icon{
+            width:538px;
+        }
+        .fourflex{
+            display:flex;
+        }
+        .leftcolomn3{
+            width:100px;
+            height:1681px;
+            background:url('left-column (3).png') no-repeat;
+            background-size: contain;
+            flex: 0 0 100px;
+
+        }
+        .titlehelp{
+            box-sizing: border-box;
+            width:1815px;
+            height:1681px;
+            padding:300px 0px 0px 0px;
+            background:url('main (1).png') no-repeat;
+            background-size: contain;
+
+        }
+        .logist_font_1{
+            
+            font-family: Evolventa;
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 64px;
+            letter-spacing: 0.03em;
+            text-align: left;     
+            width: 806px;
+            height: 186px;
+            margin:0px 0px 0px 0px;
+            
+        }
+        .back1{
+            box-sizing: border-box;
+            background-color:#FFFFFF;
+            width:1719px;
+            height:1381px;
+            padding: 100px;      
+        }
+        .inner_helpflex{
+            margin-top:80px;
+            display:flex;
+            width:1,519px;
+            height:915px;
+            justify-content: space-between;
+
+        }
+        .lomatgolov{
+            
+            font-family: Evolventa;
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 36px;
+            letter-spacing: 0.03em;
+            text-align: left;
+
+        }
+        .otvet{
+            
+            font-family: Evolventa;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 32px;
+            letter-spacing: 0.03em;
+            text-align: left;
+            margin-top:32px;
+
+        }
+        .helppoints{
+            
+            font-family: Evolventa;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 30px;
+            letter-spacing: 0.03em;
+            text-align: left;
+            margin-left:96px;
+            padding-top:21px;
+        }
+        .helppoints1{
+            margin:32px 0px 32px 0px;
+        }
+        .helppoints1:first-of-type{
+            margin-top:40px;
+        }
+        .helppoints1:last-of-type{
+            margin:53px 0px 0px 0px;
+        }
+        .helpinnertext{
+            
+            font-family: Evolventa;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 32px;
+            letter-spacing: 0.03em;
+            text-align: left;
+            margin-top:61px;
+        }
+        .privez{
+            box-sizing: border-box;
+            width:760px;
+            height:203px;
+            padding: 40px 0px 40px 0px;
+            border: solid ;
+            border-width: 1px 0px 1px 0px;
+            border-color: #CECECE;
+            gap: 32px;
+            margin-top:48px;
+
+        }
+        .privez_text{
+            font-family: Evolventa;
+            font-size: 24px;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 35px;
+            letter-spacing: 0.03em;
+            text-align: center;
+
+        }
+        .help_btn{
+            box-sizing: border-box;
+            width:217px;
+            height:56px;
+            padding: 15px 40px 16px 40px;
+            border-radius: 10px;
+            gap: 20px;
+            background-color: black;
+            margin-left:271.5px;
+            margin-top:32px;
+            margin-bottom: 40px;
+
+        }
+        .btn_txt{
+            
+            font-family: Evolventa;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 25px;
+            letter-spacing: 0.02em;
+            text-align: center;
+            color: #FFFFFF;
+            margin:0px;
+        }
+        .fiveflex{
+            display: flex;
+        }
+        .leftcolomn4{
+            width:100px;
+            height:1456px;
+            
+            border:solid;
+            border-color: #3A3A3A26;           
+            flex: 0 0 100px;
+            border-width: 0px 1px 0px 0px;
+
+        }
+        .services{
+            width:1820px;
+            height:1456px;
+            padding: 100px;
+            gap: 80px;
+
+        }
+        .service_fon1_1{
+            width:189px;
+            height:122px;
+            gap: 48px;            
+            font-family: Evolventa;
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 64px;
+            letter-spacing: 0.03em;
+            text-align: left;
+
+        }
+        .service_flex{
+            display: flex;
+            justify-content: space-between;
+            margin-top:80px;
+        }
+        .serv1{
+             width:744px;
+             height:620px;
+             background:url('service 1.png') no-repeat;
+             background-size: contain;
+        }
+        .serv2{
+            width:408px;
+             height:620px;
+             background:url('service 2.png') no-repeat;
+             background-size: contain;
+        }
+        .serv3{
+            width:408px;
+             height:620px;
+             background:url('service 3.png') no-repeat;
+             
+
+        }
+        .service_flex2{
+            display: flex;
+            justify-content: space-between;
+            margin-top:32px;
+        }
+        .serv4{
+            width:520px;
+             height:402px;
+             background:url('service 1 (1).png') no-repeat;
+
+        }
+        .serv5{
+            width:520px;
+             height:402px;
+             background:url('service 1 (2).png') no-repeat;
+
+        }
+        .serv6{
+            width:520px;
+             height:402px;
+             background:url('service 3 (1).png') no-repeat;
+
+        }
+        
+
+    </style>
+</head>
+<body>
+    
+    <div class="backmain">
+        <div class="mainflex">
+            <div class="ros">
+                <div class="roslogist">
+                    ROSLOGISTIC
+                </div>
+                <div class="logistcomp">
+                    Логистическая<br>компания
+                </div>
+            </div>
+            <div class="languages">
+                <div class="ru">
+                    RU
+                </div>
+                <div class="eng">
+                    EN
+                </div>
+                <div class="chineese">
+                    字
+                </div>
+            </div>
+            <div class="phonenumbers">
+                <div class="phonenumbers1">
+                    <div class="phonenumberfont1">8 000 000 00 00 </div>
+                    <div class="phonenumberfont2">Федеральный </div>
+             
+                </div>
+                <div class="phonenumbers1">
+                    <div class="phonenumberfont1">8 000 000 00 00 </div>
+                    <div class="phonenumberfont2">Санкт-Питербург </div>
+                </div>
+        
+            </div>
+            <div class="raschitsom">
+
+            </div>
+        </div>
+        <h1 class="mainheader">
+            Доставим ваш груз и оформим по всем правилам
+            <div class="btn1"></div>
+        </h1>
+        <div class="svidet">
+            Свидетельство Таможенного представителя Федеральной таможенной службы №1349
+        </div>
+    </div>
+    <div class="mainmenu">
+
+    </div>
+    <div class="twoflex">
+        <div class="leftcolomn1">
+
+        </div>
+        <div class="advantages">
+            <div class="adv_font_1">
+                <pre class="prefont1">Вы занимаетесь бизнесом — <br>мы занимаемся вашим грузом</pre>
+                <img src="line.png" class="line1">
+            </div>
+            <div class="adflex">
+                <div>
+                    <img src="cargobox.png" class="box">
+                    <img src="text.png">
+        
+                </div>
+                <div>
+                    <img src="cargo-ship.png" class="ship">
+                    <img src="text (1).png">
+
+                </div>
+                <div>
+                    <img src="world.png" class="world">
+                    <img src="text (2).png">
+
+                </div>
+              
+            </div>
+        </div>
+    </div>
+    <div class="threeflex">
+        <div class="leftcolomn2">
+
+        </div>
+        <div class="advantages1">
+            <div class="subtract"></div>
+            <div class="vozm_fon1_1">
+                RosLogistic — <br>бесконечные возможности
+                <img src="line.png">
+            </div>
+            <div class="advflex">
+                <div>
+                    <div class="gr_font1">Мы предлагаем комплексные логистические решения <br>всеми видами транспорта и оптимизируем цепи<br> поставок для импорта и экспорта грузов.</div>
+                    <div class="gr_font2">Предоставляем грузоперевозки и таможенное оформление по всей России.<br> Благодаря тому, что у нас заключены договоры с судоходными морскими линиями,<br> мы осуществляем внутрипортовое экспедирование на терминалах всех морских<br> портов, в том числе Санкт-Петербурга, Новороссийска, Владивостока.<br>
+                        <br>
+                        Мы обеспечиваем таможенное оформление грузов, перевозимых автотранспортом,<br> в любом таможенном пункте Российской Федерации, независимо от региона<br> доставки.<br>
+                        <br>
+                        Это значит, что мы контролируем весь процесс перевозки груза от момента<br>подписания контракта до порожнего контейнера.</div>                    
+                </div>
+                <div class="pointcontainer">
+                    
+                    <div class="pointsfont icon"><img class="floatleft"  src="icon.png"><p class="pointtext">Международная логистика</p></div>
+                    <div class="pointsfont icon"><img class="floatleft"  src="icon (1).png"><p class="pointtext">Экспедирование</p></div>
+                    <div class="pointsfont icon"><img class="floatleft"  src="icon (2).png"><p class="pointtext">Таможенное оформление</p></div>
+                    <div class="pointsfont icon"><img class="floatleft"  src="icon (3).png"><p class="pointtext">Сертификация</p></div>
+                    <div class="pointsfont icon"><img class="floatleft" src="icon (4).png"><p class="pointtext">Организация доставки груза</p></div>
+                </div>
+
+            </div>
+            
+
+        </div>
+
+    </div>
+    <div class="fourflex">
+        <div class="leftcolomn3">
+
+        </div>
+        <div class="titlehelp">
+            <div class="back1">
+                <div class="logist_font_1">
+                    Полностью берём <br>вопрос логистики на себя
+                    <img src="line.png">
+                </div>
+                <div class="inner_helpflex">
+                    <div>
+                        <div class="lomatgolov">
+                            Вам больше не придется ломать голову над всем, <br>что связано с ввозом и вывозом грузов. 
+                        </div>
+                        <div class="otvet">
+                            Мы знаем ответы на все вопросы, например:
+                        </div>
+                        <div class="helppoints1"><img src="icon (5).png" class="floatleft"><p class="helppoints">какой способ доставки груза выбрать, чтобы перевозка не <br>вышла слишком дорогой или слишком долгой;</p></div>
+                        <div class="helppoints1"><img src="icon (6).png" class="floatleft"><p class="helppoints">как правильно заполнить документы или какие нужны <br>сертификаты на вашу продукцию;</p></div>
+                        <div class="helppoints1"><img src="icon (7).png" class="floatleft"><p class="helppoints">как с минимальными рисками доставить ценный груз;</p></div>
+                        <div class="helppoints1"><img src="icon (8).png" class="floatleft"><p class="helppoints">как отслеживать статус груза.</p></div>
+                        <p class="helpinnertext">Мы поможем вам освободить время на масштабирование бизнеса <br>и привлечение клиентов.</p>
+                        <div class="privez">
+                            <div class="privez_text">Привезем тестовую партию товара из любого уголка мира</div>
+                            <div class="help_btn"><p class="btn_txt">Оставить заявку</p></div>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="image.png">
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="fiveflex">
+        <div class="leftcolomn4"></div>
+        <div class="services">
+            <div class="service_fon1_1">
+                Услуги
+                <img src="line.png">
+            </div>
+            <div class="service_flex">
+                <div class="serv1"></div>
+                <div class="serv2"></div>
+                <div class="serv3"></div>
+            </div>
+            <div class="service_flex2">
+                <div class="serv4"></div>
+                <div class="serv5"></div>
+                <div class="serv6"></div>
+            </div>
+           
+        </div>
+    </div>
+    
+    
+</body>
+</html>
