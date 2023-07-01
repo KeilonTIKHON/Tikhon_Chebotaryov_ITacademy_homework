@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish&family=Open+Sans:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+    <style>
+         @font-face {
+        font-weight: 300;
+        font-family: DIN;
+        src: url("FONTS/D-DIN.otf");
+        }
+        body{
+            margin: 0px;
+            padding:0px;
+            box-sizing: border-box;
+        }
+        .logo1{
+            padding:18px 0px 16.9px 146px;
+        }
+        .header{
+            width:100vw;
+            height:100px;
+            display: flex;
+        }
+        .jo{
+            font-family: DIN;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 24px;
+            letter-spacing: 0px;
+            text-align: left;
+            margin-right:16px;
+            margin-left:16px;   
+        }
+        .jo:first-of-type{
+            margin-left:0px;
+        }
+        .jo:last-of-type{
+            margin-right:0px;
+        }
+        .jo:last-of-type::after{
+            content: url('denmark.png');
+            margin-left:25px;
+            position:relative;
+            top:7px;
+        }
+        li.jo{
+          display:inline;  
+        }
+        .headerul{
+            margin:33px 0px 42px 0px;
+            position:relative;
+            left:calc(52.528vw - 481px);
+        }
+        .booknowbtn_header{
+            font-family: DIN;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 28px;
+            letter-spacing: 1px;
+            text-align: left;
+            color: white;
+            width:200px;
+            height:60px;
+            margin:20px 32px 20px 0px;
+            position:absolute;
+            right:0px;
+            background-color: #5B6460;
+        }
+        .btnpos{
+            position:relative;
+            left:30%;
+            margin:16px 0px 16px 0px;
+            
+        }
+        .jo a:visited{
+            text-decoration:none;
+            color:black;
+        }
+        .jo a{
+            text-decoration:none;
+        }
+        .thehutpic{
+            width:100vw;
+            height:24.8579vw;
+            background:url(Group\ 67.png) no-repeat;
+            background-size:contain;
+        }
+        .area{
+            width:27.4857vw;
+            height:15.34vw;
+            background:url('Frame 57 (1).png') no-repeat;
+            background-size:27.4857vw 15.34vw;
+            position:absolute;
+            top:calc(8.158vw + 55px);
+            left:36.2926vw;
+        }
+        .footer{
+            box-sizing: border-box;
+            width:100vw;
+            height:477px;
+            background-color: #5B6460;
+            margin-top:9.446vw;
+            padding:100px 146px 100px 146px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .Newsletter{
+            font-family: Open Sans;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 30px;
+            letter-spacing: 0px;
+            text-align: left;
+            color: white;
+        }
+        .email{
+            font-family: Open Sans;
+            font-size: 16px;
+            font-style: italic;
+            font-weight: 300;
+            line-height: 30px;
+            letter-spacing: 0px;
+            text-align: left;
+            color:#FFFFFF;
+            height:37px;
+            width:30.68vw;
+            margin:40px 0px 10px 0px;
+            
+            border:solid #EFEFEF;
+            border-width: 0px 0px 1px 0px;
+        }
+        .floatright{
+            float:right;
+        }
+        .signup{
+            font-family: Open Sans;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 30px;
+            letter-spacing: 0px;
+            text-align: left;
+            color:white;
+        }
+        .copyright{
+            font-family: Open Sans;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 30px;
+            letter-spacing: 0px;
+            text-align: left;
+            margin-top:70px;
+            color: #EFEFEF;
+        }
+        .footertext{
+            font-family: DIN;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 24px;
+            letter-spacing: 0px;
+            text-align: left;
+            color:#FFFFFF;
+            display:inline;
+        }
+        .kek{
+            margin:0px 31px 0px 33px;
+        }
+        .payments{
+            display: inline;
+            margin:0px 19.785px 0px 19.785px;
+        }
+        .payments:first-of-type{
+            margin-left:0px;
+        }
+        .payments:last-of-type{
+            margin-right:0px;
+        }
+        .firstflex{
+            display:flex;
+            justify-content: space-between;
+            width:87.375795vw;
+            height:1581px;
+            position: relative;
+        }
+        .second{
+            width:46.946vw;
+            height:1581px;
+            position: absolute;
+            left:10.369vw;
+            top:10.653vw;
+            flex:0 0 46.9460227vw;
+        }
+        input[type="checkbox"] {
+              /* Add if not using autoprefixer */
+              -webkit-appearance: none;
+              appearance: none;
+              /* For iOS < 15 to remove gradient background */
+              background-color: #E9ECE0;
+              /* Not removed via appearance */
+              margin: 0;
+            }
+        .title{
+            font-family: Open Sans;
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0px;
+            text-align: left;
+            color:#5B6460;
+            border:solid #5B6460;
+            border-width:0px 0px 0.7px 0px;
+            width:46.946vw;
+        }
+        .option_flex{
+            display: flex;
+            background-color:#E9ECE0;
+            width:46,875vw;
+            height:4.971vw;
+            position: relative;
+            margin:1.7045vw 0px 1.7045vw 0px;
+        }
+        .checked{
+            
+            width:2.41477vw;
+            height:2.41477vw;
+            position:absolute;
+            left:1.4045vw;
+            top:1.111409vw;
+            
+            content:url(Group\ 74.png);
+        }
+        .checked:hover{
+            transform:scale(1.1);
+            transition:0.3s;
+        }
+        .prikol{
+            flex:0 0 5.53977vw;
+        }
+        .non_checked{
+            
+            position:absolute;
+            left:1.7045vw;
+            top:1.278409vw;
+            width:2.61477vw;
+            height:2.61477vw;
+        }
+        .checked1{
+            
+            width:2.41477vw;
+            height:2.41477vw;
+            position:absolute;
+            left:2.4045vw;
+            top:1.111409vw;
+            content:url(Group\ 74.png);
+        }
+        .checked:checked{
+            content:url(Group\ 75.png);
+        }
+        .path{
+            flex:0 0 4.971vw;
+            width:4.971vw;
+            height:4.971vw;
+            background: url(Path.png) no-repeat;
+            background-size:1.42045vw 0.807528vw;
+            background-position: 50% 50%;
+        }
+        .brek{
+            font-family: Open Sans;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 20px;
+            letter-spacing: 0px;
+            text-align: left;
+            color:#333333;
+            margin-top:0.9232vw;
+        }
+        .price{
+            font-family: Open Sans;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 18px;
+            letter-spacing: 0px;
+            text-align: right;
+            position: absolute;
+            left:0px;
+
+        }
+        .pid{
+            flex-grow: 1;
+            position:relative;
+        }
+        .ugar{
+            font-family: Open Sans;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 20px;
+            letter-spacing: 0px;
+            text-align: left;
+            color:#333333;
+
+
+        }
+        .ugar1{
+            font-family: Open Sans;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 20px;
+            letter-spacing: 0px;
+            text-align: left;
+            color:#333333;
+
+
+        }
+        .dvach{
+            margin-left:1.704vw;
+        }
+        .ruleshut{
+            font-family: Open Sans;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 24px;
+            letter-spacing: 0px;
+            text-align: left;
+            color:#5B6460;
+            padding-bottom:1.42vw;
+            border:solid;            
+            border-color: #5B6460;
+            border-width: 0px 0px 0.7px 0px;
+            
+
+        }
+        .ruleshut1{
+            font-family: Open Sans;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 18px;
+            letter-spacing: 0px;
+            text-align: left;
+            color: #333333;
+            margin:1.45596vw 0px 1.45596vw 0px;
+
+        }
+        .ruleshut1:first-of-type{
+            margin-top:0px;
+        }
+        .ruleshut1:last-of-type{
+            margin-bottom: 0px;
+        }
+        .bored{
+            font-family: Open Sans;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 28px;
+            letter-spacing: 0px;
+            text-align: left;
+            color:#333333;
+            margin-top:1.704vw;
+        }
+        .keks{
+            margin-top:7.10227vw;
+        }
+        .calcul{
+            flex:0 0 30.68181vw;
+            width:30.68181vw;
+            height:41.9034vw;
+            background:url(price.png) no-repeat;
+            background-size:30.68181vw 41.9034vw;
+            position: absolute;
+            right:-10vw;
+            top:10.6534091vw;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img class="logo1" src="logo (1).png">
+        <ul class="headerul">
+            <li class="jo"><a>HOME</a></li>
+            <li class="jo"><a href="proj3_THE_HUT.html" target="_blank">THE HUT</a></li>
+            <li class="jo"><a href="proj3_THE_AREA.html" target="_blank">THE AREA</a></li>
+            <li class="jo"><a>BOOKING</a></li>
+            <li class="jo"><a>ABOUT US</a></li>
+            <li class="jo"><a>FAQ</a></li>
+        </ul>
+        <div class="booknowbtn_header">
+            <p class="btnpos">BOOK NOW</p>
+        </div>
+    </div>
+    <div class="thehutpic">
+        <div class="area">
+
+        </div>
+    </div>
+    <div class="firstflex">
+        <div class="second">
+            <div class="title">Choose Additional Services</div>
+            <div class="option_flex">
+                <div class="prikol">
+                    <form method="post" action="dinnerforone.jsp">
+                        <input type="checkbox" name="check" value="1" class="checked">
+                        
+                    </form>
+                    
+                </div>
+                <div class="pid">
+                    <div class="brek">Fresh Breakfast for one </div>
+                    <div class="price">400kr</div>
+                </div>
+                <div class="path"></div>
+            </div>
+            <div class="option_flex">
+                <div class="prikol">
+                    <form method="post" action="dinnerforone.jsp">
+                        <input type="checkbox" name="check" value="1" class="checked">
+                        
+                    </form>
+                    
+                </div>
+                <div class="pid">
+                    <div class="brek">Fresh Breakfast for two </div>
+                    <div class="price">500kr</div>
+                </div>
+                <div class="path"></div>
+            </div>
+            <div class="dvach">
+                <div class="ugar">Classic Dinner</div>
+                <div class="ugar1">Bread, Coffee, milk, juice, and a selection of spreads + toppings.</div>
+            </div>
+            <div class="option_flex">
+                <div class="prikol">
+                    <form method="post" action="dinnerforone.jsp">
+                        <input type="checkbox" name="check" value="1" class="checked">
+                        
+                    </form>
+                    
+                </div>
+                <div class="pid">
+                    <div class="brek">Classic Dinner for one </div>
+                    <div class="price">600kr</div>
+                </div>
+                <div class="path"></div>
+            </div>
+            <div class="option_flex">
+                <div class="prikol">
+                    <form method="post" action="dinnerforone.jsp">
+                        <input type="checkbox" name="check" value="1" class="checked">
+                        
+                    </form>
+                    
+                </div>
+                <div class="pid">
+                    <div class="brek">Classic Dinner for two</div>
+                    <div class="price">800kr</div>
+                </div>
+                <div class="path"></div>
+            </div>
+            <div class="option_flex">
+                <div class="prikol">
+                    <form method="post" action="dinnerforone.jsp">
+                        <input type="checkbox" name="check" value="1" class="checked">
+                        
+                    </form>
+                    
+                </div>
+                <div class="pid">
+                    <div class="brek">Electric Car Charge </div>
+                    <div class="price">800kr</div>
+                </div>
+                <div class="path"></div>
+            </div>
+            <div class="ruleshut">Hut rules</div>
+            <div class="ruleshut1">Check-in:  2:00 PM - 11:00 PM</div>
+            <div class="ruleshut1">Checkout: 11:00 AM</div>
+            <div class="ruleshut1">Not suitable for children and infants</div>
+            <div class="ruleshut1">No smoking</div>
+            <div class="ruleshut1">No pets</div>
+            <div class="ruleshut keks">Cancellation policy</div>
+            <div class="bored">Free cancellation until 1:00 PM on Mar 27
+                After that, cancel before 2:00 PM on Apr 1 and get a 50% refund, minus the first night and service fee.</div>
+            <div class="ruleshut keks">Important Information</div>
+            <div class="bored">You need to hike a steep hill to arrive at the treehouses, it takes approx 20-30 minutes on a trail with stairs and uneven ground.</div>
+        </div>
+        <div class="calcul">
+           
+        </div>
+    </div>
+    <div class="footer">
+        <div class="left">
+            <div class="Newsletter">Newsletter</div>
+            <div class="email">Email Adrdess<img src="Group 18.png" class="floatright"></div>
+            <div class="signup">Sign up to our newsletter for special things and receive <br>10% off your next order.</div>
+            <div class="copyright">© 2021 The Glass Huts</div>
+        </div>
+        <div>
+            <ul>
+                <li class="footertext">TERMS AND CONDITIONS</li>
+                <li class="footertext kek">CENCELLATION POLICY</li>
+                <li class="footertext">PRIVACY POLICY</li>
+            </ul>
+            <ul class="last">
+                <li class="payments"><img src="paypal-logo 1.png"></li>
+                <li class="payments"><img src="symbol 1.png"></li>
+                <li class="payments"><img src="symbols 1.png"></li>
+                <li class="payments"><img src="symbols-2 1.png"></li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>

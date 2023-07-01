@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish&family=Open+Sans:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        @font-face {
+        font-weight: 300;
+        font-family: DIN;
+        src: url("FONTS/D-DIN.otf");
+        }
+        body{
+            margin: 0px;
+            padding:0px;
+            box-sizing: border-box;
+        }
+        .logo1{
+            padding:18px 0px 16.9px 146px;
+        }
+        .header{
+            width:100vw;
+            height:100px;
+            display: flex;
+        }
+        .jo{
+            font-family: DIN;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 24px;
+            letter-spacing: 0px;
+            text-align: left;
+            margin-right:16px;
+            margin-left:16px;   
+        }
+        .jo:first-of-type{
+            margin-left:0px;
+        }
+        .jo:last-of-type{
+            margin-right:0px;
+        }
+        .jo:last-of-type::after{
+            content: url('denmark.png');
+            margin-left:25px;
+            position:relative;
+            top:7px;
+        }
+        li.jo{
+          display:inline;  
+        }
+        .headerul{
+            margin:33px 0px 42px 0px;
+            position:relative;
+            left:calc(52.528vw - 481px);
+        }
+        .booknowbtn_header{
+            font-family: DIN;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 28px;
+            letter-spacing: 1px;
+            text-align: left;
+            color: white;
+            width:200px;
+            height:60px;
+            margin:20px 32px 20px 0px;
+            position:absolute;
+            right:0px;
+            background-color: #5B6460;
+        }
+        .btnpos{
+            position:relative;
+            left:30%;
+            margin:16px 0px 16px 0px;
+            
+        }
+        .theoutside{
+            width:100vw;
+            height:46.164vw;
+            margin-top:7.10227vw;
+        }
+        .outside{
+            width:79.3323vw;
+            height:38.849vw;
+            position:relative;
+            top:3.551vw;
+            left:10.298vw;
+            background:url(thehut1.png) no-repeat;
+            background-size:38.778vw 33.948vw;
+            background-position:0% 0%;
+        }
+        .out_textarea{
+            width:30.6818vw;
+            height:29.19vw;
+            position:absolute;
+            right:0px;
+            top:4.7585vw;
+        }
+        .out{
+            font-family: Open Sans;
+            font-size: 40px;
+            font-weight: 400;
+            line-height: 40px;
+            letter-spacing: 0px;
+            text-align: left;
+            color:#5B6460;
+        }
+        .lish{
+            font-family: Open Sans;
+            font-size: 18px;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 30px;
+            letter-spacing: 0px;
+            text-align: left;
+            color:#5B6460;
+            display:inline;           
+        }
+        .out2{
+            padding:0px;
+            margin:3.55113vw 0px 3.40909vw 0px;
+        }
+        .pad{
+            margin-right:31px;
+            border-color: #5B6460;
+            border:solid;
+            border-width: 0px 0px 1px 0px;
+        }
+        .out_inntext{
+            font-family: Open Sans;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 30px;
+            letter-spacing: 0px;
+            text-align: left;
+            color:#333333;
+        }
+        .arrows{
+            position:absolute;
+            left:0px;
+            bottom:0px;
+            padding:0px;                        
+        }
+        .arrli{
+            display:inline;
+            margin-right:46.93px;
+        }
+        .smthidk{
+            position:absolute;
+            left:26.07727vw;
+            bottom:0px;
+            
+        }
+        .shs{
+            display:inline;
+            font-family: Open Sans;
+            font-size: 17px;
+            font-weight: 300;
+            line-height: 23px;
+            letter-spacing: 0px;
+            text-align: left;
+            color: #333333;
+
+        }
+        .line{
+            box-sizing: border-box;
+            padding-bottom:8.5px;
+        }
+        .thehutpic{
+            width:100vw;
+            height:24.8579vw;
+            background:url(Frame\ 27.png) no-repeat;
+            background-size:contain;
+        }
+        .pad2{
+            margin-right:31px;
+            
+        }
+        .line2{
+            border-color: #5B6460;
+            border:solid;
+            border-width: 0px 0px 1px 0px;
+        }
+        .out_textarea2{
+            width:30.6818vw;
+            height:29.19vw;
+            position:absolute;
+            left:0px;
+            top:4.7585vw;
+        }
+        .outside2{
+            width:79.3323vw;
+            height:38.849vw;
+            position:relative;
+            top:3.551vw;
+            left:10.298vw;
+            background:url(papapeva.png) no-repeat;
+            background-size:38.778vw 33.948vw;
+            background-position:100% 0%;
+            margin-top:101px;
+        }
+        .arrows2{
+            position:absolute;
+            right:26.7528vw;
+            bottom:0px;                        
+        }
+        .smthidk2{
+            position:absolute;
+            right:1.07727vw;
+            bottom:0px;
+            
+        }
+        .outside3{
+            width:79.3323vw;
+            height:38.849vw;
+            position:relative;
+            top:3.551vw;
+            left:10.298vw;
+            background:url(lyapis.png) no-repeat;
+            background-size:38.778vw 33.948vw;
+            background-position:0% 0%;
+        }
+        .footer{
+            box-sizing: border-box;
+            width:100vw;
+            height:477px;
+            background-color: #5B6460;
+            margin-top:9.446vw;
+            padding:100px 146px 100px 146px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .Newsletter{
+            font-family: Open Sans;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 30px;
+            letter-spacing: 0px;
+            text-align: left;
+            color: white;
+        }
+        .email{
+            font-family: Open Sans;
+            font-size: 16px;
+            font-style: italic;
+            font-weight: 300;
+            line-height: 30px;
+            letter-spacing: 0px;
+            text-align: left;
+            color:#FFFFFF;
+            height:37px;
+            width:30.68vw;
+            margin:40px 0px 10px 0px;
+            
+            border:solid #EFEFEF;
+            border-width: 0px 0px 1px 0px;
+        }
+        .floatright{
+            float:right;
+        }
+        .signup{
+            font-family: Open Sans;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 30px;
+            letter-spacing: 0px;
+            text-align: left;
+            color:white;
+        }
+        .copyright{
+            font-family: Open Sans;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 30px;
+            letter-spacing: 0px;
+            text-align: left;
+            margin-top:70px;
+            color: #EFEFEF;
+        }
+        .footertext{
+            font-family: DIN;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 24px;
+            letter-spacing: 0px;
+            text-align: left;
+            color:#FFFFFF;
+            display:inline;
+        }
+        .kek{
+            margin:0px 31px 0px 33px;
+        }
+        .payments{
+            display: inline;
+            margin:0px 19.785px 0px 19.785px;
+        }
+        .payments:first-of-type{
+            margin-left:0px;
+        }
+        .payments:last-of-type{
+            margin-right:0px;
+        }
+        .last{
+            margin-top:51px;
+            position: absolute;
+            right:146px;
+        }
+        .jo a:visited{
+            text-decoration:none;
+            color:black;
+        }
+        .jo a{
+            text-decoration:none;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img class="logo1" src="logo (1).png">
+        <ul class="headerul">
+            <li class="jo"><a>HOME</a></li>
+            <li class="jo"><a>THE HUT</a></li>
+            <li class="jo"><a href="proj3_THE_AREA.html">THE AREA</a></li>
+            <li class="jo"><a href="proj3_BOOKING.html" target="_blank">BOOKING</a></li>
+            <li class="jo"><a>ABOUT US</a></li>
+            <li class="jo"><a>FAQ</a></li>
+        </ul>
+        <div class="booknowbtn_header">
+            <p class="btnpos">BOOK NOW</p>
+        </div>
+    </div>
+    <div class="thehutpic">
+
+    </div>
+    <div class="theoutside">
+        <div class="outside">
+            <div class="out_textarea">
+                <div class="out">The Outside</div>
+                <ul class="out2">
+                    <li class="lish pad">Hot tube</li>
+                    <li class="lish">Electric car change</li>
+                </ul>
+                <div class="out_inntext">
+                    Løvtag’s three exclusive and comfortable cabins, Et, Ro and Ly, are designed by architect Sigurd Larsen. They all have an open space with a double bed, a double sofa bed, kitchen, separate toilet and an outdoor shower. On the roof, surrounded by treetops, there is a terrace, which is about nine meters above ground. 
+                </div>
+            </div>
+            <ul class="arrows">
+                <li class="arrli"><img src="back copy.png"></li>
+                <li class="arrli"><img src="back copy 2.png"></li>
+            </ul>
+            <ul class="smthidk">
+                <li class="shs">01</li>
+                <li class="shs line"><img src="Group 30.png"></li>
+                <li class="shs">05</li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="theoutside">
+        <div class="outside2">
+            <div class="out_textarea2">
+                <div class="out">The Inside</div>
+                <ul class="out2">
+                    <li class="lish pad2 line2">Space</li>
+                    <li class="lish pad2">Litchen</li>
+                    <li class="lish">Bathroom</li>
+                </ul>
+                <div class="out_inntext">
+                    Løvtag’s three exclusive and comfortable cabins, Et, Ro and Ly, are designed by architect Sigurd Larsen. They all have an open space with a double bed, a double sofa bed, kitchen, separate toilet and an outdoor shower. On the roof, surrounded by treetops, there is a terrace, which is about nine meters above ground. The cottages are built around tall, old trees that go through the entire cottage from floor to ceiling. 
+                </div>
+            </div>
+            <ul class="arrows2">
+                <li class="arrli"><img src="back copy.png"></li>
+                <li class="arrli"><img src="back copy 2.png"></li>
+            </ul>
+            <ul class="smthidk2">
+                <li class="shs">01</li>
+                <li class="shs line"><img src="Group 30.png"></li>
+                <li class="shs">05</li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="theoutside">
+        <div class="outside3">
+            <div class="out_textarea">
+                <div class="out">Practicalities</div>
+                <ul class="out2">
+                    <li class="lish pad">Breakfast</li>
+                    <li class="lish">Classic Dinner</li>
+                </ul>
+                <div class="out_inntext">
+                    Løvtag’s three exclusive and comfortable cabins, Et, Ro and Ly, are designed by architect Sigurd Larsen. They all have an open space with a double bed, a double sofa bed, kitchen, separate toilet and an outdoor shower. On the roof, surrounded by treetops, there is a terrace, which is about nine meters above ground.  
+                </div>
+            </div>
+            <ul class="arrows">
+                <li class="arrli"><img src="back copy.png"></li>
+                <li class="arrli"><img src="back copy 2.png"></li>
+            </ul>
+            <ul class="smthidk">
+                <li class="shs">01</li>
+                <li class="shs line"><img src="Group 30.png"></li>
+                <li class="shs">05</li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="footer">
+        <div class="left">
+            <div class="Newsletter">Newsletter</div>
+            <div class="email">Email Adrdess<img src="Group 18.png" class="floatright"></div>
+            <div class="signup">Sign up to our newsletter for special things and receive <br>10% off your next order.</div>
+            <div class="copyright">© 2021 The Glass Huts</div>
+        </div>
+        <div>
+            <ul>
+                <li class="footertext">TERMS AND CONDITIONS</li>
+                <li class="footertext kek">CENCELLATION POLICY</li>
+                <li class="footertext">PRIVACY POLICY</li>
+            </ul>
+            <ul class="last">
+                <li class="payments"><img src="paypal-logo 1.png"></li>
+                <li class="payments"><img src="symbol 1.png"></li>
+                <li class="payments"><img src="symbols 1.png"></li>
+                <li class="payments"><img src="symbols-2 1.png"></li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>
