@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .ch{
+        width:1000px;
+        height:700px;
+        background-color: brown;
+    }
+    .cube{
+        width:50px;
+        height: 50px;
+        background-color: blue;
+        position: relative;
+    }
+</style>
+<body>
+    <div class="ch">
+        <div class="cube">
+
+        </div>
+    </div>
+</body>
+<script>
+    let x=0, y=0;
+    document.querySelector('.cube').style.left=x+'px';
+    document.querySelector('.cube').style.top=y+'px';
+    document.addEventListener('keydown', (e)=>{
+        switch(e.keyCode){
+            case 37:document.querySelector('.cube').style.left=parseInt(document.querySelector('.cube').style.left)-10+'px'; break;
+            case 38:document.querySelector('.cube').style.top=parseInt(document.querySelector('.cube').style.top)-10+'px'; break;
+            case 39:document.querySelector('.cube').style.left=parseInt(document.querySelector('.cube').style.left)+10+'px'; break;
+            case 40:document.querySelector('.cube').style.top=parseInt(document.querySelector('.cube').style.top)+10+'px'; break;
+        }
+    })
+</script>
+</html>
