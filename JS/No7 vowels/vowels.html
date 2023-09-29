@@ -10,6 +10,16 @@
 </body>
 </html>
 <script>
-    let a='холодильник';
-    console.log(a[0]);
+    let count=0;
+    let a=null;
+    function glasn(){
+        a=prompt('Введите строку');
+        for(let i=0; i<a.length;i++){
+            if(a[i]=="а"||a[i]== "я"||a[i]=="у"||a[i]=="ю"||a[i]=="о"||a[i]=="е"||a[i]=="ё"||a[i]=="э"||a[i]=="и"||a[i]=="ы"){
+                count+=1;
+            }
+        }
+        console.log(count);
+    }
+    glasn();
 </script>

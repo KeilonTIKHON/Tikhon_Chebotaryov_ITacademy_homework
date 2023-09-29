@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    function randomDiap(n,m) {
+            return Math.floor(Math.random()*(m-n+1))+n;
+    }
+    function colorCheck(colorHash,colors,i){
+        const n=randomDiap(1,7);
+            colorHash[i]=colors[n];
+            for(x=1; x<i;x++){
+               if(colorHash[i]==colorHash[x]){
+                return colorCheck(colorHash,colors,i);
+               }else{
+
+               }
+            }
+    }
+
+    function mood(colorsCount) {
+        const colors=[ '', 'красный', 'оранжевый', 'жёлтый', 'зелёный', 'голубой', 'синий', 'фиолетовый' ];
+
+        console.log( 'цветов: ' + colorsCount );
+        let colorHash={}
+        for ( let i=1; i<=colorsCount; i++ ) {
+            console.log( colorHash , '-после замены в начале след.цикла');
+            const n=randomDiap(1,7);
+            colorHash[i]=colors[n];
+            console.log( colorHash ,'-цикл');
+            for(x=1; x<i;x++){
+               if(colorHash[i]==colorHash[x]){
+                colorCheck(colorHash,colors,i)
+               }
+            }
+            const colorName=colors[n];
+            console.log( colorName );
+        }
+        console.log( colorHash ,'-итог после всех замен');
+    }
+
+    mood(3);
+
+</script>
