@@ -63,7 +63,7 @@
 
 </html>
 <script>
-    let mouseCurPos = null, last_bot_xpos=0;
+    let mouseCurPos = null, last_bot_xpos = 0, cicleKost=false;
     //let timerShot = setInterval(() => alert("ничего не происходит"), 100);//
     function bot_simple_attack() {
         let bot_shot = document.createElement('div');
@@ -86,23 +86,14 @@
         const currentdiv = document.querySelector('.cube');
         const playfield = document.querySelector('.playfield');
         playfield.insertBefore(bot_spawn, currentdiv);
-        
+
         console.log('бот заспавнен');
     }
     let x = 450, y = 600;
     document.querySelector('.cube').style.left = x + 'px';
     document.querySelector('.cube').style.top = y + 'px';
 
-    document.addEventListener('keydown', (e) => {
-        switch (e.keyCode) {
-            case 37: document.querySelector('.cube').style.left = parseInt(document.querySelector('.cube').style.left) - 30 + 'px'; break;
-            case 38: document.querySelector('.cube').style.top = parseInt(document.querySelector('.cube').style.top) - 10 + 'px'; break;
-            case 39: document.querySelector('.cube').style.left = parseInt(document.querySelector('.cube').style.left) + 10 + 'px'; break;
-            case 40: document.querySelector('.cube').style.top = parseInt(document.querySelector('.cube').style.top) + 10 + 'px'; break;
 
-        }
-
-    })
     document.addEventListener('click', (k) =>
 
 
@@ -113,10 +104,25 @@
     let timer_bot_Shot = setInterval(() => {
         for (let i = 0; i < document.querySelectorAll('#bot_shot').length; i++) {
             document.querySelectorAll('#bot_shot')[i].style.top = parseInt(document.querySelectorAll('#bot_shot')[i].style.top) - 2 + 'px';
-            if (parseInt(document.querySelectorAll('#bot_shot')[i].style.top) <= -30) {
+            for (let k = 0; k < document.querySelectorAll('#bot').length; k++) {
+                if ( parseInt(document.querySelectorAll('#bot')[k].style.top)+80 >= parseInt(document.querySelectorAll('#bot_shot')[i].style.top) && parseInt(document.querySelectorAll('#bot')[k].style.top) <= parseInt(document.querySelectorAll('#bot_shot')[i].style.top) && (parseInt(document.querySelectorAll('#bot')[k].style.left) <= parseInt(document.querySelectorAll('#bot_shot')[i].style.left) + 3 && parseInt(document.querySelectorAll('#bot')[k].style.left)+76 >= parseInt(document.querySelectorAll('#bot_shot')[i].style.left) )) {
+                    console.log('popodanie');
+                    cicleKost=true;
+                    break;
+                }
+            }
+            if(cicleKost==true){
+                document.querySelectorAll('#bot_shot')[i].remove();
+                cicleKost=false;
+            }else{
+                if (parseInt(document.querySelectorAll('#bot_shot')[i].style.top) <= -30) {
                 document.querySelectorAll('#bot_shot')[i].remove();
             }
+            }
+           
+            
         }
+
     }
 
         , 3);
@@ -164,9 +170,14 @@
         }
     }, 10)
 
+    //if(botM.style.top==shotM.style.top && (botM.style.left>shotM.style.left+40)){
+    //
+    //}
+
     //let timer_bot_Shot = setInterval(() => { if (mousePos - parseInt(document.querySelector('.cube').style.left)>=4)
     //{
     //            let delaymove = setTimeout(()=>document.querySelector('.cube').style.left=parseInt(document.querySelector('.cube').style.left)+2+'px' , 1000)
     //        }
     //    }, 50)
+    //botM=document.querySelector('#bot'), shotM=document.querySelector('#bot_shot')
 </script>
