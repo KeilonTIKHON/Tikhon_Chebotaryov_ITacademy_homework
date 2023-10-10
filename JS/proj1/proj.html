@@ -80,7 +80,7 @@
     function bot_spawn() {
         let bot_spawn = document.createElement('div');
         bot_spawn.id = "bot";
-        let bot_spawn_xpos = Math.random() * window.innerWidth, bot_spawn_ypos = -100;
+        let bot_spawn_xpos = Math.random() * (window.innerWidth-80), bot_spawn_ypos = -100;
         bot_spawn.style.left = bot_spawn_xpos + 'px';
         bot_spawn.style.top = bot_spawn_ypos + 'px';
         const currentdiv = document.querySelector('.cube');
