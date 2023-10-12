@@ -5,11 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mulish&family=Open+Sans:ital,wght@0,300;0,600;1,300&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
 </head>
 <style>
+    @font-face {
+        font-family: 'PressStart2P-Regular';
+        font-weight: 300;
+
+        src: url('fonts/PressStart2P-Regular.ttf');
+    }
+
     body {
         margin: 0px;
         padding: 0px;
+        box-sizing: border-box;
     }
 
     .cube {
@@ -20,6 +33,7 @@
         z-index: 100;
         background-size: contain;
         background-repeat: no-repeat;
+        overflow: hidden;
 
     }
 
@@ -37,25 +51,108 @@
         position: fixed;
         width: 6px;
         height: 10px;
-        background-color: red;
+        background-color: rgb(0, 247, 0);
         border-radius: 40%;
+        box-sizing: border-box;
+        padding: 2px 0px 0px 2px;
+        ;
+    }
+
+    #bot_shot_inner {
+        position: fixed;
+        width: 2px;
+        height: 6px;
+        background-color: rgb(157, 255, 0);
+        border-radius: 40%;
+        box-sizing: border-box;
+    }
+
+    #npc_shot {
+        position: fixed;
+        width: 6px;
+        height: 10px;
+        background-color: rgb(255, 0, 0);
+        border-radius: 40%;
+        box-sizing: border-box;
+        padding: 2px 0px 0px 2px;
+        ;
+    }
+
+    #npc_shot_inner {
+        position: fixed;
+        width: 2px;
+        height: 6px;
+        background-color: rgb(148, 0, 0);
+        border-radius: 40%;
+        box-sizing: border-box;
     }
 
     #bot {
         position: fixed;
         width: 80px;
         height: 80px;
-        background-color: blue;
+        background-image: url('pics/images__1_-removebg-preview.png');
+        background-repeat: no-repeat;
+        background-size: cover;
         top: -100px;
         left: 0px;
+        padding: 0px;
     }
+
+    #bot_hp {
+        width: 70px;
+        height: 10px;
+        margin: -10px 0px 0px 5px;
+        background-color: red;
+        border-color: white;
+        border-width: 1px;
+        border-style: solid;
+    }
+
+    .outerlevel {
+        width: 210px;
+        height: 70px;
+        background-color: rgb(99, 99, 99);
+        position: fixed;
+        bottom: 0px;
+        border-radius: 10%;
+        border-color: rgb(59, 59, 59);
+        border-width: 2px;
+        border-style: solid;
+        box-sizing: border-box;
+    }
+
+    .innerlevel {
+        box-sizing: border-box;
+        width: 190px;
+        height: 50px;
+        background-color: rgb(59, 59, 59);
+        position: fixed;
+        bottom: 0px;
+        border-radius: 10%;
+        margin: 0px 0px 10px 10px;
+        font-size: 27px;
+        padding-left: 0px;
+        padding-top: 11px;
+        font-weight: 300;
+        font-family: 'PressStart2P-Regular';
+
+
+
+    }
+
+    #player_hp {}
 </style>
 
 <body>
     <div class="playfield">
-
+        <div class="outerlevel">
+            <div class="innerlevel">
+                level 1
+            </div>
+        </div>
         <div class="cube">
-
+            <div id="player_hp"></div>
         </div>
     </div>
 
@@ -63,15 +160,18 @@
 
 </html>
 <script>
-    let mouseCurPos = null, last_bot_xpos = 0, cicleKost=false;
+    let mouseCurPos = null, last_bot_xpos = 0, cicleKost = false, player_hero = document.querySelector('.cube'), bot_diff = 0, timer_Npc_spawn = null, outerLVL= document.querySelector('.outerlevel');
     //let timerShot = setInterval(() => alert("ничего не происходит"), 100);//
     function bot_simple_attack() {
         let bot_shot = document.createElement('div');
         bot_shot.id = "bot_shot";
-        let bot_shot_start_posX = parseInt(document.querySelector('.cube').style.left) + 48 + 'px', bot_shot_start_posY = document.querySelector('.cube').style.top;
+        let bot_shot_start_posX = parseInt(player_hero.style.left) + 48 + 'px', bot_shot_start_posY = player_hero.style.top;
         bot_shot.style.left = bot_shot_start_posX;
         bot_shot.style.top = bot_shot_start_posY;
-        const currentdiv = document.querySelector('.cube');
+        let bot_shotin = document.createElement('div');
+        bot_shotin.id = "bot_shot_inner";
+        bot_shot.appendChild(bot_shotin);
+        const currentdiv = player_hero;
         const playfield = document.querySelector('.playfield');
         playfield.insertBefore(bot_shot, currentdiv);
 
@@ -80,18 +180,40 @@
     function bot_spawn() {
         let bot_spawn = document.createElement('div');
         bot_spawn.id = "bot";
-        let bot_spawn_xpos = Math.random() * (window.innerWidth-80), bot_spawn_ypos = -100;
+        let bot_spawn_xpos = Math.random() * (window.innerWidth - 80), bot_spawn_ypos = -100;
         bot_spawn.style.left = bot_spawn_xpos + 'px';
         bot_spawn.style.top = bot_spawn_ypos + 'px';
-        const currentdiv = document.querySelector('.cube');
+        let bot_hp = document.createElement('div');
+        bot_hp.id = "bot_hp";
+        bot_hp.style.cssText = "width:70px; heigth:10px;margin: -10px 0px 0px 5px;background-color: red;border-color: white;border-width: 1px;border-style: solid;";
+        bot_spawn.appendChild(bot_hp);
+        const currentdiv = player_hero;
         const playfield = document.querySelector('.playfield');
         playfield.insertBefore(bot_spawn, currentdiv);
 
         console.log('бот заспавнен');
     }
+    function npc_shooting() {
+        npcs = document.querySelectorAll('#bot')
+        console.log('uraaaaaaaaaaaaaaaaaaaaaaaaaaa')
+        for (i = 0; i < npcs.length; i++) {
+            console.log('shot');
+            let npc_shot = document.createElement('div');
+            npc_shot.id = "npc_shot";
+            let npc_shot_start_posX = parseInt(npcs[i].style.left) + 38 + 'px', npc_shot_start_posY = parseInt(npcs[i].style.top)+60+'px';
+            npc_shot.style.left = npc_shot_start_posX;
+            npc_shot.style.top = npc_shot_start_posY;
+            let npc_shotin = document.createElement('div');
+            npc_shotin.id = "npc_shot_inner";
+            npc_shot.appendChild(npc_shotin);
+            const currentdiv = outerLVL;
+            const playfield = document.querySelector('.playfield');
+            playfield.insertBefore(npc_shot, currentdiv);
+        }
+    }
     let x = 450, y = 600;
-    document.querySelector('.cube').style.left = x + 'px';
-    document.querySelector('.cube').style.top = y + 'px';
+    player_hero.style.left = x + 'px';
+    player_hero.style.top = y + 'px';
 
 
     document.addEventListener('click', (k) =>
@@ -105,67 +227,122 @@
         for (let i = 0; i < document.querySelectorAll('#bot_shot').length; i++) {
             document.querySelectorAll('#bot_shot')[i].style.top = parseInt(document.querySelectorAll('#bot_shot')[i].style.top) - 2 + 'px';
             for (let k = 0; k < document.querySelectorAll('#bot').length; k++) {
-                if ( parseInt(document.querySelectorAll('#bot')[k].style.top)+80 >= parseInt(document.querySelectorAll('#bot_shot')[i].style.top) && parseInt(document.querySelectorAll('#bot')[k].style.top) <= parseInt(document.querySelectorAll('#bot_shot')[i].style.top) && (parseInt(document.querySelectorAll('#bot')[k].style.left) <= parseInt(document.querySelectorAll('#bot_shot')[i].style.left) + 3 && parseInt(document.querySelectorAll('#bot')[k].style.left)+76 >= parseInt(document.querySelectorAll('#bot_shot')[i].style.left) )) {
-                    console.log('popodanie');
-                    cicleKost=true;
+                if (parseInt(document.querySelectorAll('#bot')[k].style.top) + 72 >= parseInt(document.querySelectorAll('#bot_shot')[i].style.top) && parseInt(document.querySelectorAll('#bot')[k].style.top) <= parseInt(document.querySelectorAll('#bot_shot')[i].style.top) && (parseInt(document.querySelectorAll('#bot')[k].style.left) <= parseInt(document.querySelectorAll('#bot_shot')[i].style.left) + 3 && parseInt(document.querySelectorAll('#bot')[k].style.left) + 76 >= parseInt(document.querySelectorAll('#bot_shot')[i].style.left))) {
+
+                    cicleKost = true;
+
+                    if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 10) {
+                        document.querySelectorAll('#bot_hp')[k].style.width = 0 + 'px';
+                        document.querySelectorAll('#bot')[k].remove();
+                        break;
+                    }
+                    if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 20) {
+                        document.querySelectorAll('#bot_hp')[k].style.width = 10 + 'px';
+                    }
+                    if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 30) {
+                        document.querySelectorAll('#bot_hp')[k].style.width = 20 + 'px';
+                    }
+                    if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 40) {
+                        document.querySelectorAll('#bot_hp')[k].style.width = 30 + 'px';
+                    }
+                    if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 50) {
+                        document.querySelectorAll('#bot_hp')[k].style.width = 40 + 'px';
+                    }
+                    if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 60) {
+                        document.querySelectorAll('#bot_hp')[k].style.width = 50 + 'px';
+                        console.log('hit_2')
+                    }
+                    if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 70) {
+                        document.querySelectorAll('#bot_hp')[k].style.width = 60 + 'px';
+                        console.log('popodanie');
+                    }
+
                     break;
                 }
             }
-            if(cicleKost==true){
+            if (cicleKost == true) {
                 document.querySelectorAll('#bot_shot')[i].remove();
-                cicleKost=false;
-            }else{
+
+                cicleKost = false;
+            } else {
                 if (parseInt(document.querySelectorAll('#bot_shot')[i].style.top) <= -30) {
-                document.querySelectorAll('#bot_shot')[i].remove();
+                    document.querySelectorAll('#bot_shot')[i].remove();
+                }
             }
-            }
-           
-            
+
+
+        }
+        for (let d = 0; d < document.querySelectorAll('#npc_shot').length; d++) {
+            document.querySelectorAll('#npc_shot')[d].style.top = parseInt(document.querySelectorAll('#npc_shot')[d].style.top) + 1 + 'px';
+            if (parseInt(document.querySelectorAll('#npc_shot')[d].style.top) >=  innerWidth+100) {
+                    document.querySelectorAll('#npc_shot')[d].remove();
+                }
         }
 
-    }
-
-        , 3);
+    }, 3);
     window.addEventListener('mousemove', (event) => {
         mousePos = event.clientX;
         mouseCurPos = mousePos - 50;
     });
     let timer_fast_player_move = setInterval(() => {
-        if (mouseCurPos - parseInt(document.querySelector('.cube').style.left) >= 200) {
-            document.querySelector('.cube').style.left = parseInt(document.querySelector('.cube').style.left) + 3 + 'px';
+        if (mouseCurPos - parseInt(player_hero.style.left) >= 200) {
+            player_hero.style.left = parseInt(player_hero.style.left) + 3 + 'px';
 
         }
-        if (mouseCurPos - parseInt(document.querySelector('.cube').style.left) >= 75 && mouseCurPos - parseInt(document.querySelector('.cube').style.left) < 200) {
-            document.querySelector('.cube').style.left = parseInt(document.querySelector('.cube').style.left) + 2.5 + 'px';
+        if (mouseCurPos - parseInt(player_hero.style.left) >= 75 && mouseCurPos - parseInt(player_hero.style.left) < 200) {
+            player_hero.style.left = parseInt(player_hero.style.left) + 2.5 + 'px';
         }
-        if (mouseCurPos - parseInt(document.querySelector('.cube').style.left) >= 25 && mouseCurPos - parseInt(document.querySelector('.cube').style.left) < 75) {
-            document.querySelector('.cube').style.left = parseInt(document.querySelector('.cube').style.left) + 1.5 + 'px';
+        if (mouseCurPos - parseInt(player_hero.style.left) >= 25 && mouseCurPos - parseInt(player_hero.style.left) < 75) {
+            player_hero.style.left = parseInt(player_hero.style.left) + 1.5 + 'px';
         }
-        if (mouseCurPos - parseInt(document.querySelector('.cube').style.left) >= 0 && mouseCurPos - parseInt(document.querySelector('.cube').style.left) < 25) {
-            document.querySelector('.cube').style.left = parseInt(document.querySelector('.cube').style.left) + 0.5 + 'px';
+        if (mouseCurPos - parseInt(player_hero.style.left) >= 0 && mouseCurPos - parseInt(player_hero.style.left) < 25) {
+            player_hero.style.left = parseInt(player_hero.style.left) + 0.5 + 'px';
         }
-        if (mouseCurPos - parseInt(document.querySelector('.cube').style.left) <= -200) {
-            document.querySelector('.cube').style.left = parseInt(document.querySelector('.cube').style.left) - 3 + 'px';
+        if (mouseCurPos - parseInt(player_hero.style.left) <= -200) {
+            player_hero.style.left = parseInt(player_hero.style.left) - 3 + 'px';
         }
-        if (mouseCurPos - parseInt(document.querySelector('.cube').style.left) <= -75 && mouseCurPos - parseInt(document.querySelector('.cube').style.left) > -200) {
-            document.querySelector('.cube').style.left = parseInt(document.querySelector('.cube').style.left) - 2.5 + 'px';
+        if (mouseCurPos - parseInt(player_hero.style.left) <= -75 && mouseCurPos - parseInt(player_hero.style.left) > -200) {
+            player_hero.style.left = parseInt(player_hero.style.left) - 2.5 + 'px';
         }
-        if (mouseCurPos - parseInt(document.querySelector('.cube').style.left) <= -25 && mouseCurPos - parseInt(document.querySelector('.cube').style.left) > -75) {
-            document.querySelector('.cube').style.left = parseInt(document.querySelector('.cube').style.left) - 1.5 + 'px';
+        if (mouseCurPos - parseInt(player_hero.style.left) <= -25 && mouseCurPos - parseInt(player_hero.style.left) > -75) {
+            player_hero.style.left = parseInt(player_hero.style.left) - 1.5 + 'px';
         }
-        if (mouseCurPos - parseInt(document.querySelector('.cube').style.left) <= 0 && mouseCurPos - parseInt(document.querySelector('.cube').style.left) > -25) {
-            document.querySelector('.cube').style.left = parseInt(document.querySelector('.cube').style.left) - 0.5 + 'px';
+        if (mouseCurPos - parseInt(player_hero.style.left) <= 0 && mouseCurPos - parseInt(player_hero.style.left) > -25) {
+            player_hero.style.left = parseInt(player_hero.style.left) - 0.5 + 'px';
         }
 
     }, 2)
-    let timer_Npc_spawn = setInterval(
+    timer_Npc_spawn = setInterval(
         bot_spawn
-        , 3000)
+        , 3000);
+    bot_diff += 150;
+    let timer_bot_diff = setInterval(() => {
+
+        if (bot_diff < 1500) {
+            clearInterval(timer_Npc_spawn);
+            timer_Npc_spawn = setInterval(
+                bot_spawn
+                , 3000 - bot_diff);
+            bot_diff += 150;
+        } else {
+            clearInterval(timer_Npc_spawn);
+            timer_Npc_spawn = setInterval(
+                bot_spawn
+                , 3000 - bot_diff);
+            clearInterval(timer_bot_diff);
+
+        }
+
+
+    }, 4500)
+    let timer_npc_shot = setInterval(npc_shooting, 2000);
+
     let timer_npc_move = setInterval(() => {
         for (let i = 0; i < document.querySelectorAll('#bot').length; i++) {
             document.querySelectorAll('#bot')[i].style.top = parseInt(document.querySelectorAll('#bot')[i].style.top) + 1 + 'px';
             if (parseInt(document.querySelectorAll('#bot')[i].style.top) >= innerHeight + 100) {
                 document.querySelectorAll('#bot')[i].remove();
+
             }
         }
     }, 10)
@@ -174,9 +351,9 @@
     //
     //}
 
-    //let timer_bot_Shot = setInterval(() => { if (mousePos - parseInt(document.querySelector('.cube').style.left)>=4)
+    //let timer_bot_Shot = setInterval(() => { if (mousePos - parseInt(player_hero.style.left)>=4)
     //{
-    //            let delaymove = setTimeout(()=>document.querySelector('.cube').style.left=parseInt(document.querySelector('.cube').style.left)+2+'px' , 1000)
+    //            let delaymove = setTimeout(()=>player_hero.style.left=parseInt(player_hero.style.left)+2+'px' , 1000)
     //        }
     //    }, 50)
     //botM=document.querySelector('#bot'), shotM=document.querySelector('#bot_shot')
