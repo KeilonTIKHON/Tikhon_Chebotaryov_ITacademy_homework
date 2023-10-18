@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let x=0;
+    function Timer(timeout) {
+        var self = this;
+        this.interval = timeout ? timeout : 1000;   // Default
+
+        this.run = function (runnable) {
+            setInterval(function () { runnable(self); }, this.interval);
+        };
+    }
+
+    var timer = new Timer(2000);
+    timer.run(function (timer) {
+        console.log(0+x)
+        x+=1;
+    });
+</script>

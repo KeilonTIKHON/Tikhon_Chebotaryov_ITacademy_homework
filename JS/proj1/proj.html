@@ -110,7 +110,7 @@
     }
 
     .outerlevel {
-        width: 210px;
+        width: 260px;
         height: 70px;
         background-color: rgb(99, 99, 99);
         position: fixed;
@@ -124,7 +124,7 @@
 
     .innerlevel {
         box-sizing: border-box;
-        width: 190px;
+        width: 240px;
         height: 50px;
         background-color: rgb(59, 59, 59);
         position: fixed;
@@ -141,14 +141,45 @@
 
     }
 
+    .pausewindow {
+        width: 100vw;
+        height: 100vw;
+        background-color: rgba(0, 0, 0, 0.541);
+        display: none;
+        position: fixed;
+        z-index: 1000;
+    }
+
+    .unpouse_button {
+        height: 20vh;
+        width: 30vw;
+        position: fixed;
+        left: 35vw;
+        top: 10vh;
+        border-radius: 10%;
+        font-size: 57px;
+        padding-left: 0px;
+        padding-top: 11px;
+        font-weight: 300;
+        font-family: 'PressStart2P-Regular';
+        color: black;
+    }
+
+    .unpouse_button:hover {
+        background-color: rgb(156, 156, 156);
+    }
+
     #player_hp {}
 </style>
 
 <body>
+    <div class="pausewindow">
+        <input type="button" name="" value="resume" class="unpouse_button">
+    </div>
     <div class="playfield">
         <div class="outerlevel">
             <div class="innerlevel">
-                level 1
+                level 0
             </div>
         </div>
         <div class="cube">
@@ -160,8 +191,9 @@
 
 </html>
 <script>
-    let mouseCurPos = null, last_bot_xpos = 0, cicleKost = false, player_hero = document.querySelector('.cube'), bot_diff = 0, timer_Npc_spawn = null, outerLVL= document.querySelector('.outerlevel');
+    let mouseCurPos = null, last_bot_xpos = 0, cicleKost = false, player_hero = document.querySelector('.cube'), bot_diff = 0, timer_Npc_spawn = null, outerLVL = document.querySelector('.outerlevel'), LVLno = 1, pausediffInterval = null, pauseInterval, pauseMouseInterval = null, pausewindow = document.querySelector('.pausewindow'), paused = false, playField = document.querySelector('.playfield'), diffTime = 0, timeouts = null, filler = null, timer = null, timer1 = null, timer_npc_shot = null, shottime = 0, shotfiller = null,timer_npc_shot1=null;
     //let timerShot = setInterval(() => alert("ничего не происходит"), 100);//
+
     function bot_simple_attack() {
         let bot_shot = document.createElement('div');
         bot_shot.id = "bot_shot";
@@ -172,180 +204,309 @@
         bot_shotin.id = "bot_shot_inner";
         bot_shot.appendChild(bot_shotin);
         const currentdiv = player_hero;
-        const playfield = document.querySelector('.playfield');
+        const playfield = playField;
         playfield.insertBefore(bot_shot, currentdiv);
 
 
     }
     function bot_spawn() {
-        let bot_spawn = document.createElement('div');
-        bot_spawn.id = "bot";
-        let bot_spawn_xpos = Math.random() * (window.innerWidth - 80), bot_spawn_ypos = -100;
-        bot_spawn.style.left = bot_spawn_xpos + 'px';
-        bot_spawn.style.top = bot_spawn_ypos + 'px';
-        let bot_hp = document.createElement('div');
-        bot_hp.id = "bot_hp";
-        bot_hp.style.cssText = "width:70px; heigth:10px;margin: -10px 0px 0px 5px;background-color: red;border-color: white;border-width: 1px;border-style: solid;";
-        bot_spawn.appendChild(bot_hp);
-        const currentdiv = player_hero;
-        const playfield = document.querySelector('.playfield');
-        playfield.insertBefore(bot_spawn, currentdiv);
+        if (!paused) {
+            let bot_spawn = document.createElement('div');
+            bot_spawn.id = "bot";
+            let bot_spawn_xpos = Math.random() * (window.innerWidth - 80), bot_spawn_ypos = -100;
+            bot_spawn.style.left = bot_spawn_xpos + 'px';
+            bot_spawn.style.top = bot_spawn_ypos + 'px';
+            let bot_hp = document.createElement('div');
+            bot_hp.id = "bot_hp";
+            bot_hp.style.cssText = "width:70px; heigth:10px;margin: -10px 0px 0px 5px;background-color: red;border-color: white;border-width: 1px;border-style: solid;";
+            bot_spawn.appendChild(bot_hp);
+            const currentdiv = player_hero;
+            const playfield = playField;
+            playfield.insertBefore(bot_spawn, currentdiv);
 
-        console.log('бот заспавнен');
+            console.log('bot_spawned')
+        }
+
+
     }
     function npc_shooting() {
-        npcs = document.querySelectorAll('#bot')
-        console.log('uraaaaaaaaaaaaaaaaaaaaaaaaaaa')
-        for (i = 0; i < npcs.length; i++) {
-            console.log('shot');
-            let npc_shot = document.createElement('div');
-            npc_shot.id = "npc_shot";
-            let npc_shot_start_posX = parseInt(npcs[i].style.left) + 38 + 'px', npc_shot_start_posY = parseInt(npcs[i].style.top)+60+'px';
-            npc_shot.style.left = npc_shot_start_posX;
-            npc_shot.style.top = npc_shot_start_posY;
-            let npc_shotin = document.createElement('div');
-            npc_shotin.id = "npc_shot_inner";
-            npc_shot.appendChild(npc_shotin);
-            const currentdiv = outerLVL;
-            const playfield = document.querySelector('.playfield');
-            playfield.insertBefore(npc_shot, currentdiv);
+        if (!paused) {
+            npcs = document.querySelectorAll('#bot')
+
+            for (i = 0; i < npcs.length; i++) {
+                console.log('shot');
+                let npc_shot = document.createElement('div');
+                npc_shot.id = "npc_shot";
+                let npc_shot_start_posX = parseInt(npcs[i].style.left) + 38 + 'px', npc_shot_start_posY = parseInt(npcs[i].style.top) + 60 + 'px';
+                npc_shot.style.left = npc_shot_start_posX;
+                npc_shot.style.top = npc_shot_start_posY;
+                let npc_shotin = document.createElement('div');
+                npc_shotin.id = "npc_shot_inner";
+                npc_shot.appendChild(npc_shotin);
+                const currentdiv = outerLVL;
+                const playfield = playField;
+                playfield.insertBefore(npc_shot, currentdiv);
+            }
         }
+
+    }
+    function playerAttack() {
+        if (!paused) {
+            for (let i = 0; i < document.querySelectorAll('#bot_shot').length; i++) {
+                document.querySelectorAll('#bot_shot')[i].style.top = parseInt(document.querySelectorAll('#bot_shot')[i].style.top) - 2 + 'px';
+                for (let k = 0; k < document.querySelectorAll('#bot').length; k++) {
+                    if (parseInt(document.querySelectorAll('#bot')[k].style.top) + 72 >= parseInt(document.querySelectorAll('#bot_shot')[i].style.top) && parseInt(document.querySelectorAll('#bot')[k].style.top) <= parseInt(document.querySelectorAll('#bot_shot')[i].style.top) && (parseInt(document.querySelectorAll('#bot')[k].style.left) <= parseInt(document.querySelectorAll('#bot_shot')[i].style.left) + 3 && parseInt(document.querySelectorAll('#bot')[k].style.left) + 76 >= parseInt(document.querySelectorAll('#bot_shot')[i].style.left))) {
+
+                        cicleKost = true;
+
+                        if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 10) {
+                            document.querySelectorAll('#bot_hp')[k].style.width = 0 + 'px';
+                            document.querySelectorAll('#bot')[k].remove();
+                            break;
+                        }
+                        if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 20) {
+                            document.querySelectorAll('#bot_hp')[k].style.width = 10 + 'px';
+                        }
+                        if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 30) {
+                            document.querySelectorAll('#bot_hp')[k].style.width = 20 + 'px';
+                        }
+                        if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 40) {
+                            document.querySelectorAll('#bot_hp')[k].style.width = 30 + 'px';
+                        }
+                        if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 50) {
+                            document.querySelectorAll('#bot_hp')[k].style.width = 40 + 'px';
+                        }
+                        if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 60) {
+                            document.querySelectorAll('#bot_hp')[k].style.width = 50 + 'px';
+
+                        }
+                        if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 70) {
+                            document.querySelectorAll('#bot_hp')[k].style.width = 60 + 'px';
+
+                        }
+
+                        break;
+                    }
+                }
+                if (cicleKost == true) {
+                    document.querySelectorAll('#bot_shot')[i].remove();
+
+                    cicleKost = false;
+                } else {
+                    if (parseInt(document.querySelectorAll('#bot_shot')[i].style.top) <= -30) {
+                        document.querySelectorAll('#bot_shot')[i].remove();
+                    }
+                }
+
+
+            }
+            for (let d = 0; d < document.querySelectorAll('#npc_shot').length; d++) {
+                document.querySelectorAll('#npc_shot')[d].style.top = parseInt(document.querySelectorAll('#npc_shot')[d].style.top) + 1 + 'px';
+                if (parseInt(document.querySelectorAll('#npc_shot')[d].style.top) >= innerWidth + 100) {
+                    document.querySelectorAll('#npc_shot')[d].remove();
+                }
+            }
+        }
+
+
+
+    }
+    function playerMove() {
+        if (!paused) {
+            if (mouseCurPos - parseInt(player_hero.style.left) >= 200) {
+                player_hero.style.left = parseInt(player_hero.style.left) + 4 + 'px';
+
+            }
+            if (mouseCurPos - parseInt(player_hero.style.left) >= 75 && mouseCurPos - parseInt(player_hero.style.left) < 200) {
+                player_hero.style.left = parseInt(player_hero.style.left) + 3.5 + 'px';
+            }
+            if (mouseCurPos - parseInt(player_hero.style.left) >= 25 && mouseCurPos - parseInt(player_hero.style.left) < 75) {
+                player_hero.style.left = parseInt(player_hero.style.left) + 2.5 + 'px';
+            }
+            if (mouseCurPos - parseInt(player_hero.style.left) >= 0 && mouseCurPos - parseInt(player_hero.style.left) < 25) {
+                player_hero.style.left = parseInt(player_hero.style.left) + 1 + 'px';
+            }
+            if (mouseCurPos - parseInt(player_hero.style.left) <= -200) {
+                player_hero.style.left = parseInt(player_hero.style.left) - 4 + 'px';
+            }
+            if (mouseCurPos - parseInt(player_hero.style.left) <= -75 && mouseCurPos - parseInt(player_hero.style.left) > -200) {
+                player_hero.style.left = parseInt(player_hero.style.left) - 3.5 + 'px';
+            }
+            if (mouseCurPos - parseInt(player_hero.style.left) <= -25 && mouseCurPos - parseInt(player_hero.style.left) > -75) {
+                player_hero.style.left = parseInt(player_hero.style.left) - 2.5 + 'px';
+            }
+            if (mouseCurPos - parseInt(player_hero.style.left) <= 0 && mouseCurPos - parseInt(player_hero.style.left) > -25) {
+                player_hero.style.left = parseInt(player_hero.style.left) - 1 + 'px';
+            }
+        }
+    }
+    function diff() {
+        console.log('уебище вызвало диф')
+        if (!paused) {
+
+            if (bot_diff < 1500) {
+                clearInterval(timer_Npc_spawn);
+                timer_Npc_spawn = setInterval(
+                    bot_spawn
+                    , 3000 - bot_diff);
+                bot_diff += 150;
+                document.querySelector('.innerlevel').innerHTML = 'level ' + LVLno;
+                LVLno += 1;
+            } else {
+                clearInterval(timer_Npc_spawn);
+                timer_Npc_spawn = setInterval(
+                    bot_spawn
+                    , 3000 - bot_diff);
+                clearInterval(timer);
+
+            }
+        }
+
+    }
+    function botMove() {
+        if (!paused) {
+            for (let i = 0; i < document.querySelectorAll('#bot').length; i++) {
+                document.querySelectorAll('#bot')[i].style.top = parseInt(document.querySelectorAll('#bot')[i].style.top) + 1 + 'px';
+                if (parseInt(document.querySelectorAll('#bot')[i].style.top) >= innerHeight + 100) {
+                    document.querySelectorAll('#bot')[i].remove();
+
+                }
+            }
+        }
+    }
+    function createTimer() {
+
+        console.log('уебище вызвало createtimer')
+        filler = setInterval(() => {
+            diffTime += 1;
+            if (diffTime >= 9000) {
+                diffTime = 0;
+                if (timer == null) {
+                    clearInterval(filler)
+                }
+
+
+            }
+        }, 1);
+        timer1 = setTimeout(() => {
+            if (!paused) {
+                clearInterval(filler)
+                diff();
+                startdifftimer()
+            }
+
+        }, 9000 - diffTime);
+
+
+
+    }
+    function pause() {
+        if (!paused) {
+            paused = true;
+            pausewindow.style.display = 'block';
+            playField.removeEventListener('click', bot_simple_attack)
+            clearInterval(filler);
+            clearInterval(timer);
+            clearInterval(timer1);
+
+            console.log(diffTime);
+
+        }
+
+    }
+    function unpouse() {
+        if (!!paused) {
+            paused = false;
+            pausewindow.style.display = 'none';
+            playField.addEventListener('click', bot_simple_attack);
+            createTimer();
+
+
+        }
+
+    }
+    function startdifftimer() {
+        if (!paused) {
+            console.log('продолжил нормальный интервал')
+            diffTime = 0;
+            filler = setInterval(() => {
+                diffTime += 1;
+                if (diffTime == 9000) {
+                    diffTime = 0;
+                }
+            }, 1);
+            timer = setTimeout(() => {
+                diff();
+            }, 9000);
+        }
+
+    }
+    function npcShotTimer() {
+        if (!paused) {
+            shottime = 0;
+            shotfiller = setInterval(() => {
+                shottime += 1;
+                if (shottime == 2000) {
+                    shottime = 0;
+                }
+            }, 1);
+            timer_npc_shot = setInterval(() => {
+                npc_shooting();
+            }, 2000);
+        }
+
+
+    }
+    function resumenpcshooting() {
+        console.log('уебище вызвало createtimer')
+        shotfiller = setInterval(() => {
+            shottime += 1;
+            if (shottime >= 2000) {
+                shottime = 0;
+                if (timer_npc_shot == null) {
+                    clearInterval(shotfiller)
+                }
+
+
+            }
+        }, 1);
+        timer_npc_shot1 = setTimeout(() => {
+            if (!paused) {
+                clearInterval(shotfiller)
+                npc_shooting();
+                npcShotTimer()
+            }
+
+        }, 2000 - shottime);
     }
     let x = 450, y = 600;
     player_hero.style.left = x + 'px';
     player_hero.style.top = y + 'px';
 
 
-    document.addEventListener('click', (k) =>
-
-
-        bot_simple_attack()
-
-
-    )
-    let timer_bot_Shot = setInterval(() => {
-        for (let i = 0; i < document.querySelectorAll('#bot_shot').length; i++) {
-            document.querySelectorAll('#bot_shot')[i].style.top = parseInt(document.querySelectorAll('#bot_shot')[i].style.top) - 2 + 'px';
-            for (let k = 0; k < document.querySelectorAll('#bot').length; k++) {
-                if (parseInt(document.querySelectorAll('#bot')[k].style.top) + 72 >= parseInt(document.querySelectorAll('#bot_shot')[i].style.top) && parseInt(document.querySelectorAll('#bot')[k].style.top) <= parseInt(document.querySelectorAll('#bot_shot')[i].style.top) && (parseInt(document.querySelectorAll('#bot')[k].style.left) <= parseInt(document.querySelectorAll('#bot_shot')[i].style.left) + 3 && parseInt(document.querySelectorAll('#bot')[k].style.left) + 76 >= parseInt(document.querySelectorAll('#bot_shot')[i].style.left))) {
-
-                    cicleKost = true;
-
-                    if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 10) {
-                        document.querySelectorAll('#bot_hp')[k].style.width = 0 + 'px';
-                        document.querySelectorAll('#bot')[k].remove();
-                        break;
-                    }
-                    if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 20) {
-                        document.querySelectorAll('#bot_hp')[k].style.width = 10 + 'px';
-                    }
-                    if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 30) {
-                        document.querySelectorAll('#bot_hp')[k].style.width = 20 + 'px';
-                    }
-                    if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 40) {
-                        document.querySelectorAll('#bot_hp')[k].style.width = 30 + 'px';
-                    }
-                    if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 50) {
-                        document.querySelectorAll('#bot_hp')[k].style.width = 40 + 'px';
-                    }
-                    if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 60) {
-                        document.querySelectorAll('#bot_hp')[k].style.width = 50 + 'px';
-                        console.log('hit_2')
-                    }
-                    if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 70) {
-                        document.querySelectorAll('#bot_hp')[k].style.width = 60 + 'px';
-                        console.log('popodanie');
-                    }
-
-                    break;
-                }
-            }
-            if (cicleKost == true) {
-                document.querySelectorAll('#bot_shot')[i].remove();
-
-                cicleKost = false;
-            } else {
-                if (parseInt(document.querySelectorAll('#bot_shot')[i].style.top) <= -30) {
-                    document.querySelectorAll('#bot_shot')[i].remove();
-                }
-            }
-
-
-        }
-        for (let d = 0; d < document.querySelectorAll('#npc_shot').length; d++) {
-            document.querySelectorAll('#npc_shot')[d].style.top = parseInt(document.querySelectorAll('#npc_shot')[d].style.top) + 1 + 'px';
-            if (parseInt(document.querySelectorAll('#npc_shot')[d].style.top) >=  innerWidth+100) {
-                    document.querySelectorAll('#npc_shot')[d].remove();
-                }
-        }
-
-    }, 3);
+    playField.addEventListener('click', bot_simple_attack)
+    let timer_bot_Shot = setInterval(playerAttack, 3);
     window.addEventListener('mousemove', (event) => {
         mousePos = event.clientX;
         mouseCurPos = mousePos - 50;
     });
-    let timer_fast_player_move = setInterval(() => {
-        if (mouseCurPos - parseInt(player_hero.style.left) >= 200) {
-            player_hero.style.left = parseInt(player_hero.style.left) + 3 + 'px';
-
-        }
-        if (mouseCurPos - parseInt(player_hero.style.left) >= 75 && mouseCurPos - parseInt(player_hero.style.left) < 200) {
-            player_hero.style.left = parseInt(player_hero.style.left) + 2.5 + 'px';
-        }
-        if (mouseCurPos - parseInt(player_hero.style.left) >= 25 && mouseCurPos - parseInt(player_hero.style.left) < 75) {
-            player_hero.style.left = parseInt(player_hero.style.left) + 1.5 + 'px';
-        }
-        if (mouseCurPos - parseInt(player_hero.style.left) >= 0 && mouseCurPos - parseInt(player_hero.style.left) < 25) {
-            player_hero.style.left = parseInt(player_hero.style.left) + 0.5 + 'px';
-        }
-        if (mouseCurPos - parseInt(player_hero.style.left) <= -200) {
-            player_hero.style.left = parseInt(player_hero.style.left) - 3 + 'px';
-        }
-        if (mouseCurPos - parseInt(player_hero.style.left) <= -75 && mouseCurPos - parseInt(player_hero.style.left) > -200) {
-            player_hero.style.left = parseInt(player_hero.style.left) - 2.5 + 'px';
-        }
-        if (mouseCurPos - parseInt(player_hero.style.left) <= -25 && mouseCurPos - parseInt(player_hero.style.left) > -75) {
-            player_hero.style.left = parseInt(player_hero.style.left) - 1.5 + 'px';
-        }
-        if (mouseCurPos - parseInt(player_hero.style.left) <= 0 && mouseCurPos - parseInt(player_hero.style.left) > -25) {
-            player_hero.style.left = parseInt(player_hero.style.left) - 0.5 + 'px';
-        }
-
-    }, 2)
+    let timer_fast_player_move = setInterval(playerMove, 2)
     timer_Npc_spawn = setInterval(
         bot_spawn
         , 3000);
     bot_diff += 150;
-    let timer_bot_diff = setInterval(() => {
+    startdifftimer();
 
-        if (bot_diff < 1500) {
-            clearInterval(timer_Npc_spawn);
-            timer_Npc_spawn = setInterval(
-                bot_spawn
-                , 3000 - bot_diff);
-            bot_diff += 150;
-        } else {
-            clearInterval(timer_Npc_spawn);
-            timer_Npc_spawn = setInterval(
-                bot_spawn
-                , 3000 - bot_diff);
-            clearInterval(timer_bot_diff);
 
+    window.addEventListener('keydown', (e) => {
+        switch (e.key) {
+            case 'Escape': pause();
         }
+    })
+    npcShotTimer();
 
-
-    }, 4500)
-    let timer_npc_shot = setInterval(npc_shooting, 2000);
-
-    let timer_npc_move = setInterval(() => {
-        for (let i = 0; i < document.querySelectorAll('#bot').length; i++) {
-            document.querySelectorAll('#bot')[i].style.top = parseInt(document.querySelectorAll('#bot')[i].style.top) + 1 + 'px';
-            if (parseInt(document.querySelectorAll('#bot')[i].style.top) >= innerHeight + 100) {
-                document.querySelectorAll('#bot')[i].remove();
-
-            }
-        }
-    }, 10)
+    let timer_npc_move = setInterval(botMove, 10)
+    document.querySelector('.unpouse_button').addEventListener('click', unpouse)
 
     //if(botM.style.top==shotM.style.top && (botM.style.left>shotM.style.left+40)){
     //
@@ -357,4 +518,5 @@
     //        }
     //    }, 50)
     //botM=document.querySelector('#bot'), shotM=document.querySelector('#bot_shot')
+    //timer_npc_shot = setInterval(npc_shooting, 2000);
 </script>
