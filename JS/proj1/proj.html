@@ -1060,7 +1060,10 @@
             playField.addEventListener('mousemove', smth);
         }else{
             mobshbtn.addEventListener('click', bot_simple_attack);
-            playField.addEventListener('click', smth)
+            playField.addEventListener('touchmove',  (ev)=>{
+            mousePos = ev.touches[0].clientX;
+            mouseCurPos = mousePos - 50;
+            });
         }
         
 
