@@ -705,6 +705,9 @@
             bot_spawn.style.top = bot_spawn_ypos + 'px';
             let bot_hp = document.createElement('div');
             bot_hp.id = "bot_hp";
+            if(onmobilee){
+                bot_hp.style.cssText = "width:7vw; heigth:10px;margin: -0.55vw 0px 0px 0.25vw;background-color: red;border-color: white;border-width: 1px;border-style: solid;";
+            }
             bot_hp.style.cssText = "width:3.5vw; heigth:10px;margin: -0.55vw 0px 0px 0.25vw;background-color: red;border-color: white;border-width: 1px;border-style: solid;";
             bot_spawn.appendChild(bot_hp);
             const currentdiv = player_hero;
@@ -1064,7 +1067,7 @@
     }
 
     function startGame() {
-        console.log(innerWidth);
+        alert(innerWidth);
         if(!onmobilee){
             {
             playField.addEventListener('click', bot_simple_attack);
