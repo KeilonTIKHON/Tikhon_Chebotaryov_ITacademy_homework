@@ -44,7 +44,7 @@
         background-size: cover;
         background-repeat: no-repeat;
         position: absolute;
-        
+
     }
 
     #bot_shot {
@@ -452,7 +452,7 @@
         height: 6vw;
         background-color: rgba(0, 0, 0, 0.849);
         border-radius: 50%;
-        
+
     }
 
     .mobileshotbtn:active {
@@ -565,20 +565,20 @@
         a[index] = char;
         return a.join("");
     }
-    
-    
-    
+
+
+
     if (onmobilee) {
         alert('you are on mobile!');
         player_hero.style.cssText = 'width: 20vw;height: 20vw;background-image: url("pics/NicePng_spaceship-png_138961.png");position: relative;z-index: 100;background-size: contain;background-repeat: no-repeat;overflow: hidden;'
     }
     if (onmobilee) {
-            mobshbtn.addEventListener('click', bot_simple_attack);
-            document.addEventListener('touchmove', (ev)=>{
-                mousePos =ev.touches[0].clientX;
-                mouseCurPos = mousePos - 50;
-            });
-        }
+        mobshbtn.addEventListener('click', bot_simple_attack);
+        document.addEventListener('touchmove', (ev) => {
+            mousePos = ev.touches[0].clientX;
+            mouseCurPos = mousePos - 50;
+        });
+    }
     function pauseunactive() {
         if (document.hidden) {
 
@@ -685,7 +685,7 @@
     function bot_simple_attack() {
         let bot_shot = document.createElement('div');
         bot_shot.id = "bot_shot";
-        let bot_shot_start_posX = parseInt(player_hero.style.left) + innerWidth/100*2.3 + 'px', bot_shot_start_posY = player_hero.style.top;
+        let bot_shot_start_posX = parseInt(player_hero.style.left) + innerWidth / 100 * 2.3 + 'px', bot_shot_start_posY = player_hero.style.top;
         bot_shot.style.left = bot_shot_start_posX;
         bot_shot.style.top = bot_shot_start_posY;
         let bot_shotin = document.createElement('div');
@@ -701,7 +701,7 @@
         if (!paused) {
             let bot_spawn = document.createElement('div');
             bot_spawn.id = "bot";
-            if(onmobilee){
+            if (onmobilee) {
                 bot_spawn.style.cssText = ' position: fixed;width: 16vw;height: 16vw;background-image: url("pics/images__1_-removebg-preview.png");background-repeat: no-repeat;background-size: cover;top: -100px;left: 0px;padding: 0px'
             }
             let bot_spawn_xpos = Math.random() * (window.innerWidth - 80), bot_spawn_ypos = -100;
@@ -709,12 +709,12 @@
             bot_spawn.style.top = bot_spawn_ypos + 'px';
             let bot_hp = document.createElement('div');
             bot_hp.id = "bot_hp";
-            if(onmobilee){
+            if (onmobilee) {
                 bot_hp.style.cssText = "width:14vw; heigth:10px;margin: -2.20vw 0px 0px 0.25vw;background-color: red;border-color: white;border-width: 1px;border-style: solid;";
-            }else{
+            } else {
                 bot_hp.style.cssText = "width:3.5vw; heigth:10px;margin: -0.55vw 0px 0px 0.25vw;background-color: red;border-color: white;border-width: 1px;border-style: solid;";
             }
-            
+
             bot_spawn.appendChild(bot_hp);
             const currentdiv = player_hero;
             const playfield = playField;
@@ -733,7 +733,7 @@
 
                 let npc_shot = document.createElement('div');
                 npc_shot.id = "npc_shot";
-                let npc_shot_start_posX = parseInt(npcs[i].style.left) + innerWidth/100*1.9 + 'px', npc_shot_start_posY = parseInt(npcs[i].style.top) + innerWidth/100*3 + 'px';
+                let npc_shot_start_posX = parseInt(npcs[i].style.left) + innerWidth / 100 * 1.9 + 'px', npc_shot_start_posY = parseInt(npcs[i].style.top) + innerWidth / 100 * 3 + 'px';
                 npc_shot.style.left = npc_shot_start_posX;
                 npc_shot.style.top = npc_shot_start_posY;
                 let npc_shotin = document.createElement('div');
@@ -818,77 +818,152 @@
     }
 
     function playerAttack() {
-        if (!gameoverr) {
-            if (!paused) {
-                for (let i = 0; i < document.querySelectorAll('#bot_shot').length; i++) {
-                    document.querySelectorAll('#bot_shot')[i].style.top = parseInt(document.querySelectorAll('#bot_shot')[i].style.top) - 2 + 'px';
-                    for (let k = 0; k < document.querySelectorAll('#bot').length; k++) {
-                        if (parseFloat(document.querySelectorAll('#bot')[k].style.top) + innerWidth/100*3.6 >= parseFloat(document.querySelectorAll('#bot_shot')[i].style.top) && parseFloat(document.querySelectorAll('#bot')[k].style.top) <= parseFloat(document.querySelectorAll('#bot_shot')[i].style.top) && (parseFloat(document.querySelectorAll('#bot')[k].style.left) <= parseFloat(document.querySelectorAll('#bot_shot')[i].style.left)  && parseFloat(document.querySelectorAll('#bot')[k].style.left) + innerWidth/100*3.8 >= parseFloat(document.querySelectorAll('#bot_shot')[i].style.left))) {
+        if (!onmobilee) {
+            if (!gameoverr) {
+                if (!paused) {
+                    for (let i = 0; i < document.querySelectorAll('#bot_shot').length; i++) {
+                        document.querySelectorAll('#bot_shot')[i].style.top = parseInt(document.querySelectorAll('#bot_shot')[i].style.top) - 2 + 'px';
+                        for (let k = 0; k < document.querySelectorAll('#bot').length; k++) {
+                            if (parseFloat(document.querySelectorAll('#bot')[k].style.top) + innerWidth / 100 * 3.6 >= parseFloat(document.querySelectorAll('#bot_shot')[i].style.top) && parseFloat(document.querySelectorAll('#bot')[k].style.top) <= parseFloat(document.querySelectorAll('#bot_shot')[i].style.top) && (parseFloat(document.querySelectorAll('#bot')[k].style.left) <= parseFloat(document.querySelectorAll('#bot_shot')[i].style.left) && parseFloat(document.querySelectorAll('#bot')[k].style.left) + innerWidth / 100 * 3.8 >= parseFloat(document.querySelectorAll('#bot_shot')[i].style.left))) {
 
-                            cicleKost = true;
+                                cicleKost = true;
 
-                            if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 0.5) {
-                                document.querySelectorAll('#bot_hp')[k].style.width = 0 + 'px';
-                                document.querySelectorAll('#bot')[k].remove();
-                                playerIncrScore(100);
+                                if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 0.5) {
+                                    document.querySelectorAll('#bot_hp')[k].style.width = 0 + 'px';
+                                    document.querySelectorAll('#bot')[k].remove();
+                                    playerIncrScore(100);
+                                    break;
+                                }
+                                if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 1) {
+                                    document.querySelectorAll('#bot_hp')[k].style.width = 0.5 + 'vw';
+                                }
+                                if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 1.5) {
+                                    document.querySelectorAll('#bot_hp')[k].style.width = 1 + 'vw';
+                                }
+                                if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 2) {
+                                    document.querySelectorAll('#bot_hp')[k].style.width = 1.5 + 'vw';
+                                }
+                                if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 2.5) {
+                                    document.querySelectorAll('#bot_hp')[k].style.width = 2 + 'vw';
+                                }
+                                if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 3) {
+                                    document.querySelectorAll('#bot_hp')[k].style.width = 2.5 + 'vw';
+
+                                }
+                                if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 3.5) {
+                                    document.querySelectorAll('#bot_hp')[k].style.width = 3 + 'vw';
+
+                                }
+
                                 break;
                             }
-                            if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 1) {
-                                document.querySelectorAll('#bot_hp')[k].style.width = 0.5 + 'vw';
-                            }
-                            if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 1.5) {
-                                document.querySelectorAll('#bot_hp')[k].style.width = 1 + 'vw';
-                            }
-                            if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 2) {
-                                document.querySelectorAll('#bot_hp')[k].style.width = 1.5 + 'vw';
-                            }
-                            if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 2.5) {
-                                document.querySelectorAll('#bot_hp')[k].style.width = 2 + 'vw';
-                            }
-                            if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 3) {
-                                document.querySelectorAll('#bot_hp')[k].style.width = 2.5 + 'vw';
-
-                            }
-                            if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 3.5) {
-                                document.querySelectorAll('#bot_hp')[k].style.width = 3 + 'vw';
-
-                            }
-
-                            break;
                         }
-                    }
-                    if (cicleKost == true) {
-                        document.querySelectorAll('#bot_shot')[i].remove();
-
-                        cicleKost = false;
-                    } else {
-                        if (parseInt(document.querySelectorAll('#bot_shot')[i].style.top) <= -30) {
+                        if (cicleKost == true) {
                             document.querySelectorAll('#bot_shot')[i].remove();
+
+                            cicleKost = false;
+                        } else {
+                            if (parseInt(document.querySelectorAll('#bot_shot')[i].style.top) <= -30) {
+                                document.querySelectorAll('#bot_shot')[i].remove();
+                            }
+                        }
+
+
+                    }
+                    for (let d = 0; d < document.querySelectorAll('#npc_shot').length; d++) {
+                        document.querySelectorAll('#npc_shot')[d].style.top = parseInt(document.querySelectorAll('#npc_shot')[d].style.top) + 1 + 'px';
+                        if (parseInt(document.querySelectorAll('#npc_shot')[d].style.top) >= innerHeight + 100) {
+                            document.querySelectorAll('#npc_shot')[d].remove();
+                        }
+                        if (parseInt(player_hero.style.left) <= parseInt(document.querySelectorAll('#npc_shot')[d].style.left) && parseInt(player_hero.style.left) + 80 >= parseInt(document.querySelectorAll('#npc_shot')[d].style.left) && (parseInt(player_hero.style.top) + 25 <= parseInt(document.querySelectorAll('#npc_shot')[d].style.top) && parseInt(player_hero.style.top) + 70 >= parseInt(document.querySelectorAll('#npc_shot')[d].style.top))) {
+                            document.querySelectorAll('#npc_shot')[d].remove();
+                            if (playerhp.style.width == '') {
+                                playerhp.style.width = 30 + 'vw';
+
+                            }
+                            playerhp.style.width = parseInt(playerhp.style.width) - 1 + 'vw';
+                            if (parseInt(playerhp.style.width) == 0) {
+                                gameOver();
+                            }
                         }
                     }
-
 
                 }
-                for (let d = 0; d < document.querySelectorAll('#npc_shot').length; d++) {
-                    document.querySelectorAll('#npc_shot')[d].style.top = parseInt(document.querySelectorAll('#npc_shot')[d].style.top) + 1 + 'px';
-                    if (parseInt(document.querySelectorAll('#npc_shot')[d].style.top) >= innerHeight + 100) {
-                        document.querySelectorAll('#npc_shot')[d].remove();
-                    }
-                    if (parseInt(player_hero.style.left) <= parseInt(document.querySelectorAll('#npc_shot')[d].style.left) && parseInt(player_hero.style.left) + 80 >= parseInt(document.querySelectorAll('#npc_shot')[d].style.left) && (parseInt(player_hero.style.top) + 25 <= parseInt(document.querySelectorAll('#npc_shot')[d].style.top) && parseInt(player_hero.style.top) + 70 >= parseInt(document.querySelectorAll('#npc_shot')[d].style.top))) {
-                        document.querySelectorAll('#npc_shot')[d].remove();
-                        if (playerhp.style.width == '') {
-                            playerhp.style.width = 30 + 'vw';
+            }
+        }else{
+            if (!gameoverr) {
+                if (!paused) {
+                    for (let i = 0; i < document.querySelectorAll('#bot_shot').length; i++) {
+                        document.querySelectorAll('#bot_shot')[i].style.top = parseInt(document.querySelectorAll('#bot_shot')[i].style.top) - 2 + 'px';
+                        for (let k = 0; k < document.querySelectorAll('#bot').length; k++) {
+                            if (parseFloat(document.querySelectorAll('#bot')[k].style.top) + innerWidth / 100 * 7.2 >= parseFloat(document.querySelectorAll('#bot_shot')[i].style.top) && parseFloat(document.querySelectorAll('#bot')[k].style.top) <= parseFloat(document.querySelectorAll('#bot_shot')[i].style.top) && (parseFloat(document.querySelectorAll('#bot')[k].style.left) <= parseFloat(document.querySelectorAll('#bot_shot')[i].style.left) && parseFloat(document.querySelectorAll('#bot')[k].style.left) + innerWidth / 100 * 7.6 >= parseFloat(document.querySelectorAll('#bot_shot')[i].style.left))) {
 
+                                cicleKost = true;
+
+                                if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 1) {
+                                    document.querySelectorAll('#bot_hp')[k].style.width = 0 + 'px';
+                                    document.querySelectorAll('#bot')[k].remove();
+                                    playerIncrScore(100);
+                                    break;
+                                }
+                                if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 2) {
+                                    document.querySelectorAll('#bot_hp')[k].style.width = 1 + 'vw';
+                                }
+                                if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 3) {
+                                    document.querySelectorAll('#bot_hp')[k].style.width = 2 + 'vw';
+                                }
+                                if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 4) {
+                                    document.querySelectorAll('#bot_hp')[k].style.width = 3 + 'vw';
+                                }
+                                if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 5) {
+                                    document.querySelectorAll('#bot_hp')[k].style.width = 4 + 'vw';
+                                }
+                                if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 6) {
+                                    document.querySelectorAll('#bot_hp')[k].style.width = 5 + 'vw';
+
+                                }
+                                if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 7) {
+                                    document.querySelectorAll('#bot_hp')[k].style.width = 6 + 'vw';
+
+                                }
+
+                                break;
+                            }
                         }
-                        playerhp.style.width = parseInt(playerhp.style.width) - 1 + 'vw';
-                        if (parseInt(playerhp.style.width) == 0) {
-                            gameOver();
+                        if (cicleKost == true) {
+                            document.querySelectorAll('#bot_shot')[i].remove();
+
+                            cicleKost = false;
+                        } else {
+                            if (parseInt(document.querySelectorAll('#bot_shot')[i].style.top) <= -30) {
+                                document.querySelectorAll('#bot_shot')[i].remove();
+                            }
+                        }
+
+
+                    }
+                    for (let d = 0; d < document.querySelectorAll('#npc_shot').length; d++) {
+                        document.querySelectorAll('#npc_shot')[d].style.top = parseInt(document.querySelectorAll('#npc_shot')[d].style.top) + 1 + 'px';
+                        if (parseInt(document.querySelectorAll('#npc_shot')[d].style.top) >= innerHeight + 100) {
+                            document.querySelectorAll('#npc_shot')[d].remove();
+                        }
+                        if (parseInt(player_hero.style.left) <= parseInt(document.querySelectorAll('#npc_shot')[d].style.left) && parseInt(player_hero.style.left) + 80 >= parseInt(document.querySelectorAll('#npc_shot')[d].style.left) && (parseInt(player_hero.style.top) + 25 <= parseInt(document.querySelectorAll('#npc_shot')[d].style.top) && parseInt(player_hero.style.top) + 70 >= parseInt(document.querySelectorAll('#npc_shot')[d].style.top))) {
+                            document.querySelectorAll('#npc_shot')[d].remove();
+                            if (playerhp.style.width == '') {
+                                playerhp.style.width = 30 + 'vw';
+
+                            }
+                            playerhp.style.width = parseInt(playerhp.style.width) - 1 + 'vw';
+                            if (parseInt(playerhp.style.width) == 0) {
+                                gameOver();
+                            }
                         }
                     }
+
                 }
-
             }
         }
+
 
 
 
@@ -1061,7 +1136,7 @@
 
     }
     function smth() {
-        
+
         if (!paused) {
 
             mousePos = event.clientX;
@@ -1074,11 +1149,11 @@
 
     function startGame() {
         alert(innerWidth);
-        if(!onmobilee){
+        if (!onmobilee) {
             {
-            playField.addEventListener('click', bot_simple_attack);
-            playField.addEventListener('mousemove', smth);
-        }
+                playField.addEventListener('click', bot_simple_attack);
+                playField.addEventListener('mousemove', smth);
+            }
         }
 
         document.addEventListener("visibilitychange", pauseunactive);
