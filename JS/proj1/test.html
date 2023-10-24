@@ -7,13 +7,13 @@
     <title>Document</title>
 </head>
 <style>
-     .unpouse_button {
+    .unpouse_button {
         height: 20vh;
         width: 30vw;
         position: fixed;
         left: 35vw;
         top: 10vh;
-        
+
     }
 
     .unpouse_button:hover {
@@ -26,63 +26,27 @@
 <body>
 
     <a href="catalog.html">catalog</a> <br>
-    
+
     <input type="text" name="firstname"> <br>
     <input type="text" name="lastname"> <br>
-    
+
     <input type="button" value="save">
 
     <script>
-        const saveBtn = document.querySelector("[value='save']") ;
-        saveBtn.addEventListener('click', () => {
-            const firstname = document.querySelector("[name='firstname']").value ;
-            const lastname = document.querySelector("[name='lastname']").value ;
-
-            if(localStorage.personsData){
-                const localPersonsData = JSON.parse(localStorage.personsData);
-               
-                localPersonsData.push({
-                    firstname, lastname
-                });
-
-                localStorage['personsData'] = JSON.stringify(localPersonsData);
-            } else{
-                const personsDataArr = [];
-                personsDataArr.push({
-                    firstname, lastname
-                })
-
-                localStorage['personsData'] = JSON.stringify(personsDataArr);
-            }
-        })
+        const src = document
+        src.addEventListener(
+            "touchmove",
+            (e) => {
+                
+                clientX = e.touches[0].clientX;
+                clientY = e.touches[0].clientY;
+                console.log(clientX);
+            },
+            false,
+        );
 
     </script>
 
 </body>
 
 </html>
-<script>
-    var time2;
-    var timer;
-    function startTimer(time) {
-        var countDown = 0;
-        var time1 = time * 60;
-        x = setInterval(function () {
-            time2 = time1--;
-            if (time2 > 0) {
-                document.getElementById("displayTime").innerHTML = time2;
-            } else if (time2 == 0) {
-                clearInterval(x);
-            }
-        }, 1000);
-        return x;
-    }
-
-    function pauseTimer() {
-        clearInterval(timer);
-    }
-    function resumeTimer() {
-        time = time2 / 60 || 30;
-        timer = startTimer(time);
-    }
-</script>
