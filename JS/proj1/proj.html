@@ -557,8 +557,8 @@
 
 </html>
 <script>
-    let mouseCurPos = null,poves=null, mobshbtn = document.querySelector('.mobileshotbtn'), gameoverr = false, curturget = null, highscore_main = document.querySelector('.highscore_main'), startpos = document.querySelector('.startpos'), hishscoreI = null, timer_bot_Shot = null, timer_fast_player_move = null, timer_npc_move = null, exitBtn = document.querySelectorAll('.mainmbutton'), gameoverScreen = document.querySelector('.gameover'), highscoresWindow = document.querySelector('.highscoresWindow'), highscores_button = document.querySelectorAll('.highscores'), playbutton = document.querySelector('.startgame'), mainmenu = document.querySelector('.mainMenu'), ii = 0, kk = 0, kkk = 0, kkkk = 0, kkkkk = 0, kkkkkk = 0, kkkkkkk = 0, kkkkkkkk = 0, newPlayerScore = '', playerScore = document.querySelector('.playerscore'), initPlayerScore = document.querySelector('.playerscore').innerText, playerhp = document.querySelector('.plhp'), last_bot_xpos = 0, cicleKost = false, player_hero = document.querySelector('.cube'), bot_diff = 0, timer_Npc_spawn = null, outerLVL = document.querySelector('.outerlevel'), LVLno = 1, pausediffInterval = null, pauseInterval, pauseMouseInterval = null, pausewindow = document.querySelector('.pausewindow'), paused = false, playField = document.querySelector('.playfield'), diffTime = 0, timeouts = null, filler = null, timer = null, timer1 = null, timer_npc_shot = null, shottime = 0, shotfiller = null, timer_npc_shot1 = null, a = 0, b = 0, aa = 0, bb = 0, aaa = false, bbb = false;
-    const onmobilee = detectMob();
+    let mouseCurPos = null, onmobilee = detectMob(), mobshbtn = document.querySelector('.mobileshotbtn'), gameoverr = false, curturget = null, highscore_main = document.querySelector('.highscore_main'), startpos = document.querySelector('.startpos'), hishscoreI = null, timer_bot_Shot = null, timer_fast_player_move = null, timer_npc_move = null, exitBtn = document.querySelectorAll('.mainmbutton'), gameoverScreen = document.querySelector('.gameover'), highscoresWindow = document.querySelector('.highscoresWindow'), highscores_button = document.querySelectorAll('.highscores'), playbutton = document.querySelector('.startgame'), mainmenu = document.querySelector('.mainMenu'), ii = 0, kk = 0, kkk = 0, kkkk = 0, kkkkk = 0, kkkkkk = 0, kkkkkkk = 0, kkkkkkkk = 0, newPlayerScore = '', playerScore = document.querySelector('.playerscore'), initPlayerScore = document.querySelector('.playerscore').innerText, playerhp = document.querySelector('.plhp'), last_bot_xpos = 0, cicleKost = false, player_hero = document.querySelector('.cube'), bot_diff = 0, timer_Npc_spawn = null, outerLVL = document.querySelector('.outerlevel'), LVLno = 1, pausediffInterval = null, pauseInterval, pauseMouseInterval = null, pausewindow = document.querySelector('.pausewindow'), paused = false, playField = document.querySelector('.playfield'), diffTime = 0, timeouts = null, filler = null, timer = null, timer1 = null, timer_npc_shot = null, shottime = 0, shotfiller = null, timer_npc_shot1 = null, a = 0, b = 0, aa = 0, bb = 0, aaa = false, bbb = false;
+
     String.prototype.replaceAt = function (index, char) {
         let a = this.split("");
         a[index] = char;
@@ -1058,34 +1058,24 @@
     }
     function smth() {
         if (!paused) {
-            if (onmobilee) {
-                mousePos = ev.touches[0].clientX;
-                console.log(mousePos);
-                mouseCurPos = mousePos - 50;
-            } else {
-                mousePos = event.clientX;
-                mouseCurPos = mousePos - 50;
-            }
+
+            mousePos = event.clientX;
+            mouseCurPos = mousePos - 50;
+
         }
 
 
     }
-    function kko() { }
+
     function startGame() {
-        if (onmobilee) {
-            mobshbtn.addEventListener('click', bot_simple_attack);
-            playField.addEventListener('touchmove', (ev)=>{
-                mousePos = ev.touches[0].clientX;
-                console.log(mousePos);
-                mouseCurPos = mousePos - 50;
-            });
-
-        } else {
+        if (!onmobilee) {
             playField.addEventListener('click', bot_simple_attack);
-            window.addEventListener('mousemove', smth);
+            playField.addEventListener('mousemove', smth);
+        }else{
+            mobshbtn.addEventListener('click', bot_simple_attack);
+            playField.addEventListener('click', smth)
         }
-
-
+        
 
         document.addEventListener("visibilitychange", pauseunactive);
         let x = 450, y = 600;
