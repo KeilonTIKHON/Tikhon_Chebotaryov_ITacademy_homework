@@ -167,21 +167,358 @@
 
     .unpouse_button:hover {
         background-color: rgb(156, 156, 156);
+        transform: scale(0.95);
+        transition-duration: 200ms;
     }
+
+    .plhp {
+        width: 30vw;
+        height: 30px;
+        background: rgb(0, 92, 0);
+        position: fixed;
+        top: 5px;
+        left: 1vw;
+        z-index: 500;
+
+    }
+
+    .plhp:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-bottom: 30px solid rgb(255, 0, 0);
+        border-left: 4vw solid rgb(0, 92, 0);
+        width: 0;
+
+    }
+
+    .hpback {
+        width: 32vw;
+        height: 40px;
+        background: rgb(54, 54, 54);
+        z-index: 400;
+        position: fixed;
+    }
+
+    .hpback1:before {
+        content: '';
+        position: absolute;
+        top: 5px;
+        right: 1vw;
+        border-bottom: 30px solid rgb(54, 54, 54);
+        border-left: 4vw solid rgba(0, 92, 0, 0);
+        width: 0;
+        z-index: 550;
+    }
+
+    .plhp1 {
+        width: 30vw;
+        height: 30px;
+        background: red;
+        position: fixed;
+        top: 5px;
+        left: 1vw;
+        z-index: 450;
+    }
+
+    .playerscoreo {
+        width: 24vw;
+        height: 5vh;
+        background: rgb(54, 54, 54);
+        position: fixed;
+        right: 0px;
+    }
+
+    .playerscore {
+        box-sizing: border-box;
+        width: 22vw;
+        height: 4vh;
+        background: gray;
+        position: relative;
+        right: -1vw;
+        top: 5px;
+        font-size: 2vw;
+        padding-top: 5px;
+        font-weight: 300;
+        font-family: 'PressStart2P-Regular';
+        color: black;
+
+    }
+
+    .mainMenu {
+        width: 100vw;
+        height: 100vh;
+        background-image: url('pics/mainmenu_back.jpg');
+        position: fixed;
+        z-index: 800;
+        display: block;
+        background-repeat: no-repeat;
+        background-size: 100vw 100vh;
+    }
+
+    .startgame {
+        box-sizing: border-box;
+        height: 16vw;
+        width: 30vw;
+        position: fixed;
+        left: 35vw;
+        top: 10vh;
+        border-radius: 10%;
+        border-width: 5px;
+        background-color: whitesmoke;
+        border-color: black;
+        border-style: solid;
+        padding: 5vw 0 0 6vw;
+    }
+
+    .startgame:hover {
+        background-color: rgb(167, 167, 167);
+        transform: scale(0.95);
+        transition-duration: 200ms;
+    }
+
+    .startgame:active {
+        background-color: rgb(124, 124, 124);
+        transform: scale(0.93);
+        transition-duration: 200ms;
+    }
+
+    .startgame_text {
+        margin: 0px;
+        font-size: 4vw;
+        font-weight: 300;
+        font-family: 'PressStart2P-Regular';
+        color: black;
+        position: absolute;
+
+    }
+
+    .highscores {
+        box-sizing: border-box;
+        height: 16vw;
+        width: 30vw;
+        position: fixed;
+        left: 35vw;
+        top: 50vh;
+        border-radius: 10%;
+        border-width: 5px;
+        background-color: whitesmoke;
+        border-color: black;
+        border-style: solid;
+        padding: 6vw 0 0 3vw;
+    }
+
+    .highscores:hover {
+        background-color: rgb(167, 167, 167);
+        transform: scale(0.95);
+        transition-duration: 200ms;
+    }
+
+    .highscores:active {
+        background-color: rgb(124, 124, 124);
+        transform: scale(0.93);
+        transition-duration: 200ms;
+    }
+
+    .highscores_text {
+        margin: 0px;
+        font-size: 2.5vw;
+        font-weight: 300;
+        font-family: 'PressStart2P-Regular';
+        color: black;
+        position: absolute;
+    }
+
+    .highscoresWindow {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        background-image: url('pics/birds-flying-8-bit-minimal-4k-ix-1366x768.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: none;
+        z-index: 1200;
+    }
+
+    .highscore_main {
+        width: 50vw;
+        height: 74vh;
+        position: fixed;
+        left: 25vw;
+        top: 13vh;
+        background-color: black;
+        border: solid white 2px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 1vw 0px 0px 1vw;
+    }
+
+    .hightext {
+        width: 60vw;
+        height: 10vw;
+        position: fixed;
+        left: 30vw;
+        top: 3vh;
+        color: white;
+        margin: 0px;
+        font-size: 4vw;
+        font-weight: 300;
+        font-family: 'PressStart2P-Regular';
+        z-index: 1201;
+    }
+
+    .gameover {
+        width: 100vw;
+        height: 100vw;
+        background-color: rgba(0, 0, 0, 0.541);
+        display: none;
+        position: fixed;
+        z-index: 1000;
+    }
+
+    .mmbtext {
+        font-size: 4vw;
+        padding-left: 7vw;
+        padding-top: 0vh;
+        font-weight: 300;
+        font-family: 'PressStart2P-Regular';
+        color: black;
+    }
+
+    .mainmbutton {
+        height: 20vh;
+        width: 30vw;
+        position: fixed;
+        left: 35vw;
+        top: 70vh;
+        border-radius: 10%;
+        background-color: white;
+    }
+
+    .mainmbutton:hover {
+        background-color: rgb(156, 156, 156);
+        transform: scale(0.95);
+        transition-duration: 200ms;
+    }
+
+    .test {
+        position: fixed;
+        left: 95vw;
+        top: 95vh;
+    }
+
+    .exitmain {
+        height: 20vh;
+        width: 30vw;
+        position: fixed;
+        left: 35vw;
+        top: 70vh;
+        border-radius: 10%;
+        background-color: white;
+    }
+
+    .highm {
+        height: 5vw;
+        width: 16vw;
+        position: fixed;
+        top: 91vh;
+        left: 60vw;
+    }
+
+    .highmf {
+        font-size: 1.5vw;
+        padding-left: 4.3vw;
+        padding-top: 0vh;
+        font-weight: 300;
+        font-family: 'PressStart2P-Regular';
+        color: black;
+    }
+
+
+
+
+
+    #highscoreI {
+        width: 49vw;
+        height: 10vw;
+        position: relative;
+        background-color: black;
+        border: solid white 1px;
+        color: white;
+        font-size: 2vw;
+        font-weight: 300;
+        font-family: 'PressStart2P-Regular';
+        color: rgb(241, 218, 3)
+    }
+
 
     #player_hp {}
 </style>
 
 <body>
+    <div class="mainMenu">
+        <div class="startgame">
+            <p class="startgame_text">Play</p>
+        </div>
+        <div class="highscores">
+            <p class="highscores_text">Highscores</p>
+        </div>
+    </div>
+    <div class="gameover">
+        <div class="highscores">
+            <p class="highscores_text">Highscores</p>
+        </div>
+        <div class="mainmbutton">
+            <p class="mmbtext">Exit</p>
+        </div>
+
+    </div>
+    <div class="highscoresWindow">
+        <div class="highscore_main">
+            <div class="startpos">1212</div>
+        </div>
+        <div class="hightext">
+            Highscores
+        </div>
+        <div class="sorttoday">
+
+        </div>
+        <div class="sortall">
+
+        </div>
+        <div class="mainmbutton highm">
+            <p class="highmf">exit</p>
+        </div>
+    </div>
     <div class="pausewindow">
         <input type="button" name="" value="resume" class="unpouse_button">
+        <div class="mainmbutton">
+            <p class="mmbtext">Exit</p>
+        </div>
     </div>
     <div class="playfield">
+        <input type="button" class="test" onclick="gameOver()">
         <div class="outerlevel">
             <div class="innerlevel">
                 level 0
             </div>
         </div>
+        <div class="playerscoreo">
+            <div class="playerscore">
+                00000000000
+            </div>
+        </div>
+        <div class="hpback">
+            <div class="hpback1"></div>
+            <div class="plhp">
+
+            </div>
+            <div class="plhp1">
+
+            </div>
+        </div>
+
         <div class="cube">
             <div id="player_hp"></div>
         </div>
@@ -191,8 +528,131 @@
 
 </html>
 <script>
-    let mouseCurPos = null, last_bot_xpos = 0, cicleKost = false, player_hero = document.querySelector('.cube'), bot_diff = 0, timer_Npc_spawn = null, outerLVL = document.querySelector('.outerlevel'), LVLno = 1, pausediffInterval = null, pauseInterval, pauseMouseInterval = null, pausewindow = document.querySelector('.pausewindow'), paused = false, playField = document.querySelector('.playfield'), diffTime = 0, timeouts = null, filler = null, timer = null, timer1 = null, timer_npc_shot = null, shottime = 0, shotfiller = null,timer_npc_shot1=null;
+    let mouseCurPos = null, gameoverr = false, curturget = null, highscore_main = document.querySelector('.highscore_main'), startpos = document.querySelector('.startpos'), hishscoreI = null, timer_bot_Shot = null, timer_fast_player_move = null, timer_npc_move = null, exitBtn = document.querySelectorAll('.mainmbutton'), gameoverScreen = document.querySelector('.gameover'), highscoresWindow = document.querySelector('.highscoresWindow'), highscores_button = document.querySelectorAll('.highscores'), playbutton = document.querySelector('.startgame'), mainmenu = document.querySelector('.mainMenu'), ii = 0, kk = 0, kkk = 0, kkkk = 0, kkkkk = 0, kkkkkk = 0, kkkkkkk = 0, kkkkkkkk = 0, newPlayerScore = '', playerScore = document.querySelector('.playerscore'), initPlayerScore = document.querySelector('.playerscore').innerText, playerhp = document.querySelector('.plhp'), last_bot_xpos = 0, cicleKost = false, player_hero = document.querySelector('.cube'), bot_diff = 0, timer_Npc_spawn = null, outerLVL = document.querySelector('.outerlevel'), LVLno = 1, pausediffInterval = null, pauseInterval, pauseMouseInterval = null, pausewindow = document.querySelector('.pausewindow'), paused = false, playField = document.querySelector('.playfield'), diffTime = 0, timeouts = null, filler = null, timer = null, timer1 = null, timer_npc_shot = null, shottime = 0, shotfiller = null, timer_npc_shot1 = null, a = 0, b = 0, aa = 0, bb = 0, aaa = false, bbb = false;
     //let timerShot = setInterval(() => alert("ничего не происходит"), 100);//
+    String.prototype.replaceAt = function (index, char) {
+        let a = this.split("");
+        a[index] = char;
+        return a.join("");
+    }
+    function detectMob() {
+    const toMatch = [
+        /Android/i,
+        /webOS/i,
+        /iPhone/i,
+        /iPad/i,
+        /iPod/i,
+        /BlackBerry/i,
+        /Windows Phone/i
+    ];
+    
+    return toMatch.some((toMatchItem) => {
+        return navigator.userAgent.match(toMatchItem);
+    });
+}
+    
+    function pauseunactive(){
+        if (document.hidden) {
+           
+           pause(); 
+        } 
+    }
+    exitBtn[0].addEventListener('click', (e) => {
+        console.log('fdf')
+        mainmenu.style.display = 'block';
+        pausewindow.style.display = 'none';
+        gameoverScreen.style.display = 'none';
+        clearInterval(timer_fast_player_move);
+        clearInterval(timer_bot_Shot);
+    })
+    exitBtn[2].addEventListener('click', (e) => {
+        paused = false;
+        mainmenu.style.display = 'block';
+        pausewindow.style.display = 'none';
+        document.removeEventListener("visibilitychange", pauseunactive);
+        clearInterval(timer_fast_player_move);
+        clearInterval(timer_bot_Shot);
+        clearInterval(timer);
+        clearInterval(timer1);
+        clearInterval(timer_npc_shot);
+        clearInterval(timer_npc_move);
+        clearInterval(timer_Npc_spawn);
+    })
+    exitBtn[1].addEventListener('click', (e) => {
+        paused = false;
+        mainmenu.style.display = 'block';
+        highscoresWindow.style.display = 'none';
+        clearInterval(timer_fast_player_move);
+        clearInterval(timer_bot_Shot);
+        gameoverScreen.style.display = 'none';
+    })
+    playbutton.addEventListener('click', (h) => {
+        gameoverr = false;
+        playerScore.innerText = '00000000000'
+        while (document.querySelector('#npc_shot')) {
+            document.querySelector('#npc_shot').remove();
+        }
+        while (document.querySelector('#bot')) {
+            document.querySelector('#bot').remove();
+        }
+        mainmenu.style.display = 'none';
+        playerhp.style.width = 30 + 'vw';
+
+
+        startGame();
+    })
+    highscores_button[0].addEventListener('click', (hh) => {
+        mainmenu.style.display = 'none';
+        highscoresWindow.style.display = 'block';
+        if (localStorage.personsScore) {
+            for (let i = 0; i < localStorage.personsScore.length; i++) {
+                hishscoreI = document.createElement('div');
+                hishscoreI.id = "highscoreI";
+                hishscoreI.innerText = 'Date: ' + (JSON.parse(localStorage.personsScore))[i].playerTime + '   Highscore:' + (JSON.parse(localStorage.personsScore))[i].playersscore;
+                highscore_main.insertBefore(hishscoreI, startpos);
+            }
+        }
+
+    })
+    highscores_button[1].addEventListener('click', (hh) => {
+        mainmenu.style.display = 'none';
+        highscoresWindow.style.display = 'block';
+        if (localStorage.personsScore) {
+            for (let i = 0; i < localStorage.personsScore.length; i++) {
+                hishscoreI = document.createElement('div');
+                hishscoreI.id = "highscoreI";
+                hishscoreI.innerText = 'Date: ' + (JSON.parse(localStorage.personsScore))[i].playerTime + '   Highscore:' + (JSON.parse(localStorage.personsScore))[i].playersscore;
+                highscore_main.insertBefore(hishscoreI, startpos);
+            }
+        }
+    })
+    function addHighscore() {
+        const playersscore = playerScore.innerText;
+        const currentdate = new Date();
+        const playerTime = currentdate.getDate() + "/"
+            + (currentdate.getMonth() + 1) + "/"
+            + currentdate.getFullYear() + " @ "
+            + currentdate.getHours() + ":"
+            + currentdate.getMinutes() + ":"
+            + currentdate.getSeconds();;
+
+        if (localStorage.personsScore) {
+            const localPersonsScore = JSON.parse(localStorage.personsScore);
+
+            localPersonsScore.push({
+                playersscore, playerTime
+            });
+
+            localStorage['personsScore'] = JSON.stringify(localPersonsScore);
+        } else {
+            const personsScoreArr = [];
+            personsScoreArr.push({
+                playersscore, playerTime
+            })
+
+            localStorage['personsScore'] = JSON.stringify(personsScoreArr);
+        }
+    }
 
     function bot_simple_attack() {
         let bot_shot = document.createElement('div');
@@ -224,7 +684,7 @@
             const playfield = playField;
             playfield.insertBefore(bot_spawn, currentdiv);
 
-            console.log('bot_spawned')
+            //console.log('bot_spawned')
         }
 
 
@@ -234,7 +694,7 @@
             npcs = document.querySelectorAll('#bot')
 
             for (i = 0; i < npcs.length; i++) {
-                console.log('shot');
+
                 let npc_shot = document.createElement('div');
                 npc_shot.id = "npc_shot";
                 let npc_shot_start_posX = parseInt(npcs[i].style.left) + 38 + 'px', npc_shot_start_posY = parseInt(npcs[i].style.top) + 60 + 'px';
@@ -250,66 +710,153 @@
         }
 
     }
+    function playerIncrScore(score) {
+
+        ii++;
+        if (ii == 10) {
+            kk++;
+            playerScore.innerText = document.querySelector('.playerscore').innerText.replaceAt(7, 0);
+            if (kk == 10) {
+                kk = 0;
+                kkk++;
+                playerScore.innerText = document.querySelector('.playerscore').innerText.replaceAt(6, 0);
+                if (kkk == 10) {
+                    kkk = 0
+                    kkkk++;
+                    playerScore.innerText = document.querySelector('.playerscore').innerText.replaceAt(5, 0);
+                    if (kkkk == 10) {
+                        kkkk = 0;
+                        kkkkk++;
+                        playerScore.innerText = document.querySelector('.playerscore').innerText.replaceAt(4, 0);
+                        if (kkkkk == 10) {
+                            kkkkk = 0;
+                            kkkkkk++;
+                            playerScore.innerText = document.querySelector('.playerscore').innerText.replaceAt(3, 0);
+                            if (kkkkkk == 10) {
+                                kkkkkk = 0;
+                                kkkkkkk++;
+                                playerScore.innerText = document.querySelector('.playerscore').innerText.replaceAt(2, 0);
+                                if (kkkkkkk == 10) {
+                                    kkkkkkk = 0;
+                                    kkkkkkkk++;
+                                    playerScore.innerText = document.querySelector('.playerscore').innerText.replaceAt(1, 0);
+                                    playerScore.innerText = document.querySelector('.playerscore').innerText.replaceAt(0, kkkkkkkk);
+                                    if (kkkkkkkk == 9) {
+                                        alert('You won!');
+                                    }
+                                }
+                                playerScore.innerText = document.querySelector('.playerscore').innerText.replaceAt(1, kkkkkkk);
+                            }
+                            playerScore.innerText = document.querySelector('.playerscore').innerText.replaceAt(2, kkkkkk);
+                        }
+                        playerScore.innerText = document.querySelector('.playerscore').innerText.replaceAt(3, kkkkk);
+                    }
+                    playerScore.innerText = document.querySelector('.playerscore').innerText.replaceAt(4, kkkk);
+                }
+                playerScore.innerText = document.querySelector('.playerscore').innerText.replaceAt(5, kkk);
+            }
+            playerScore.innerText = document.querySelector('.playerscore').innerText.replaceAt(6, kk);
+            ii = 0;
+
+        } else {
+            playerScore.innerText = document.querySelector('.playerscore').innerText.replaceAt(7, ii);
+        }
+
+
+
+    }
+    function gameOver() {
+        gameoverr = true;
+        playField.removeEventListener('click', bot_simple_attack);
+        window.removeEventListener('mousemove', smth);
+
+        clearInterval(timer);
+        clearInterval(timer1);
+        clearInterval(timer_npc_shot);
+        clearInterval(timer_npc_move);
+        clearInterval(timer_Npc_spawn);
+
+        gameoverScreen.style.display = 'block';
+        addHighscore();
+        document.removeEventListener("visibilitychange", pauseunactive);
+    }
+
     function playerAttack() {
-        if (!paused) {
-            for (let i = 0; i < document.querySelectorAll('#bot_shot').length; i++) {
-                document.querySelectorAll('#bot_shot')[i].style.top = parseInt(document.querySelectorAll('#bot_shot')[i].style.top) - 2 + 'px';
-                for (let k = 0; k < document.querySelectorAll('#bot').length; k++) {
-                    if (parseInt(document.querySelectorAll('#bot')[k].style.top) + 72 >= parseInt(document.querySelectorAll('#bot_shot')[i].style.top) && parseInt(document.querySelectorAll('#bot')[k].style.top) <= parseInt(document.querySelectorAll('#bot_shot')[i].style.top) && (parseInt(document.querySelectorAll('#bot')[k].style.left) <= parseInt(document.querySelectorAll('#bot_shot')[i].style.left) + 3 && parseInt(document.querySelectorAll('#bot')[k].style.left) + 76 >= parseInt(document.querySelectorAll('#bot_shot')[i].style.left))) {
+        if (!gameoverr) {
+            if (!paused) {
+                for (let i = 0; i < document.querySelectorAll('#bot_shot').length; i++) {
+                    document.querySelectorAll('#bot_shot')[i].style.top = parseInt(document.querySelectorAll('#bot_shot')[i].style.top) - 2 + 'px';
+                    for (let k = 0; k < document.querySelectorAll('#bot').length; k++) {
+                        if (parseInt(document.querySelectorAll('#bot')[k].style.top) + 72 >= parseInt(document.querySelectorAll('#bot_shot')[i].style.top) && parseInt(document.querySelectorAll('#bot')[k].style.top) <= parseInt(document.querySelectorAll('#bot_shot')[i].style.top) && (parseInt(document.querySelectorAll('#bot')[k].style.left) <= parseInt(document.querySelectorAll('#bot_shot')[i].style.left) + 3 && parseInt(document.querySelectorAll('#bot')[k].style.left) + 76 >= parseInt(document.querySelectorAll('#bot_shot')[i].style.left))) {
 
-                        cicleKost = true;
+                            cicleKost = true;
 
-                        if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 10) {
-                            document.querySelectorAll('#bot_hp')[k].style.width = 0 + 'px';
-                            document.querySelectorAll('#bot')[k].remove();
+                            if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 10) {
+                                document.querySelectorAll('#bot_hp')[k].style.width = 0 + 'px';
+                                document.querySelectorAll('#bot')[k].remove();
+                                playerIncrScore(100);
+                                break;
+                            }
+                            if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 20) {
+                                document.querySelectorAll('#bot_hp')[k].style.width = 10 + 'px';
+                            }
+                            if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 30) {
+                                document.querySelectorAll('#bot_hp')[k].style.width = 20 + 'px';
+                            }
+                            if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 40) {
+                                document.querySelectorAll('#bot_hp')[k].style.width = 30 + 'px';
+                            }
+                            if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 50) {
+                                document.querySelectorAll('#bot_hp')[k].style.width = 40 + 'px';
+                            }
+                            if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 60) {
+                                document.querySelectorAll('#bot_hp')[k].style.width = 50 + 'px';
+
+                            }
+                            if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 70) {
+                                document.querySelectorAll('#bot_hp')[k].style.width = 60 + 'px';
+
+                            }
+
                             break;
                         }
-                        if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 20) {
-                            document.querySelectorAll('#bot_hp')[k].style.width = 10 + 'px';
-                        }
-                        if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 30) {
-                            document.querySelectorAll('#bot_hp')[k].style.width = 20 + 'px';
-                        }
-                        if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 40) {
-                            document.querySelectorAll('#bot_hp')[k].style.width = 30 + 'px';
-                        }
-                        if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 50) {
-                            document.querySelectorAll('#bot_hp')[k].style.width = 40 + 'px';
-                        }
-                        if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 60) {
-                            document.querySelectorAll('#bot_hp')[k].style.width = 50 + 'px';
-
-                        }
-                        if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 70) {
-                            document.querySelectorAll('#bot_hp')[k].style.width = 60 + 'px';
-
-                        }
-
-                        break;
                     }
-                }
-                if (cicleKost == true) {
-                    document.querySelectorAll('#bot_shot')[i].remove();
-
-                    cicleKost = false;
-                } else {
-                    if (parseInt(document.querySelectorAll('#bot_shot')[i].style.top) <= -30) {
+                    if (cicleKost == true) {
                         document.querySelectorAll('#bot_shot')[i].remove();
+
+                        cicleKost = false;
+                    } else {
+                        if (parseInt(document.querySelectorAll('#bot_shot')[i].style.top) <= -30) {
+                            document.querySelectorAll('#bot_shot')[i].remove();
+                        }
+                    }
+
+
+                }
+                for (let d = 0; d < document.querySelectorAll('#npc_shot').length; d++) {
+                    document.querySelectorAll('#npc_shot')[d].style.top = parseInt(document.querySelectorAll('#npc_shot')[d].style.top) + 1 + 'px';
+                    if (parseInt(document.querySelectorAll('#npc_shot')[d].style.top) >= innerWidth + 100) {
+                        document.querySelectorAll('#npc_shot')[d].remove();
+                    }
+                    if (parseInt(player_hero.style.left) <= parseInt(document.querySelectorAll('#npc_shot')[d].style.left) && parseInt(player_hero.style.left) + 80 >= parseInt(document.querySelectorAll('#npc_shot')[d].style.left) && (parseInt(player_hero.style.top) + 25 <= parseInt(document.querySelectorAll('#npc_shot')[d].style.top) && parseInt(player_hero.style.top) + 70 >= parseInt(document.querySelectorAll('#npc_shot')[d].style.top))) {
+                        document.querySelectorAll('#npc_shot')[d].remove();
+                        if (playerhp.style.width == '') {
+                            playerhp.style.width = 30 + 'vw';
+
+                        }
+                        playerhp.style.width = parseInt(playerhp.style.width) - 1 + 'vw';
+                        if (parseInt(playerhp.style.width) == 0) {
+                            gameOver();
+                        }
                     }
                 }
 
-
-            }
-            for (let d = 0; d < document.querySelectorAll('#npc_shot').length; d++) {
-                document.querySelectorAll('#npc_shot')[d].style.top = parseInt(document.querySelectorAll('#npc_shot')[d].style.top) + 1 + 'px';
-                if (parseInt(document.querySelectorAll('#npc_shot')[d].style.top) >= innerWidth + 100) {
-                    document.querySelectorAll('#npc_shot')[d].remove();
-                }
             }
         }
 
 
 
+        //console.log('shot')
     }
     function playerMove() {
         if (!paused) {
@@ -375,28 +922,51 @@
         }
     }
     function createTimer() {
+        console.log('adsafasf');
 
-        console.log('уебище вызвало createtimer')
-        filler = setInterval(() => {
-            diffTime += 1;
-            if (diffTime >= 9000) {
-                diffTime = 0;
-                if (timer == null) {
-                    clearInterval(filler)
+        aaa = true;
+        bbb = true;
+        timer1 = setInterval(() => {
+            if (aaa) {
+                aa++;
+            }
+
+            if (aa === 3000 - a) {
+                if (!paused) {
+
+                    if (aaa) {
+                        a = 0;
+                        aa = 0
+                        diff();
+                        startdifftimer()
+                        aaa = false;
+                    }
+
+
+
                 }
-
-
+            } if (bbb) {
+                bb++;
             }
+
+            if (bb === 400 - b) {
+                if (!paused) {
+
+                    if (bbb) {
+                        console.log('продолжил стрелять')
+                        b = 0
+                        bb = 0
+                        npc_shooting();
+                        npcShotTimer();
+                        bbb = false;
+                    }
+
+
+
+                }
+            }
+
         }, 1);
-        timer1 = setTimeout(() => {
-            if (!paused) {
-                clearInterval(filler)
-                diff();
-                startdifftimer()
-            }
-
-        }, 9000 - diffTime);
-
 
 
     }
@@ -405,11 +975,11 @@
             paused = true;
             pausewindow.style.display = 'block';
             playField.removeEventListener('click', bot_simple_attack)
-            clearInterval(filler);
             clearInterval(timer);
             clearInterval(timer1);
-
+            clearInterval(timer_npc_shot);
             console.log(diffTime);
+
 
         }
 
@@ -427,86 +997,71 @@
     }
     function startdifftimer() {
         if (!paused) {
-            console.log('продолжил нормальный интервал')
-            diffTime = 0;
-            filler = setInterval(() => {
-                diffTime += 1;
-                if (diffTime == 9000) {
-                    diffTime = 0;
+            timer = setInterval(() => {
+                a++;
+                if (a >= 3000) {
+                    a = 0;
+                    diff();
                 }
+
             }, 1);
-            timer = setTimeout(() => {
-                diff();
-            }, 9000);
         }
 
     }
     function npcShotTimer() {
         if (!paused) {
-            shottime = 0;
-            shotfiller = setInterval(() => {
-                shottime += 1;
-                if (shottime == 2000) {
-                    shottime = 0;
-                }
-            }, 1);
+
             timer_npc_shot = setInterval(() => {
-                npc_shooting();
-            }, 2000);
+                b++;
+                if (b >= 400) {
+                    console.log('выстрел')
+                    b = 0;
+                    npc_shooting();
+                }
+
+            }, 1);
         }
 
 
     }
-    function resumenpcshooting() {
-        console.log('уебище вызвало createtimer')
-        shotfiller = setInterval(() => {
-            shottime += 1;
-            if (shottime >= 2000) {
-                shottime = 0;
-                if (timer_npc_shot == null) {
-                    clearInterval(shotfiller)
-                }
-
-
-            }
-        }, 1);
-        timer_npc_shot1 = setTimeout(() => {
-            if (!paused) {
-                clearInterval(shotfiller)
-                npc_shooting();
-                npcShotTimer()
-            }
-
-        }, 2000 - shottime);
-    }
-    let x = 450, y = 600;
-    player_hero.style.left = x + 'px';
-    player_hero.style.top = y + 'px';
-
-
-    playField.addEventListener('click', bot_simple_attack)
-    let timer_bot_Shot = setInterval(playerAttack, 3);
-    window.addEventListener('mousemove', (event) => {
+    function smth() {
         mousePos = event.clientX;
         mouseCurPos = mousePos - 50;
-    });
-    let timer_fast_player_move = setInterval(playerMove, 2)
-    timer_Npc_spawn = setInterval(
-        bot_spawn
-        , 3000);
-    bot_diff += 150;
-    startdifftimer();
+    }
+    function startGame() {
+        document.addEventListener("visibilitychange", pauseunactive);
+        let x = 450, y = 600;
+        player_hero.style.left = x + 'px';
+        player_hero.style.top = y + 'px';
+        playField.addEventListener('click', bot_simple_attack)
+        timer_bot_Shot = setInterval(playerAttack, 3);
+        window.addEventListener('mousemove', smth);
+        timer_fast_player_move = setInterval(playerMove, 2)
+        timer_Npc_spawn = setInterval(
+            bot_spawn
+            , 3000);
+        bot_diff += 150;
+        startdifftimer();
 
 
-    window.addEventListener('keydown', (e) => {
-        switch (e.key) {
-            case 'Escape': pause();
-        }
-    })
-    npcShotTimer();
+        window.addEventListener('keydown', (e) => {
+            switch (e.key) {
+                case 'Escape': pause();
+            }
+        })
+        npcShotTimer();
 
-    let timer_npc_move = setInterval(botMove, 10)
-    document.querySelector('.unpouse_button').addEventListener('click', unpouse)
+        timer_npc_move = setInterval(botMove, 10)
+        document.querySelector('.unpouse_button').addEventListener('click', unpouse)
+    }
+    function mainMenu() {
+
+    }
+
+
+
+
+
 
     //if(botM.style.top==shotM.style.top && (botM.style.left>shotM.style.left+40)){
     //

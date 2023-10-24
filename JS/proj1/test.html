@@ -6,26 +6,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+     .unpouse_button {
+        height: 20vh;
+        width: 30vw;
+        position: fixed;
+        left: 35vw;
+        top: 10vh;
+        
+    }
+
+    .unpouse_button:hover {
+        background-color: rgb(156, 156, 156);
+        transform: scale(0.95);
+        transition-duration: 200ms;
+    }
+</style>
 
 <body>
+
+    <a href="catalog.html">catalog</a> <br>
+    
+    <input type="text" name="firstname"> <br>
+    <input type="text" name="lastname"> <br>
+    
+    <input type="button" value="save">
+
+    <script>
+        const saveBtn = document.querySelector("[value='save']") ;
+        saveBtn.addEventListener('click', () => {
+            const firstname = document.querySelector("[name='firstname']").value ;
+            const lastname = document.querySelector("[name='lastname']").value ;
+
+            if(localStorage.personsData){
+                const localPersonsData = JSON.parse(localStorage.personsData);
+               
+                localPersonsData.push({
+                    firstname, lastname
+                });
+
+                localStorage['personsData'] = JSON.stringify(localPersonsData);
+            } else{
+                const personsDataArr = [];
+                personsDataArr.push({
+                    firstname, lastname
+                })
+
+                localStorage['personsData'] = JSON.stringify(personsDataArr);
+            }
+        })
+
+    </script>
 
 </body>
 
 </html>
 <script>
-    let x=0;
-    function Timer(timeout) {
-        var self = this;
-        this.interval = timeout ? timeout : 1000;   // Default
-
-        this.run = function (runnable) {
-            setInterval(function () { runnable(self); }, this.interval);
-        };
+    var time2;
+    var timer;
+    function startTimer(time) {
+        var countDown = 0;
+        var time1 = time * 60;
+        x = setInterval(function () {
+            time2 = time1--;
+            if (time2 > 0) {
+                document.getElementById("displayTime").innerHTML = time2;
+            } else if (time2 == 0) {
+                clearInterval(x);
+            }
+        }, 1000);
+        return x;
     }
 
-    var timer = new Timer(2000);
-    timer.run(function (timer) {
-        console.log(0+x)
-        x+=1;
-    });
+    function pauseTimer() {
+        clearInterval(timer);
+    }
+    function resumeTimer() {
+        time = time2 / 60 || 30;
+        timer = startTimer(time);
+    }
 </script>
