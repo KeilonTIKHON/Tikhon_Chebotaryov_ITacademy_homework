@@ -567,9 +567,10 @@
     }
     
     
-
+    
     if (onmobilee) {
         alert('you are on mobile!');
+        player_hero.style.cssText = 'width: 20vw;height: 20vw;background-image: url("pics/NicePng_spaceship-png_138961.png");position: relative;z-index: 100;background-size: contain;background-repeat: no-repeat;overflow: hidden;'
     }
     if (onmobilee) {
             mobshbtn.addEventListener('click', bot_simple_attack);
@@ -700,15 +701,20 @@
         if (!paused) {
             let bot_spawn = document.createElement('div');
             bot_spawn.id = "bot";
+            if(onmobilee){
+                bot_spawn.style.cssText = ' position: fixed;width: 16vw;height: 16vw;background-image: url("pics/images__1_-removebg-preview.png");background-repeat: no-repeat;background-size: cover;top: -100px;left: 0px;padding: 0px'
+            }
             let bot_spawn_xpos = Math.random() * (window.innerWidth - 80), bot_spawn_ypos = -100;
             bot_spawn.style.left = bot_spawn_xpos + 'px';
             bot_spawn.style.top = bot_spawn_ypos + 'px';
             let bot_hp = document.createElement('div');
             bot_hp.id = "bot_hp";
             if(onmobilee){
-                bot_hp.style.cssText = "width:7vw; heigth:10px;margin: -0.55vw 0px 0px 0.25vw;background-color: red;border-color: white;border-width: 1px;border-style: solid;";
+                bot_hp.style.cssText = "width:14vw; heigth:10px;margin: -2.20vw 0px 0px 0.25vw;background-color: red;border-color: white;border-width: 1px;border-style: solid;";
+            }else{
+                bot_hp.style.cssText = "width:3.5vw; heigth:10px;margin: -0.55vw 0px 0px 0.25vw;background-color: red;border-color: white;border-width: 1px;border-style: solid;";
             }
-            bot_hp.style.cssText = "width:3.5vw; heigth:10px;margin: -0.55vw 0px 0px 0.25vw;background-color: red;border-color: white;border-width: 1px;border-style: solid;";
+            
             bot_spawn.appendChild(bot_hp);
             const currentdiv = player_hero;
             const playfield = playField;
