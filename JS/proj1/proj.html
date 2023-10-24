@@ -854,7 +854,7 @@
                 }
                 for (let d = 0; d < document.querySelectorAll('#npc_shot').length; d++) {
                     document.querySelectorAll('#npc_shot')[d].style.top = parseInt(document.querySelectorAll('#npc_shot')[d].style.top) + 1 + 'px';
-                    if (parseInt(document.querySelectorAll('#npc_shot')[d].style.top) >= innerWidth + 100) {
+                    if (parseInt(document.querySelectorAll('#npc_shot')[d].style.top) >= innerHeight + 100) {
                         document.querySelectorAll('#npc_shot')[d].remove();
                     }
                     if (parseInt(player_hero.style.left) <= parseInt(document.querySelectorAll('#npc_shot')[d].style.left) && parseInt(player_hero.style.left) + 80 >= parseInt(document.querySelectorAll('#npc_shot')[d].style.left) && (parseInt(player_hero.style.top) + 25 <= parseInt(document.querySelectorAll('#npc_shot')[d].style.top) && parseInt(player_hero.style.top) + 70 >= parseInt(document.querySelectorAll('#npc_shot')[d].style.top))) {
@@ -1060,10 +1060,7 @@
             playField.addEventListener('mousemove', smth);
         }else{
             mobshbtn.addEventListener('click', bot_simple_attack);
-            playField.addEventListener('touchmove',  (ev)=>{
-            mousePos = ev.touches[0].clientX;
-            mouseCurPos = mousePos - 50;
-            });
+            playField.addEventListener('click', smth);
         }
         
 
