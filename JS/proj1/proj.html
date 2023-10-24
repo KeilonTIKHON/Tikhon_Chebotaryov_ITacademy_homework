@@ -445,6 +445,7 @@
         padding: 3vw 0 0 3vw;
         border-radius: 20%;
         z-index: 2000;
+        display: none;
     }
 
     .mobileshotbtni {
@@ -569,6 +570,7 @@
 
 
     if (onmobilee) {
+        mobshbtn.style.display='block';
         alert('you are on mobile!');
         player_hero.style.cssText = 'width: 10vw;height: 10vw;background-image: url("pics/NicePng_spaceship-png_138961.png");position: relative;z-index: 100;background-size: contain;background-repeat: no-repeat;overflow: hidden;'
     }
@@ -592,6 +594,9 @@
         gameoverScreen.style.display = 'none';
         clearInterval(timer_fast_player_move);
         clearInterval(timer_bot_Shot);
+        bot_diff=0;
+        LVLno=0;
+        document.querySelector('.innerlevel').innerHTML = 'level ' + LVLno;
     })
     exitBtn[2].addEventListener('click', (e) => {
         paused = false;
@@ -605,6 +610,9 @@
         clearInterval(timer_npc_shot);
         clearInterval(timer_npc_move);
         clearInterval(timer_Npc_spawn);
+        bot_diff=0;
+        LVLno=0;
+        document.querySelector('.innerlevel').innerHTML = 'level ' + LVLno;
     })
     exitBtn[1].addEventListener('click', (e) => {
         paused = false;
@@ -613,6 +621,9 @@
         clearInterval(timer_fast_player_move);
         clearInterval(timer_bot_Shot);
         gameoverScreen.style.display = 'none';
+        bot_diff=0;
+        LVLno=0;
+        document.querySelector('.innerlevel').innerHTML = 'level ' + LVLno;
     })
     playbutton.addEventListener('click', (h) => {
         gameoverr = false;
@@ -1184,7 +1195,7 @@
         timer_Npc_spawn = setInterval(
             bot_spawn
             , 3000);
-        bot_diff += 150;
+        
         startdifftimer();
 
 
