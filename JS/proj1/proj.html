@@ -26,8 +26,8 @@
     }
 
     .cube {
-        width: 100px;
-        height: 100px;
+        width: 5vw;
+        height: 5vw;
         background-image: url('pics/NicePng_spaceship-png_138961.png');
         position: relative;
         z-index: 100;
@@ -44,13 +44,13 @@
         background-size: cover;
         background-repeat: no-repeat;
         position: absolute;
-
+        
     }
 
     #bot_shot {
         position: fixed;
-        width: 6px;
-        height: 10px;
+        width: 0.3vw;
+        height: 0.52vw;
         background-color: rgb(0, 247, 0);
         border-radius: 40%;
         box-sizing: border-box;
@@ -69,8 +69,8 @@
 
     #npc_shot {
         position: fixed;
-        width: 6px;
-        height: 10px;
+        width: 0.3vw;
+        height: 0.52vw;
         background-color: rgb(255, 0, 0);
         border-radius: 40%;
         box-sizing: border-box;
@@ -89,8 +89,8 @@
 
     #bot {
         position: fixed;
-        width: 80px;
-        height: 80px;
+        width: 4vw;
+        height: 4vw;
         background-image: url('pics/images__1_-removebg-preview.png');
         background-repeat: no-repeat;
         background-size: cover;
@@ -100,12 +100,12 @@
     }
 
     #bot_hp {
-        width: 70px;
-        height: 10px;
+        width: 3.5vw;
+        height: 0.5vw;
         margin: -10px 0px 0px 5px;
         background-color: red;
         border-color: white;
-        border-width: 1px;
+        border-width: 0.05vw;
         border-style: solid;
     }
 
@@ -566,10 +566,18 @@
         return a.join("");
     }
     
+    
 
     if (onmobilee) {
         alert('you are on mobile!');
     }
+    if (onmobilee) {
+            mobshbtn.addEventListener('click', bot_simple_attack);
+            document.addEventListener('touchmove', (ev)=>{
+                mousePos =ev.touches[0].clientX;
+                mouseCurPos = mousePos - 50;
+            });
+        }
     function pauseunactive() {
         if (document.hidden) {
 
@@ -676,7 +684,7 @@
     function bot_simple_attack() {
         let bot_shot = document.createElement('div');
         bot_shot.id = "bot_shot";
-        let bot_shot_start_posX = parseInt(player_hero.style.left) + 48 + 'px', bot_shot_start_posY = player_hero.style.top;
+        let bot_shot_start_posX = parseInt(player_hero.style.left) + innerWidth/100*2.3 + 'px', bot_shot_start_posY = player_hero.style.top;
         bot_shot.style.left = bot_shot_start_posX;
         bot_shot.style.top = bot_shot_start_posY;
         let bot_shotin = document.createElement('div');
@@ -697,7 +705,7 @@
             bot_spawn.style.top = bot_spawn_ypos + 'px';
             let bot_hp = document.createElement('div');
             bot_hp.id = "bot_hp";
-            bot_hp.style.cssText = "width:70px; heigth:10px;margin: -10px 0px 0px 5px;background-color: red;border-color: white;border-width: 1px;border-style: solid;";
+            bot_hp.style.cssText = "width:3.5vw; heigth:10px;margin: -0.55vw 0px 0px 0.25vw;background-color: red;border-color: white;border-width: 1px;border-style: solid;";
             bot_spawn.appendChild(bot_hp);
             const currentdiv = player_hero;
             const playfield = playField;
@@ -716,7 +724,7 @@
 
                 let npc_shot = document.createElement('div');
                 npc_shot.id = "npc_shot";
-                let npc_shot_start_posX = parseInt(npcs[i].style.left) + 38 + 'px', npc_shot_start_posY = parseInt(npcs[i].style.top) + 60 + 'px';
+                let npc_shot_start_posX = parseInt(npcs[i].style.left) + innerWidth/100*1.9 + 'px', npc_shot_start_posY = parseInt(npcs[i].style.top) + innerWidth/100*3 + 'px';
                 npc_shot.style.left = npc_shot_start_posX;
                 npc_shot.style.top = npc_shot_start_posY;
                 let npc_shotin = document.createElement('div');
@@ -806,34 +814,34 @@
                 for (let i = 0; i < document.querySelectorAll('#bot_shot').length; i++) {
                     document.querySelectorAll('#bot_shot')[i].style.top = parseInt(document.querySelectorAll('#bot_shot')[i].style.top) - 2 + 'px';
                     for (let k = 0; k < document.querySelectorAll('#bot').length; k++) {
-                        if (parseInt(document.querySelectorAll('#bot')[k].style.top) + 72 >= parseInt(document.querySelectorAll('#bot_shot')[i].style.top) && parseInt(document.querySelectorAll('#bot')[k].style.top) <= parseInt(document.querySelectorAll('#bot_shot')[i].style.top) && (parseInt(document.querySelectorAll('#bot')[k].style.left) <= parseInt(document.querySelectorAll('#bot_shot')[i].style.left) + 3 && parseInt(document.querySelectorAll('#bot')[k].style.left) + 76 >= parseInt(document.querySelectorAll('#bot_shot')[i].style.left))) {
+                        if (parseFloat(document.querySelectorAll('#bot')[k].style.top) + innerWidth/100*3.6 >= parseFloat(document.querySelectorAll('#bot_shot')[i].style.top) && parseFloat(document.querySelectorAll('#bot')[k].style.top) <= parseFloat(document.querySelectorAll('#bot_shot')[i].style.top) && (parseFloat(document.querySelectorAll('#bot')[k].style.left) <= parseFloat(document.querySelectorAll('#bot_shot')[i].style.left)  && parseFloat(document.querySelectorAll('#bot')[k].style.left) + innerWidth/100*3.8 >= parseFloat(document.querySelectorAll('#bot_shot')[i].style.left))) {
 
                             cicleKost = true;
 
-                            if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 10) {
+                            if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 0.5) {
                                 document.querySelectorAll('#bot_hp')[k].style.width = 0 + 'px';
                                 document.querySelectorAll('#bot')[k].remove();
                                 playerIncrScore(100);
                                 break;
                             }
-                            if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 20) {
-                                document.querySelectorAll('#bot_hp')[k].style.width = 10 + 'px';
+                            if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 1) {
+                                document.querySelectorAll('#bot_hp')[k].style.width = 0.5 + 'vw';
                             }
-                            if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 30) {
-                                document.querySelectorAll('#bot_hp')[k].style.width = 20 + 'px';
+                            if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 1.5) {
+                                document.querySelectorAll('#bot_hp')[k].style.width = 1 + 'vw';
                             }
-                            if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 40) {
-                                document.querySelectorAll('#bot_hp')[k].style.width = 30 + 'px';
+                            if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 2) {
+                                document.querySelectorAll('#bot_hp')[k].style.width = 1.5 + 'vw';
                             }
-                            if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 50) {
-                                document.querySelectorAll('#bot_hp')[k].style.width = 40 + 'px';
+                            if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 2.5) {
+                                document.querySelectorAll('#bot_hp')[k].style.width = 2 + 'vw';
                             }
-                            if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 60) {
-                                document.querySelectorAll('#bot_hp')[k].style.width = 50 + 'px';
+                            if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 3) {
+                                document.querySelectorAll('#bot_hp')[k].style.width = 2.5 + 'vw';
 
                             }
-                            if (parseInt(document.querySelectorAll('#bot_hp')[k].style.width) == 70) {
-                                document.querySelectorAll('#bot_hp')[k].style.width = 60 + 'px';
+                            if (parseFloat(document.querySelectorAll('#bot_hp')[k].style.width) == 3.5) {
+                                document.querySelectorAll('#bot_hp')[k].style.width = 3 + 'vw';
 
                             }
 
@@ -1044,6 +1052,7 @@
 
     }
     function smth() {
+        
         if (!paused) {
 
             mousePos = event.clientX;
@@ -1055,14 +1064,13 @@
     }
 
     function startGame() {
-        if (!onmobilee) {
+        console.log(innerWidth);
+        if(!onmobilee){
+            {
             playField.addEventListener('click', bot_simple_attack);
             playField.addEventListener('mousemove', smth);
-        }else{
-            mobshbtn.addEventListener('click', bot_simple_attack);
-            playField.addEventListener('click', smth);
         }
-        
+        }
 
         document.addEventListener("visibilitychange", pauseunactive);
         let x = 450, y = 600;
