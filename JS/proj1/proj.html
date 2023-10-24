@@ -685,10 +685,11 @@
     function bot_simple_attack() {
         let bot_shot = document.createElement('div');
         bot_shot.id = "bot_shot";
+        let bot_shot_start_posX=0;
         if(onmobilee){
-            let bot_shot_start_posX = parseInt(player_hero.style.left) + innerWidth / 100 * 4.6 + 'px', bot_shot_start_posY = player_hero.style.top;
+            bot_shot_start_posX = parseInt(player_hero.style.left) + innerWidth / 100 * 4.6 + 'px', bot_shot_start_posY = player_hero.style.top;
         }else{
-            let bot_shot_start_posX = parseInt(player_hero.style.left) + innerWidth / 100 * 2.3 + 'px', bot_shot_start_posY = player_hero.style.top;
+            bot_shot_start_posX = parseInt(player_hero.style.left) + innerWidth / 100 * 2.3 + 'px', bot_shot_start_posY = player_hero.style.top;
         }
        
         bot_shot.style.left = bot_shot_start_posX;
@@ -735,10 +736,11 @@
 
                 let npc_shot = document.createElement('div');
                 npc_shot.id = "npc_shot";
+                let npc_shot_start_posX=0;
                 if(onmobilee){
-                    let npc_shot_start_posX = parseInt(npcs[i].style.left) + innerWidth / 100 * 3.8 + 'px', npc_shot_start_posY = parseInt(npcs[i].style.top) + innerWidth / 100 * 6 + 'px';
+                    npc_shot_start_posX = parseInt(npcs[i].style.left) + innerWidth / 100 * 3.8 + 'px', npc_shot_start_posY = parseInt(npcs[i].style.top) + innerWidth / 100 * 6 + 'px';
                 }else{
-                    let npc_shot_start_posX = parseInt(npcs[i].style.left) + innerWidth / 100 * 1.9 + 'px', npc_shot_start_posY = parseInt(npcs[i].style.top) + innerWidth / 100 * 3 + 'px';
+                    npc_shot_start_posX = parseInt(npcs[i].style.left) + innerWidth / 100 * 1.9 + 'px', npc_shot_start_posY = parseInt(npcs[i].style.top) + innerWidth / 100 * 3 + 'px';
                 }
                 
                 npc_shot.style.left = npc_shot_start_posX;
