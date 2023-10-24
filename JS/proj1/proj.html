@@ -900,7 +900,7 @@
             if (!gameoverr) {
                 if (!paused) {
                     for (let i = 0; i < document.querySelectorAll('#bot_shot').length; i++) {
-                        document.querySelectorAll('#bot_shot')[i].style.top = parseInt(document.querySelectorAll('#bot_shot')[i].style.top) - 2 + 'px';
+                        document.querySelectorAll('#bot_shot')[i].style.top = parseInt(document.querySelectorAll('#bot_shot')[i].style.top) - 1 + 'px';
                         for (let k = 0; k < document.querySelectorAll('#bot').length; k++) {
                             if (parseFloat(document.querySelectorAll('#bot')[k].style.top) + innerWidth / 100 * 7.2 >= parseFloat(document.querySelectorAll('#bot_shot')[i].style.top) && parseFloat(document.querySelectorAll('#bot')[k].style.top) <= parseFloat(document.querySelectorAll('#bot_shot')[i].style.top) && (parseFloat(document.querySelectorAll('#bot')[k].style.left) <= parseFloat(document.querySelectorAll('#bot_shot')[i].style.left) && parseFloat(document.querySelectorAll('#bot')[k].style.left) + innerWidth / 100 * 7.6 >= parseFloat(document.querySelectorAll('#bot_shot')[i].style.left))) {
 
@@ -978,29 +978,29 @@
     function playerMove() {
         if (!paused) {
             if (mouseCurPos - parseInt(player_hero.style.left) >= 200) {
-                player_hero.style.left = parseInt(player_hero.style.left) + 4 + 'px';
+                player_hero.style.left = parseFloat(player_hero.style.left) + 4 + 'px';
 
             }
             if (mouseCurPos - parseInt(player_hero.style.left) >= 75 && mouseCurPos - parseInt(player_hero.style.left) < 200) {
-                player_hero.style.left = parseInt(player_hero.style.left) + 3.5 + 'px';
+                player_hero.style.left = parseFloat(player_hero.style.left) + 3.5 + 'px';
             }
             if (mouseCurPos - parseInt(player_hero.style.left) >= 25 && mouseCurPos - parseInt(player_hero.style.left) < 75) {
-                player_hero.style.left = parseInt(player_hero.style.left) + 2.5 + 'px';
+                player_hero.style.left = parseFloat(player_hero.style.left) + 2.5 + 'px';
             }
             if (mouseCurPos - parseInt(player_hero.style.left) >= 0 && mouseCurPos - parseInt(player_hero.style.left) < 25) {
-                player_hero.style.left = parseInt(player_hero.style.left) + 1 + 'px';
+                player_hero.style.left = parseFloat(player_hero.style.left) + 1 + 'px';
             }
             if (mouseCurPos - parseInt(player_hero.style.left) <= -200) {
-                player_hero.style.left = parseInt(player_hero.style.left) - 4 + 'px';
+                player_hero.style.left = parseFloat(player_hero.style.left) - 4 + 'px';
             }
             if (mouseCurPos - parseInt(player_hero.style.left) <= -75 && mouseCurPos - parseInt(player_hero.style.left) > -200) {
-                player_hero.style.left = parseInt(player_hero.style.left) - 3.5 + 'px';
+                player_hero.style.left = parseFloat(player_hero.style.left) - 3.5 + 'px';
             }
             if (mouseCurPos - parseInt(player_hero.style.left) <= -25 && mouseCurPos - parseInt(player_hero.style.left) > -75) {
-                player_hero.style.left = parseInt(player_hero.style.left) - 2.5 + 'px';
+                player_hero.style.left = parseFloat(player_hero.style.left) - 2.5 + 'px';
             }
             if (mouseCurPos - parseInt(player_hero.style.left) <= 0 && mouseCurPos - parseInt(player_hero.style.left) > -25) {
-                player_hero.style.left = parseInt(player_hero.style.left) - 1 + 'px';
+                player_hero.style.left = parseFloat(player_hero.style.left) - 1 + 'px';
             }
         }
     }
@@ -1030,7 +1030,7 @@
     function botMove() {
         if (!paused) {
             for (let i = 0; i < document.querySelectorAll('#bot').length; i++) {
-                document.querySelectorAll('#bot')[i].style.top = parseInt(document.querySelectorAll('#bot')[i].style.top) + 1 + 'px';
+                document.querySelectorAll('#bot')[i].style.top = parseFloat(document.querySelectorAll('#bot')[i].style.top) + 0.5 + 'px';
                 if (parseInt(document.querySelectorAll('#bot')[i].style.top) >= innerHeight + 100) {
                     document.querySelectorAll('#bot')[i].remove();
 
