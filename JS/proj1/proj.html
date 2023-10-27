@@ -460,12 +460,12 @@
         transform: scale(0.95);
     }
     .pausebtn{
-        width:4vw;
-        height:9vw;
+        width:3vw;
+        height:7vw;
         position: fixed;
         display: block;
         left:45vw;
-        top:0vw;
+        top:3vh;
         border:solid gray;
         border-width: 0px 2vw  0vw 2vw;
         z-index: 2500;
@@ -573,7 +573,7 @@
 
 </html>
 <script>
-    let mouseCurPos = null, onmobilee = navigator.userAgentData.mobile, mobshbtn = document.querySelector('.mobileshotbtn'), gameoverr = false, curturget = null, highscore_main = document.querySelector('.highscore_main'), startpos = document.querySelector('.startpos'), hishscoreI = null, timer_bot_Shot = null, timer_fast_player_move = null, timer_npc_move = null, exitBtn = document.querySelectorAll('.mainmbutton'), gameoverScreen = document.querySelector('.gameover'), highscoresWindow = document.querySelector('.highscoresWindow'), highscores_button = document.querySelectorAll('.highscores'), playbutton = document.querySelector('.startgame'), mainmenu = document.querySelector('.mainMenu'), ii = 0, kk = 0, kkk = 0, kkkk = 0, kkkkk = 0, kkkkkk = 0, kkkkkkk = 0, kkkkkkkk = 0, newPlayerScore = '', playerScore = document.querySelector('.playerscore'), initPlayerScore = document.querySelector('.playerscore').innerText, playerhp = document.querySelector('.plhp'), last_bot_xpos = 0, cicleKost = false, player_hero = document.querySelector('.cube'), bot_diff = 0, timer_Npc_spawn = null, outerLVL = document.querySelector('.outerlevel'), LVLno = 1, pausediffInterval = null, pauseInterval, pauseMouseInterval = null, pausewindow = document.querySelector('.pausewindow'), paused = false, playField = document.querySelector('.playfield'), diffTime = 0, timeouts = null, filler = null, timer = null, timer1 = null, timer_npc_shot = null, shottime = 0, shotfiller = null, timer_npc_shot1 = null, a = 0, b = 0, aa = 0, bb = 0, aaa = false, bbb = false;
+    let mouseCurPos = null,pauseBtn=document.querySelector('.pausebtn'), onmobilee = navigator.userAgentData.mobile, mobshbtn = document.querySelector('.mobileshotbtn'), gameoverr = false, curturget = null, highscore_main = document.querySelector('.highscore_main'), startpos = document.querySelector('.startpos'), hishscoreI = null, timer_bot_Shot = null, timer_fast_player_move = null, timer_npc_move = null, exitBtn = document.querySelectorAll('.mainmbutton'), gameoverScreen = document.querySelector('.gameover'), highscoresWindow = document.querySelector('.highscoresWindow'), highscores_button = document.querySelectorAll('.highscores'), playbutton = document.querySelector('.startgame'), mainmenu = document.querySelector('.mainMenu'), ii = 0, kk = 0, kkk = 0, kkkk = 0, kkkkk = 0, kkkkkk = 0, kkkkkkk = 0, kkkkkkkk = 0, newPlayerScore = '', playerScore = document.querySelector('.playerscore'), initPlayerScore = document.querySelector('.playerscore').innerText, playerhp = document.querySelector('.plhp'), last_bot_xpos = 0, cicleKost = false, player_hero = document.querySelector('.cube'), bot_diff = 0, timer_Npc_spawn = null, outerLVL = document.querySelector('.outerlevel'), LVLno = 1, pausediffInterval = null, pauseInterval, pauseMouseInterval = null, pausewindow = document.querySelector('.pausewindow'), paused = false, playField = document.querySelector('.playfield'), diffTime = 0, timeouts = null, filler = null, timer = null, timer1 = null, timer_npc_shot = null, shottime = 0, shotfiller = null, timer_npc_shot1 = null, a = 0, b = 0, aa = 0, bb = 0, aaa = false, bbb = false;
 
     String.prototype.replaceAt = function (index, char) {
         let a = this.split("");
