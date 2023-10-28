@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="ввод информации о напитке" onclick="one()">
+    <input type="button" value="получение информации о напитке" onclick="two()">
+    <input type="button" value="удаление информации о напитке" onclick="three()">
+    <input type="button" value="перечень всех напитков" onclick="four()">
+</body>
+
+</html>
+<script>
+    "use strict";
+    class HashStorageClass {
+        constructor() {
+            this.Hash = {};
+        }
+        addValue(key, value) {
+            this.Hash[key] = value;
+        }
+        getValue(key) {
+            alert(this.Hash[key])
+            return this.Hash[key];
+        }
+        deleteValue(key) {
+            if (key in this.Hash) {
+                return delete this.Hash[key];
+            } else return false;
+        }
+
+        getKeys() {
+            let arr = [];
+            for (var i in this.Hash) {
+                arr.push(i);
+            }
+            alert(arr);
+        }
+
+
+    }
+    function one() {
+        drinkStorage.addValue(prompt('название напитка'), ' алкогольный: ' + prompt(' алкогольный? ') + '\n' + ' рецепт: ' + prompt(' рецепт '))
+    }
+    function two() {
+        drinkStorage.getValue(prompt('название напитка'))
+    }
+    function three() {
+        drinkStorage.deleteValue(prompt('название напитка'))
+    }
+    function four() {
+        drinkStorage.getKeys()
+    }
+
+    var drinkStorage = new HashStorageClass()
+</script>

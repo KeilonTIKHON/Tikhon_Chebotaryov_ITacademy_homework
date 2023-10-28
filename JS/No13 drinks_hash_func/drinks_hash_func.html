@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="ввод информации о напитке" onclick="one()">
+    <input type="button" value="получение информации о напитке" onclick="two()">
+    <input type="button" value="удаление информации о напитке" onclick="three()">
+    <input type="button" value="перечень всех напитков" onclick="four()">
+</body>
+
+</html>
+<script>
+    function HashStorageFunc() {
+        self = this;
+        let _Hash = {};
+        self.addValue = function (key, value) {
+            _Hash[key] = value;
+        }
+        self.getValue = function (key) {
+            alert(_Hash[key])
+            return _Hash[key];
+        }
+        self.deleteValue = function (key) {
+            if (key in _Hash) {
+                
+                return delete _Hash[key];
+            } else return false;
+        }
+        self.ch=function(){
+            console.log(_Hash);
+        }
+        self.getKeys=function(){
+            let arr=[];
+            for(var i in _Hash){
+                arr.push(i);
+            }
+            alert(arr);
+        }
+
+    }
+    function one(){
+        drinkStorage.addValue(prompt('название напитка') , ' алкогольный: '+prompt(' алкогольный? ')+'\n'+' рецепт: '+prompt(' рецепт '))
+    }
+    function two(){
+        drinkStorage.getValue(prompt('название напитка'))
+    }
+    function three(){
+        drinkStorage.deleteValue(prompt('название напитка'))
+    }
+    function four(){
+        drinkStorage.getKeys()
+    }
+    
+    var drinkStorage = new HashStorageFunc()
+</script>
