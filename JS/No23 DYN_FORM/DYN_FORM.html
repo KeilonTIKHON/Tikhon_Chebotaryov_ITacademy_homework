@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    const formDef1 =
+        [
+            { label: 'Название сайта:', kind: 'longtext', name: 'sitename' },
+            { label: 'URL сайта:', kind: 'longtext', name: 'siteurl' },
+            { label: 'Посетителей в сутки:', kind: 'number', name: 'visitors' },
+            { label: 'E-mail для связи:', kind: 'shorttext', name: 'email' },
+            {
+                label: 'Рубрика каталога:', kind: 'combo', name: 'division',
+                variants: [{ text: 'здоровье', value: 1 }, { text: 'домашний уют', value: 2 }, { text: 'бытовая техника', value: 3 }]
+            },
+            {
+                label: 'Размещение:', kind: 'radio', name: 'payment',
+                variants: [{ text: 'бесплатное', value: 1 }, { text: 'платное', value: 2 }, { text: 'VIP', value: 3 }]
+            },
+            { label: 'Разрешить отзывы:', kind: 'check', name: 'votes' },
+            { label: 'Описание сайта:', kind: 'memo', name: 'description' },
+            { caption: 'Опубликовать', kind: 'submit' },
+        ];
+
+    const formDef2 =
+        [
+            { label: 'Фамилия:', kind: 'longtext', name: 'lastname' },
+            { label: 'Имя:', kind: 'longtext', name: 'firstname' },
+            { label: 'Отчество:', kind: 'longtext', name: 'secondname' },
+            { label: 'Возраст:', kind: 'number', name: 'age' },
+            { caption: 'Зарегистрироваться', kind: 'submit' },
+        ];
+    function addForm(arr) {
+        const form = document.createElement('form');
+        form.setAttribute('action', '');
+        form.setAttribute('method', 'get');
+        document.body.appendChild(form);
+        let label, input, select, option, textarea, br;
+        for (let i = 0; i < arr.length; i++) {
+            for (let kl in arr[i]) {
+                if (kl == 'label') {
+                    label = document.createElement('label');
+                    label.innerText = arr[i][kl];
+                    form.appendChild(label);
+                } else if (kl == 'kind') {
+                    if (arr[i][kl] == 'combo') {
+                    } else if (arr[i][kl] == 'memo') {
+                        textarea = document.createElement('textarea');
+                        form.appendChild(textarea);
+                    } else if (arr[i][kl] == 'check') {
+                        input = document.createElement('input');
+                        input.setAttribute('type', 'checkbox');
+                        form.appendChild(input);
+                    } else {
+                        input = document.createElement('input');
+                        input.setAttribute('type', arr[i][kl]);
+                        form.appendChild(input);
+                    }
+                } else if (kl == 'name') {
+                    input.setAttribute(kl, arr[i][kl]);
+                    br = document.createElement('br');
+                    form.appendChild(br);
+                } else if (kl == 'variants' && Array.isArray(arr[i][kl])) {
+                    select = document.createElement('select');
+                    for (let j = 0; j < arr[i][kl].length; j++) {
+                        for (let k in arr[i][kl][j]) {
+                            if (k == 'text') {
+                                option = document.createElement('option');
+                                option.innerText = arr[i][kl][j][k];
+                            } else {
+                                option.setAttribute(k, arr[i][kl][j][k]);
+                                select.appendChild(option);
+                                form.appendChild(select);
+                                form.appendChild(br);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    addForm(formDef1);
+    addForm(formDef2);
+
+</script>
