@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+
+    function glasn() {
+        let count = 0;
+        let a = null;
+        a = prompt('Введите строку');
+        a = a.split('');
+        console.log(a)
+        a.forEach((elem) => {
+            
+            if ( elem== "а" ||  elem== "я" || elem == "у" || elem == "ю" || elem == "о" || elem == "е" || elem == "ё" || elem == "э" || elem == "и" || elem == "ы") {
+                count += 1;
+            }
+        })
+        console.log(count);
+    }
+    glasn();
+</script>
